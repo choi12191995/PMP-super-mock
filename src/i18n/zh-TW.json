@@ -91,7 +91,8 @@
     "resume": "繼續上次的考試",
     "resumePrompt": "您有一個未完成的考試。是否要繼續？",
     "resumeYes": "繼續",
-    "resumeNo": "重新開始"
+    "resumeNo": "重新開始",
+    "startBreak": "開始休息"
   },
   "results": {
     "title": "成績",

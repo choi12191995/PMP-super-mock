@@ -9,7 +9,11 @@ import HotspotRenderer from '@/components/question-types/HotspotRenderer.vue'
 import PulldownRenderer from '@/components/question-types/PulldownRenderer.vue'
 import GraphicMcqRenderer from '@/components/question-types/GraphicMcqRenderer.vue'
 import CaseSetRenderer from '@/components/question-types/CaseSetRenderer.vue'
+import TimerBar from '@/components/exam/TimerBar.vue'
+import BreakScreen from '@/components/exam/BreakScreen.vue'
+import SectionReviewScreen from '@/components/exam/SectionReviewScreen.vue'
 import { loadAllCases } from '@/core/bank/loader'
+import { EXAM } from '@/core/examConstants'
 import { useExamSessionStore } from '@/stores/examSession'
 import type {
   McqQ,
@@ -32,10 +36,31 @@ const matchingSelection = ref<number[]>([])
 const hotspotSelection = ref<string[]>([])
 const pulldownSelection = ref<Record<string, number>>({})
 const caseMap = ref(new Map<string, CaseSet>())
+const timeRemaining = ref(0)
+const timeElapsed = ref(0)
+const showResumePrompt = ref(false)
+const resumeChecked = ref(false)
+let timerTickInterval: ReturnType<typeof setInterval> | null = null
+let wakeLock: WakeLockSentinel | null = null
 
 const lang = computed(() => (locale.value === 'zh-TW' ? 'zh-TW' : 'en') as 'en' | 'zh-TW')
 
 const question = computed(() => session.currentQuestion)
+
+const isRealExam = computed(() => session.mode === 'real')
+const isOnBreak = computed(() => session.state === 'onBreak')
+const isSectionReview = computed(() => session.state === 'reviewingSection')
+
+const sectionLabelText = computed(() => {
+  if (!session.sectionLabel) return ''
+  return t(session.sectionLabel)
+})
+
+const sectionReviewQuestions = computed(() =>
+  session.getSectionQuestions(session.currentSection),
+)
+
+const breakNumber = computed((): 1 | 2 => (session.breakNumber === 1 ? 1 : 2))
 
 const currentStrikes = computed(() => {
   const q = question.value
@@ -204,8 +229,7 @@ function loadLocalSelection(): void {
   switch (q.type) {
     case 'mcq':
     case 'graphic-mcq':
-      mcqSelection.value =
-        typeof stored?.given === 'number' ? stored.given : null
+      mcqSelection.value = typeof stored?.given === 'number' ? stored.given : null
       break
     case 'multi':
       multiSelection.value = Array.isArray(stored?.given)
@@ -214,14 +238,10 @@ function loadLocalSelection(): void {
       break
     case 'matching':
     case 'enhanced-matching':
-      matchingSelection.value = Array.isArray(stored?.given)
-        ? [...(stored.given as number[])]
-        : []
+      matchingSelection.value = Array.isArray(stored?.given) ? [...(stored.given as number[])] : []
       break
     case 'hotspot':
-      hotspotSelection.value = Array.isArray(stored?.given)
-        ? [...(stored.given as string[])]
-        : []
+      hotspotSelection.value = Array.isArray(stored?.given) ? [...(stored.given as string[])] : []
       break
     case 'pulldown':
       pulldownSelection.value =
@@ -261,6 +281,154 @@ function onStrikeUpdate(next: Set<number>): void {
   const q = question.value
   if (!q) return
   strikeThroughs.value.set(q.id, next)
+}
+
+function updateTimerDisplay(): void {
+  timeRemaining.value = session.getTimeRemaining()
+  timeElapsed.value = session.getTimeElapsed()
+}
+
+function startTimerTick(): void {
+  updateTimerDisplay()
+  timerTickInterval = setInterval(updateTimerDisplay, 1000)
+}
+
+function toggleFlag(): void {
+  const q = question.value
+  if (!q) return
+  session.toggleFlag(q.id)
+}
+
+async function confirmQuit(): Promise<void> {
+  if (!window.confirm(t('exam.quitConfirm'))) return
+  await session.quit()
+  router.push(`/results/${session.attemptId || 'latest'}`)
+}
+
+async function confirmSubmit(): Promise<void> {
+  if (!window.confirm(t('exam.submitConfirm'))) return
+  if (!window.confirm(t('exam.submitConfirm2'))) return
+  await session.submit()
+  router.push(`/results/${session.attemptId}`)
+}
+
+function handleNext(): void {
+  if (session.isLast && isRealExam.value) {
+    session.enterSectionReview()
+    return
+  }
+  const moved = session.next()
+  if (!moved && isRealExam.value && session.state === 'reviewingSection') {
+    return
+  }
+}
+
+function handleStartBreak(): void {
+  session.startBreak()
+}
+
+function handleResumeBreak(): void {
+  session.resumeFromBreak()
+}
+
+function handleSkipBreak(): void {
+  session.skipBreak()
+}
+
+function onTimeWarning(minutes: number): void {
+  if (typeof navigator !== 'undefined' && navigator.vibrate) {
+    navigator.vibrate(200)
+  }
+  // Toast could be added later; for now console is sufficient in dev
+  void minutes
+}
+
+function onBeforeUnload(e: BeforeUnloadEvent): void {
+  if (session.isInProgress) {
+    e.preventDefault()
+    e.returnValue = ''
+  }
+}
+
+async function requestFullscreen(): Promise<void> {
+  try {
+    await document.documentElement.requestFullscreen?.()
+  } catch {
+    // Not supported or denied
+  }
+}
+
+async function requestWakeLock(): Promise<void> {
+  try {
+    if ('wakeLock' in navigator) {
+      wakeLock = await navigator.wakeLock.request('screen')
+    }
+  } catch {
+    // Not supported or denied
+  }
+}
+
+async function checkResume(): Promise<boolean> {
+  const snapshot = await session.findInProgressAttempt()
+  if (!snapshot) return false
+  showResumePrompt.value = true
+  return true
+}
+
+async function handleResumeYes(): Promise<void> {
+  const snapshot = await session.findInProgressAttempt()
+  if (snapshot) {
+    await session.resumeSession(snapshot)
+    showResumePrompt.value = false
+    resumeChecked.value = true
+    startTimerTick()
+    await requestWakeLock()
+  }
+}
+
+async function handleResumeNo(): Promise<void> {
+  await session.discardInProgress()
+  showResumePrompt.value = false
+  resumeChecked.value = true
+  router.replace('/mode')
+}
+
+function isEditableTarget(target: EventTarget | null): boolean {
+  if (!(target instanceof HTMLElement)) return false
+  const tag = target.tagName
+  return tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA' || target.isContentEditable
+}
+
+function onKeydown(e: KeyboardEvent): void {
+  if (isEditableTarget(e.target)) return
+
+  if (e.key === 'f' || e.key === 'F') {
+    e.preventDefault()
+    toggleFlag()
+    return
+  }
+
+  if (e.key === 'ArrowLeft') {
+    e.preventDefault()
+    if (!session.isFirst) session.previous()
+    return
+  }
+
+  if (e.key === 'ArrowRight') {
+    e.preventDefault()
+    if (!session.isLast) handleNext()
+    return
+  }
+
+  const q = question.value
+  if (!q || (q.type !== 'mcq' && q.type !== 'graphic-mcq')) return
+  if (answerDisabled.value) return
+
+  const num = Number(e.key)
+  if (num >= 1 && num <= 4 && num <= q.options.length) {
+    e.preventDefault()
+    mcqSelection.value = num - 1
+  }
 }
 
 watch(
@@ -320,61 +488,24 @@ watch(
   { deep: true },
 )
 
-function toggleFlag(): void {
-  const q = question.value
-  if (!q) return
-  session.toggleFlag(q.id)
-}
-
-function confirmQuit(): void {
-  if (!window.confirm(t('exam.quitConfirm'))) return
-  session.quit()
-  router.push(`/results/${session.attemptId || 'latest'}`)
-}
-
-function isEditableTarget(target: EventTarget | null): boolean {
-  if (!(target instanceof HTMLElement)) return false
-  const tag = target.tagName
-  return tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA' || target.isContentEditable
-}
-
-function onKeydown(e: KeyboardEvent): void {
-  if (isEditableTarget(e.target)) return
-
-  if (e.key === 'f' || e.key === 'F') {
-    e.preventDefault()
-    toggleFlag()
-    return
-  }
-
-  if (e.key === 'ArrowLeft') {
-    e.preventDefault()
-    if (!session.isFirst) session.previous()
-    return
-  }
-
-  if (e.key === 'ArrowRight') {
-    e.preventDefault()
-    if (!session.isLast) session.next()
-    return
-  }
-
-  const q = question.value
-  if (!q || (q.type !== 'mcq' && q.type !== 'graphic-mcq')) return
-  if (answerDisabled.value) return
-
-  const num = Number(e.key)
-  if (num >= 1 && num <= 4 && num <= q.options.length) {
-    e.preventDefault()
-    mcqSelection.value = num - 1
-  }
-}
+watch(
+  () => session.state,
+  (newState) => {
+    if (newState === 'scored' || newState === 'quit') {
+      router.push(`/results/${session.attemptId}`)
+    }
+  },
+)
 
 onMounted(async () => {
   if (!session.isInProgress && session.state === 'configuring') {
+    const hasResume = await checkResume()
+    if (hasResume) return
     router.replace('/mode')
     return
   }
+
+  resumeChecked.value = true
 
   try {
     const cases = await loadAllCases()
@@ -383,52 +514,96 @@ onMounted(async () => {
     // Cases optional until bank includes caseId references
   }
 
+  startTimerTick()
+  await requestFullscreen()
+  await requestWakeLock()
+
   window.addEventListener('keydown', onKeydown)
+  window.addEventListener('beforeunload', onBeforeUnload)
 })
 
 onUnmounted(() => {
+  if (timerTickInterval) clearInterval(timerTickInterval)
+  wakeLock?.release().catch(() => {})
   window.removeEventListener('keydown', onKeydown)
+  window.removeEventListener('beforeunload', onBeforeUnload)
 })
 </script>
 
 <template>
-  <div v-if="question" class="mx-auto flex min-h-[calc(100vh-8rem)] max-w-5xl flex-col px-4 pb-28 pt-4">
-    <!-- Top bar -->
-    <div
-      class="mb-4 flex items-center justify-between gap-3 rounded-2xl border border-border bg-surface-raised px-4 py-3 shadow-sm"
-    >
-      <div class="min-w-0">
-        <p class="text-xs font-medium uppercase tracking-wide text-on-surface-muted">
-          {{ t('exam.question') }}
-        </p>
-        <p class="text-lg font-bold text-on-surface">
-          {{ session.currentIndex + 1 }}
-          <span class="font-normal text-on-surface-muted">{{ t('exam.of') }}</span>
-          {{ session.totalQuestions }}
-        </p>
-      </div>
-
-      <div class="flex items-center gap-2">
+  <!-- Resume prompt -->
+  <div
+    v-if="showResumePrompt"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+  >
+    <div class="w-full max-w-md rounded-2xl border border-border bg-surface-raised p-6 shadow-lg">
+      <h2 class="mb-2 text-lg font-bold text-on-surface">{{ t('exam.resume') }}</h2>
+      <p class="mb-6 text-sm text-on-surface-muted">{{ t('exam.resumePrompt') }}</p>
+      <div class="flex gap-3">
         <button
           type="button"
-          class="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border border-border px-3 transition hover:border-primary"
-          :class="session.isFlagged(question.id) ? 'border-warning bg-warning/10 text-warning' : 'text-on-surface-muted'"
-          @click="toggleFlag"
+          class="min-h-[44px] flex-1 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-white"
+          @click="handleResumeYes"
         >
-          <span class="text-lg">{{ session.isFlagged(question.id) ? '🚩' : '⚑' }}</span>
-          <span class="sr-only">
-            {{ session.isFlagged(question.id) ? t('exam.unflag') : t('exam.flag') }}
-          </span>
+          {{ t('exam.resumeYes') }}
         </button>
-
         <button
           type="button"
-          class="rounded-xl border border-border px-4 py-2.5 text-sm font-medium text-danger transition hover:border-danger hover:bg-danger/5"
-          @click="confirmQuit"
+          class="min-h-[44px] flex-1 rounded-xl border border-border px-4 py-2 text-sm font-semibold text-on-surface"
+          @click="handleResumeNo"
         >
-          {{ t('exam.quit') }}
+          {{ t('exam.resumeNo') }}
         </button>
       </div>
+    </div>
+  </div>
+
+  <!-- Break screen -->
+  <BreakScreen
+    v-else-if="isOnBreak"
+    :break-duration="EXAM.BREAK_DURATION_MINUTES * 60"
+    :break-number="breakNumber"
+    @resume="handleResumeBreak"
+    @skip="handleSkipBreak"
+  />
+
+  <!-- Section review -->
+  <SectionReviewScreen
+    v-else-if="isSectionReview"
+    :questions="sectionReviewQuestions"
+    :section-label="sectionLabelText"
+    :current-index="session.currentIndex"
+    @go-to-question="session.goTo"
+    @start-break="handleStartBreak"
+  />
+
+  <!-- Main exam room -->
+  <div
+    v-else-if="question && resumeChecked"
+    class="mx-auto flex min-h-[calc(100vh-8rem)] max-w-5xl flex-col px-4 pb-28 pt-4"
+  >
+    <TimerBar
+      :time-remaining="timeRemaining"
+      :time-elapsed="timeElapsed"
+      :timer-mode="session.config?.timerMode ?? 'off'"
+      :question-index="session.currentIndex"
+      :total-questions="session.totalQuestions"
+      :section-label="sectionLabelText"
+      :is-flagged="session.isFlagged(question.id)"
+      :timer-visible="session.timerVisible"
+      @toggle-flag="toggleFlag"
+      @toggle-timer-visible="session.toggleTimerVisible()"
+      @time-warning="onTimeWarning"
+    />
+
+    <div class="mb-3 flex justify-end">
+      <button
+        type="button"
+        class="rounded-xl border border-border px-4 py-2 text-sm font-medium text-danger transition hover:border-danger hover:bg-danger/5"
+        @click="confirmQuit"
+      >
+        {{ t('exam.quit') }}
+      </button>
     </div>
 
     <!-- Question card -->
@@ -462,7 +637,6 @@ onUnmounted(() => {
         <p class="mt-2 text-sm">({{ question.type }})</p>
       </div>
 
-      <!-- Immediate feedback explanation -->
       <div
         v-if="showFeedback && hasAnswer"
         class="mt-6 rounded-xl border border-border bg-surface-alt p-4"
@@ -476,9 +650,7 @@ onUnmounted(() => {
                 : 'bg-danger/15 text-danger'
             "
           >
-            {{
-              session.getAnswer(question.id)?.correct ? t('exam.correct') : t('exam.incorrect')
-            }}
+            {{ session.getAnswer(question.id)?.correct ? t('exam.correct') : t('exam.incorrect') }}
           </span>
         </div>
         <h3 class="mb-2 text-sm font-semibold text-on-surface">{{ t('exam.explanation') }}</h3>
@@ -501,11 +673,28 @@ onUnmounted(() => {
         >
           {{ t('exam.previous') }}
         </button>
+
         <button
+          v-if="session.isLast && isRealExam"
           type="button"
-          class="min-h-[44px] flex-1 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-40"
-          :disabled="session.isLast"
-          @click="session.next()"
+          class="min-h-[44px] flex-1 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-primary-dark"
+          @click="confirmSubmit"
+        >
+          {{ t('exam.submit') }}
+        </button>
+        <button
+          v-else-if="session.isLast"
+          type="button"
+          class="min-h-[44px] flex-1 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-primary-dark"
+          @click="confirmSubmit"
+        >
+          {{ t('exam.submit') }}
+        </button>
+        <button
+          v-else
+          type="button"
+          class="min-h-[44px] flex-1 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-primary-dark"
+          @click="handleNext"
         >
           {{ t('exam.next') }}
         </button>
@@ -513,7 +702,7 @@ onUnmounted(() => {
     </div>
   </div>
 
-  <div v-else class="mx-auto max-w-5xl px-4 py-12 text-center text-on-surface-muted">
+  <div v-else-if="!showResumePrompt" class="mx-auto max-w-5xl px-4 py-12 text-center text-on-surface-muted">
     {{ t('common.loading') }}
   </div>
 </template>

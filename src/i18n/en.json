@@ -91,7 +91,8 @@
     "resume": "Resume Previous Session",
     "resumePrompt": "You have an unfinished exam session. Would you like to resume?",
     "resumeYes": "Resume",
-    "resumeNo": "Start New"
+    "resumeNo": "Start New",
+    "startBreak": "Start Break"
   },
   "results": {
     "title": "Results",
