@@ -9,7 +9,8 @@
     "dashboard": "Dashboard",
     "history": "History",
     "settings": "Settings",
-    "about": "About"
+    "about": "About",
+    "mainNav": "Main navigation"
   },
   "home": {
     "welcome": "Ready to conquer the PMP?",
@@ -92,7 +93,18 @@
     "resumePrompt": "You have an unfinished exam session. Would you like to resume?",
     "resumeYes": "Resume",
     "resumeNo": "Start New",
-    "startBreak": "Start Break"
+    "startBreak": "Start Break",
+    "languagePeek": "Show question in alternate language",
+    "languagePeekLabel": "Alternate language ({lang})",
+    "scratchPadPlaceholder": "Write notes for this question…",
+    "scratchPadHint": "Notes for question {id} (not saved after exam)",
+    "calculatorClear": "Clear",
+    "calculatorBackspace": "Backspace",
+    "calculatorSqrt": "Square root",
+    "calculatorError": "Error",
+    "leftColumn": "Left",
+    "rightColumn": "Right",
+    "matchTapRight": "Tap a right item to complete the match"
   },
   "results": {
     "title": "Results",
@@ -132,7 +144,20 @@
     "readiness": "Readiness",
     "onTrack": "On Track",
     "pushDomain": "Push {domain}",
-    "keepGoing": "Keep Going"
+    "keepGoing": "Keep Going",
+    "chartScore": "Score",
+    "chartPassProxy": "Pass proxy",
+    "chartLatest": "Latest",
+    "chartBest": "Best",
+    "chartTarget": "Target",
+    "legendHigh": "≥75%",
+    "legendMid": "50–74%",
+    "legendLow": "<50%",
+    "legendUnseen": "Unseen",
+    "taskUnseen": "{id}: {name} — unseen",
+    "taskTooltip": "{id}: {name} — {pct}% ({total} Q)",
+    "streakNoActivity": "{date}: no activity",
+    "streakAnswered": "{date}: {count} answered"
   },
   "history": {
     "title": "History",
@@ -227,7 +252,11 @@
     "hybrid": "Hybrid",
     "easy": "Easy",
     "medium": "Medium",
-    "hard": "Hard"
+    "hard": "Hard",
+    "select": "Select…",
+    "switchToZh": "繁中",
+    "switchToEn": "EN",
+    "noData": "No data"
   },
   "badges": {
     "first180": "First 180",

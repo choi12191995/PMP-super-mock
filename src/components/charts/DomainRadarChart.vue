@@ -53,21 +53,21 @@ const chartData = computed(() => ({
   labels: props.data.map((d) => domainLabel(d.domain)),
   datasets: [
     {
-      label: 'Latest',
+      label: t('dashboard.chartLatest'),
       data: props.data.map((d) => d.latest),
       borderColor: colors.value.primary,
       backgroundColor: `${colors.value.primary}44`,
       pointBackgroundColor: colors.value.primary,
     },
     {
-      label: 'Best',
+      label: t('dashboard.chartBest'),
       data: props.data.map((d) => d.best),
       borderColor: colors.value.success,
       backgroundColor: `${colors.value.success}33`,
       pointBackgroundColor: colors.value.success,
     },
     {
-      label: 'Target',
+      label: t('dashboard.chartTarget'),
       data: props.data.map((d) => d.target),
       borderColor: colors.value.warning,
       backgroundColor: 'transparent',
@@ -108,7 +108,7 @@ const chartOptions = computed(() => ({
   <div class="h-64 w-full">
     <Radar v-if="data.length > 0" :data="chartData" :options="chartOptions" />
     <p v-else class="flex h-full items-center justify-center text-sm text-on-surface-muted">
-      —
+      {{ t('common.noData') }}
     </p>
   </div>
 </template>

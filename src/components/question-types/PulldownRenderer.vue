@@ -106,7 +106,7 @@ function onSelect(blankId: string, event: Event): void {
           @change="onSelect(part.id, $event)"
         >
           <option value="" disabled>
-            {{ lang === 'zh-TW' ? '選擇…' : 'Select…' }}
+            {{ t('common.select') }}
           </option>
           <option
             v-for="(option, optIndex) in blankById(part.id)?.options ?? []"

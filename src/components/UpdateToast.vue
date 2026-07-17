@@ -37,7 +37,7 @@ function dismissUpdate() {
     <Transition name="toast">
       <div
         v-if="needRefresh"
-        class="fixed bottom-20 left-4 right-4 z-50 mx-auto max-w-md rounded-xl border border-border bg-surface-raised p-4 shadow-lg"
+        class="update-toast fixed bottom-20 left-4 right-4 z-50 mx-auto max-w-md rounded-xl border border-border bg-surface-raised p-4 shadow-lg"
       >
         <p class="mb-3 text-sm font-medium text-on-surface">{{ t('update.available') }}</p>
         <div class="flex gap-2">

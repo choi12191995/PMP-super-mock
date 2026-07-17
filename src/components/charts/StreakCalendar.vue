@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 export interface DailyDataPoint {
   date: string
@@ -9,6 +10,8 @@ export interface DailyDataPoint {
 const props = defineProps<{
   dailyData: DailyDataPoint[]
 }>()
+
+const { t } = useI18n()
 
 const WEEKS = 26
 
@@ -52,7 +55,9 @@ function level(count: number): string {
 }
 
 function cellTitle(date: string, count: number): string {
-  return count === 0 ? `${date}: no activity` : `${date}: ${count} answered`
+  return count === 0
+    ? t('dashboard.streakNoActivity', { date })
+    : t('dashboard.streakAnswered', { date, count })
 }
 </script>
 

@@ -12,6 +12,9 @@ import CaseSetRenderer from '@/components/question-types/CaseSetRenderer.vue'
 import TimerBar from '@/components/exam/TimerBar.vue'
 import BreakScreen from '@/components/exam/BreakScreen.vue'
 import SectionReviewScreen from '@/components/exam/SectionReviewScreen.vue'
+import Calculator from '@/components/exam/Calculator.vue'
+import ScratchPad from '@/components/exam/ScratchPad.vue'
+import LanguagePeek from '@/components/exam/LanguagePeek.vue'
 import { loadAllCases } from '@/core/bank/loader'
 import { EXAM } from '@/core/examConstants'
 import { useExamSessionStore } from '@/stores/examSession'
@@ -40,6 +43,9 @@ const timeRemaining = ref(0)
 const timeElapsed = ref(0)
 const showResumePrompt = ref(false)
 const resumeChecked = ref(false)
+const showCalculator = ref(false)
+const showScratchPad = ref(false)
+const scratchPadNotes = ref(new Map<string, string>())
 let timerTickInterval: ReturnType<typeof setInterval> | null = null
 let wakeLock: WakeLockSentinel | null = null
 
@@ -218,6 +224,14 @@ const rendererProps = computed(() => {
 
 function ltext(text: LText): string {
   return lang.value === 'zh-TW' ? text.zh : text.en
+}
+
+function getScratchPadNotes(questionId: string): string {
+  return scratchPadNotes.value.get(questionId) ?? ''
+}
+
+function setScratchPadNotes(questionId: string, notes: string): void {
+  scratchPadNotes.value.set(questionId, notes)
 }
 
 function loadLocalSelection(): void {
@@ -596,10 +610,28 @@ onUnmounted(() => {
       @time-warning="onTimeWarning"
     />
 
-    <div class="mb-3 flex justify-end">
+    <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+      <div class="flex gap-2">
+        <button
+          type="button"
+          class="touch-target rounded-xl border border-border bg-surface-raised px-4 py-2 text-sm font-medium text-on-surface transition hover:border-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          :aria-label="t('exam.calculator')"
+          @click="showCalculator = true"
+        >
+          {{ t('exam.calculator') }}
+        </button>
+        <button
+          type="button"
+          class="touch-target rounded-xl border border-border bg-surface-raised px-4 py-2 text-sm font-medium text-on-surface transition hover:border-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          :aria-label="t('exam.scratchPad')"
+          @click="showScratchPad = true"
+        >
+          {{ t('exam.scratchPad') }}
+        </button>
+      </div>
       <button
         type="button"
-        class="rounded-xl border border-border px-4 py-2 text-sm font-medium text-danger transition hover:border-danger hover:bg-danger/5"
+        class="touch-target rounded-xl border border-border px-4 py-2 text-sm font-medium text-danger transition hover:border-danger hover:bg-danger/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-danger"
         @click="confirmQuit"
       >
         {{ t('exam.quit') }}
@@ -608,6 +640,12 @@ onUnmounted(() => {
 
     <!-- Question card -->
     <div class="flex-1 rounded-2xl border border-border bg-surface-raised p-5 shadow-sm sm:p-6">
+      <LanguagePeek
+        v-if="question"
+        :question="question"
+        :current-lang="lang"
+      />
+
       <CaseSetRenderer
         v-if="currentCase"
         :scenario="currentCase.scenario"
@@ -659,6 +697,17 @@ onUnmounted(() => {
         </p>
       </div>
     </div>
+
+    <Calculator :visible="showCalculator" @close="showCalculator = false" />
+
+    <ScratchPad
+      v-if="question"
+      :visible="showScratchPad"
+      :model-value="getScratchPadNotes(question.id)"
+      :question-id="question.id"
+      @update:model-value="setScratchPadNotes(question.id, $event)"
+      @close="showScratchPad = false"
+    />
 
     <!-- Bottom nav -->
     <div

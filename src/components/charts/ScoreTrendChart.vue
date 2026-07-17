@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue'
 import { Line } from 'vue-chartjs'
+import { useI18n } from 'vue-i18n'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -38,6 +39,7 @@ const props = withDefaults(
   { passLine: 65 },
 )
 
+const { t } = useI18n()
 const colors = ref(chartColors())
 
 onMounted(() => {
@@ -55,7 +57,7 @@ const chartData = computed(() => ({
   labels: props.data.map((d) => d.date),
   datasets: [
     {
-      label: 'Score',
+      label: t('dashboard.chartScore'),
       data: props.data.map((d) => d.score),
       borderColor: colors.value.primary,
       backgroundColor: `${colors.value.primary}33`,
@@ -65,7 +67,7 @@ const chartData = computed(() => ({
       pointHoverRadius: 6,
     },
     {
-      label: 'Pass proxy',
+      label: t('dashboard.chartPassProxy'),
       data: props.data.map(() => props.passLine),
       borderColor: colors.value.warning,
       borderDash: [6, 4],

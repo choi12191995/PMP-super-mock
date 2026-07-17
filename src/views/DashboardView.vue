@@ -146,10 +146,10 @@ function onTaskSelect(task: string): void {
         <h2 class="mb-3 text-lg font-semibold text-on-surface">{{ t('dashboard.taskHeatmap') }}</h2>
         <TaskHeatmap :data="taskHeatmap" @select="onTaskSelect" />
         <div class="mt-3 flex flex-wrap gap-3 text-xs text-on-surface-muted">
-          <span class="flex items-center gap-1"><span class="inline-block h-3 w-3 rounded bg-success/80" /> ≥75%</span>
-          <span class="flex items-center gap-1"><span class="inline-block h-3 w-3 rounded bg-warning/70" /> 50–74%</span>
-          <span class="flex items-center gap-1"><span class="inline-block h-3 w-3 rounded bg-danger/70" /> &lt;50%</span>
-          <span class="flex items-center gap-1"><span class="inline-block h-3 w-3 rounded bg-border/40" /> Unseen</span>
+          <span class="flex items-center gap-1"><span class="inline-block h-3 w-3 rounded bg-success/80" /> {{ t('dashboard.legendHigh') }}</span>
+          <span class="flex items-center gap-1"><span class="inline-block h-3 w-3 rounded bg-warning/70" /> {{ t('dashboard.legendMid') }}</span>
+          <span class="flex items-center gap-1"><span class="inline-block h-3 w-3 rounded bg-danger/70" /> {{ t('dashboard.legendLow') }}</span>
+          <span class="flex items-center gap-1"><span class="inline-block h-3 w-3 rounded bg-border/40" /> {{ t('dashboard.legendUnseen') }}</span>
         </div>
       </section>
 

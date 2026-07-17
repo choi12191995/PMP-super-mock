@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { ECO_TASKS } from '@/core/examConstants'
 
 export interface TaskHeatmapPoint {
@@ -15,6 +16,8 @@ const props = defineProps<{
 const emit = defineEmits<{
   select: [task: string]
 }>()
+
+const { t } = useI18n()
 
 const allTasks = computed(() => {
   const tasks: { id: string; name: string }[] = []
@@ -45,8 +48,13 @@ function cellColor(taskId: string): string {
 
 function cellTitle(taskId: string, name: string): string {
   const point = dataMap.value.get(taskId)
-  if (!point || point.total === 0) return `${taskId}: ${name} — unseen`
-  return `${taskId}: ${name} — ${Math.round(point.accuracy)}% (${point.total} Q)`
+  if (!point || point.total === 0) return t('dashboard.taskUnseen', { id: taskId, name })
+  return t('dashboard.taskTooltip', {
+    id: taskId,
+    name,
+    pct: Math.round(point.accuracy),
+    total: point.total,
+  })
 }
 
 function onSelect(taskId: string): void {

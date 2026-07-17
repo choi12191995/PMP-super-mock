@@ -144,14 +144,14 @@ function rightClasses(rightIndex: number): string[] {
       v-if="selectedLeft !== null && !allMatched"
       class="text-sm text-primary"
     >
-      {{ lang === 'zh-TW' ? '請點選右側項目完成配對' : 'Tap a right item to complete the match' }}
+      {{ t('exam.matchTapRight') }}
     </p>
 
     <div class="grid gap-4 md:grid-cols-2">
       <!-- Left column -->
       <div class="space-y-2">
         <p class="text-xs font-semibold uppercase tracking-wide text-on-surface-muted">
-          {{ lang === 'zh-TW' ? '左側' : 'Left' }}
+          {{ t('exam.leftColumn') }}
         </p>
         <div class="space-y-2" role="listbox" :aria-label="t('exam.matchInstruction')">
           <button
@@ -181,7 +181,7 @@ function rightClasses(rightIndex: number): string[] {
       <!-- Right column -->
       <div class="space-y-2">
         <p class="text-xs font-semibold uppercase tracking-wide text-on-surface-muted">
-          {{ lang === 'zh-TW' ? '右側' : 'Right' }}
+          {{ t('exam.rightColumn') }}
         </p>
         <div class="space-y-2" role="listbox">
           <button

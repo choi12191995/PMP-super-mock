@@ -1,0 +1,77 @@
+header,
+nav.fixed,
+.app-bottom-nav,
+.update-toast,
+.confetti-container,
+[data-print-hide] {
+  display: none !important;
+}
+
+body {
+  background: white !important;
+  color: black !important;
+  font-size: 11pt;
+}
+
+.results-page {
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.results-page > * {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.results-page section {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
+
+.results-page section:not(:first-of-type) {
+  break-before: page;
+  page-break-before: always;
+}
+
+.results-page .grid {
+  display: block !important;
+}
+
+.results-page .grid > * {
+  margin-bottom: 1rem;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+canvas {
+  max-width: 100% !important;
+  height: auto !important;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.rounded-2xl,
+.rounded-xl {
+  border: 1px solid #ccc !important;
+  box-shadow: none !important;
+}
+
+.border-border {
+  border-color: #ccc !important;
+}
+
+.bg-surface-raised,
+.bg-surface-alt {
+  background: white !important;
+}
+
+.text-on-surface,
+.text-on-surface-muted {
+  color: black !important;
+}
+
+a[href]::after {
+  content: none !important;
+}

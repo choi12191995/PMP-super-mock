@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{
   total: number
@@ -13,6 +14,8 @@ const props = defineProps<{
 const emit = defineEmits<{
   navigate: [index: number]
 }>()
+
+const { t } = useI18n()
 
 const indices = computed(() => {
   if (props.indexMap && props.indexMap.length > 0) return props.indexMap
@@ -49,7 +52,7 @@ function cellClass(localIdx: number): string {
     class="grid gap-2"
     :style="{ gridTemplateColumns: 'repeat(auto-fill, minmax(44px, 1fr))' }"
     role="navigation"
-    :aria-label="'Question navigator'"
+    :aria-label="t('exam.navigator')"
   >
     <button
       v-for="(_, localIdx) in total"

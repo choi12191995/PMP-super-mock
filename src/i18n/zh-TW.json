@@ -9,7 +9,8 @@
     "dashboard": "儀表板",
     "history": "歷史紀錄",
     "settings": "設定",
-    "about": "關於"
+    "about": "關於",
+    "mainNav": "主要導覽"
   },
   "home": {
     "welcome": "準備好征服 PMP 了嗎？",
@@ -92,7 +93,18 @@
     "resumePrompt": "您有一個未完成的考試。是否要繼續？",
     "resumeYes": "繼續",
     "resumeNo": "重新開始",
-    "startBreak": "開始休息"
+    "startBreak": "開始休息",
+    "languagePeek": "顯示另一語言的題目",
+    "languagePeekLabel": "另一語言 ({lang})",
+    "scratchPadPlaceholder": "為此題目撰寫筆記…",
+    "scratchPadHint": "第 {id} 題的筆記（考試結束後不會儲存）",
+    "calculatorClear": "清除",
+    "calculatorBackspace": "退格",
+    "calculatorSqrt": "平方根",
+    "calculatorError": "錯誤",
+    "leftColumn": "左側",
+    "rightColumn": "右側",
+    "matchTapRight": "請點選右側項目完成配對"
   },
   "results": {
     "title": "成績",
@@ -132,7 +144,20 @@
     "readiness": "準備狀態",
     "onTrack": "進度正常",
     "pushDomain": "加強 {domain}",
-    "keepGoing": "繼續加油"
+    "keepGoing": "繼續加油",
+    "chartScore": "分數",
+    "chartPassProxy": "通過基準",
+    "chartLatest": "最近",
+    "chartBest": "最佳",
+    "chartTarget": "目標",
+    "legendHigh": "≥75%",
+    "legendMid": "50–74%",
+    "legendLow": "<50%",
+    "legendUnseen": "未作答",
+    "taskUnseen": "{id}：{name} — 未作答",
+    "taskTooltip": "{id}：{name} — {pct}%（{total} 題）",
+    "streakNoActivity": "{date}：無活動",
+    "streakAnswered": "{date}：已答 {count} 題"
   },
   "history": {
     "title": "歷史紀錄",
@@ -227,7 +252,11 @@
     "hybrid": "混合式",
     "easy": "簡單",
     "medium": "中等",
-    "hard": "困難"
+    "hard": "困難",
+    "select": "選擇…",
+    "switchToZh": "繁中",
+    "switchToEn": "EN",
+    "noData": "無資料"
   },
   "badges": {
     "first180": "首次 180 題",
