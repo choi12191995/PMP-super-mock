@@ -197,6 +197,8 @@
     "aiTemp": "Temperature",
     "aiLang": "AI Reply Language",
     "aiLangAuto": "Same as UI",
+    "aiEnable": "Enable AI Assistant",
+    "fetchModels": "Fetch Models",
     "testConnection": "Test Connection",
     "testSuccess": "Connection successful!",
     "testFailed": "Connection failed: {error}",
@@ -225,7 +227,10 @@
     "error": "Error: {msg}",
     "retry": "Retry",
     "costNote": "Uses your API credits",
-    "notConfigured": "Set up AI in Settings to use this feature"
+    "notConfigured": "Set up AI in Settings to use this feature",
+    "weakestAreas": "Your weakest areas:",
+    "getStudyPlan": "Get AI Study Plan",
+    "generating": "Generating study plan..."
   },
   "update": {
     "available": "New version available",

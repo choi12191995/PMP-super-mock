@@ -19,6 +19,7 @@ export interface AttemptRecord {
   band: 'AT' | 'T' | 'BT' | 'NI' | null
   passedProxy: boolean | null
   status: 'in-progress' | 'completed' | 'quit'
+  aiSummary?: string | null
 }
 
 export interface AnswerRecord {

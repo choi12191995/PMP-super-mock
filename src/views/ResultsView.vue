@@ -7,6 +7,7 @@ import { EXAM } from '@/core/examConstants'
 import { computeBand, computeDomainBands } from '@/core/engine/scoring'
 import { loadAllQuestions } from '@/core/bank/loader'
 import HorizontalBarChart from '@/components/charts/HorizontalBarChart.vue'
+import WeakPointCard from '@/components/ai/WeakPointCard.vue'
 import type { Band, Domain, LText, Question } from '@/core/types'
 
 const route = useRoute()
@@ -156,6 +157,101 @@ const slowestQuestions = computed(() => {
     })
 })
 
+function formatAnswerDisplay(q: Question, answer: unknown): string {
+  if (answer == null) return '(none)'
+
+  switch (q.type) {
+    case 'mcq':
+    case 'graphic-mcq':
+      if (typeof answer === 'number') {
+        const opt = q.options[answer]
+        return opt ? `${String.fromCharCode(65 + answer)}. ${ltext(opt)}` : String(answer)
+      }
+      return String(answer)
+    case 'multi':
+      if (Array.isArray(answer)) {
+        return (answer as number[])
+          .map((i) => {
+            const opt = q.options[i]
+            return opt ? `${String.fromCharCode(65 + i)}. ${ltext(opt)}` : String(i)
+          })
+          .join(', ')
+      }
+      return String(answer)
+    case 'matching':
+    case 'enhanced-matching':
+      if (Array.isArray(answer)) {
+        return q.left
+          .map((left, i) => {
+            const rightIdx = (answer as number[])[i]
+            const right = q.right[rightIdx]
+            return `${ltext(left)} → ${right ? ltext(right) : '?'}`
+          })
+          .join('; ')
+      }
+      return String(answer)
+    case 'hotspot':
+      if (Array.isArray(answer)) {
+        return (answer as string[])
+          .map((id) => {
+            const region = q.regions.find((r) => r.id === id)
+            return region ? ltext(region.label) : id
+          })
+          .join(', ')
+      }
+      return String(answer)
+    case 'pulldown':
+      if (typeof answer === 'object' && answer !== null) {
+        return q.blanks
+          .map((b) => {
+            const sel = (answer as Record<string, number>)[b.id]
+            const opt = sel !== undefined ? b.options[sel] : undefined
+            return opt ? ltext(opt) : '?'
+          })
+          .join('; ')
+      }
+      return String(answer)
+    default:
+      return String(answer)
+  }
+}
+
+function getCorrectAnswer(q: Question): unknown {
+  switch (q.type) {
+    case 'mcq':
+    case 'graphic-mcq':
+    case 'multi':
+    case 'matching':
+    case 'enhanced-matching':
+    case 'hotspot':
+      return q.correct
+    case 'pulldown':
+      return Object.fromEntries(q.blanks.map((b) => [b.id, b.correct]))
+    default:
+      return undefined
+  }
+}
+
+const wrongQuestions = computed(() =>
+  answers.value
+    .filter((a) => !a.correct)
+    .slice(0, 10)
+    .map((ans) => {
+      const q = questions.value.get(ans.questionId)
+      if (!q) {
+        return {
+          stem: ans.questionId,
+          chosenAnswer: String(ans.given ?? ''),
+          correctAnswer: '',
+        }
+      }
+      return {
+        stem: ltext(q.stem),
+        chosenAnswer: formatAnswerDisplay(q, ans.given),
+        correctAnswer: formatAnswerDisplay(q, getCorrectAnswer(q)),
+      }
+    }),
+)
 function modeIcon(mode: string): string {
   const map: Record<string, string> = {
     real: '🎯',
@@ -321,6 +417,15 @@ const confettiParticles = Array.from({ length: 50 }, (_, i) => ({
           </li>
         </ul>
       </section>
+
+      <WeakPointCard
+        v-if="score"
+        class="mb-6 print:hidden"
+        :attempt-id="attemptId"
+        :score="score"
+        :wrong-questions="wrongQuestions"
+        :initial-ai-summary="attempt.aiSummary"
+      />
 
       <!-- Actions -->
       <div class="flex flex-col gap-3 sm:flex-row print:hidden">

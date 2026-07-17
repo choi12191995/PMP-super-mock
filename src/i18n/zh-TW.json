@@ -197,6 +197,8 @@
     "aiTemp": "溫度",
     "aiLang": "AI 回覆語言",
     "aiLangAuto": "與介面語言相同",
+    "aiEnable": "啟用 AI 助手",
+    "fetchModels": "取得模型列表",
     "testConnection": "測試連線",
     "testSuccess": "連線成功！",
     "testFailed": "連線失敗：{error}",
@@ -225,7 +227,10 @@
     "error": "錯誤：{msg}",
     "retry": "重試",
     "costNote": "使用您的 API 額度",
-    "notConfigured": "請在設定中設定 AI 以使用此功能"
+    "notConfigured": "請在設定中設定 AI 以使用此功能",
+    "weakestAreas": "您的弱項領域：",
+    "getStudyPlan": "取得 AI 學習計畫",
+    "generating": "正在產生學習計畫..."
   },
   "update": {
     "available": "有新版本可用",

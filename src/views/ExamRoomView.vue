@@ -15,7 +15,10 @@ import SectionReviewScreen from '@/components/exam/SectionReviewScreen.vue'
 import Calculator from '@/components/exam/Calculator.vue'
 import ScratchPad from '@/components/exam/ScratchPad.vue'
 import LanguagePeek from '@/components/exam/LanguagePeek.vue'
+import ChatFab from '@/components/ai/ChatFab.vue'
+import ChatPanel from '@/components/ai/ChatPanel.vue'
 import { loadAllCases } from '@/core/bank/loader'
+import { useAiStore } from '@/stores/ai'
 import { EXAM } from '@/core/examConstants'
 import { useExamSessionStore } from '@/stores/examSession'
 import type {
@@ -31,6 +34,9 @@ import type {
 const router = useRouter()
 const { t, locale } = useI18n()
 const session = useExamSessionStore()
+const ai = useAiStore()
+
+const showChatPanel = ref(false)
 
 const strikeThroughs = ref(new Map<string, Set<number>>())
 const mcqSelection = ref<number | null>(null)
@@ -140,6 +146,72 @@ const showFeedback = computed(() => {
       return isPulldownComplete(q, pulldownSelection.value)
     default:
       return false
+  }
+})
+
+const showChatFab = computed(() => {
+  if (!ai.enabled || !ai.isConfigured) return false
+  if (!session.config?.aiChat) return false
+  if (isRealExam.value && session.isInProgress) return false
+  return !!question.value
+})
+
+function getCurrentUserAnswer(): unknown {
+  const q = question.value
+  if (!q) return undefined
+  const stored = session.getAnswer(q.id)
+  if (stored?.given != null) return stored.given
+
+  switch (q.type) {
+    case 'mcq':
+    case 'graphic-mcq':
+      return mcqSelection.value
+    case 'multi':
+      return multiSelection.value.length ? multiSelection.value : undefined
+    case 'matching':
+    case 'enhanced-matching':
+      return matchingSelection.value.length ? matchingSelection.value : undefined
+    case 'hotspot':
+      return hotspotSelection.value.length ? hotspotSelection.value : undefined
+    case 'pulldown':
+      return isPulldownComplete(q, pulldownSelection.value) ? pulldownSelection.value : undefined
+    default:
+      return undefined
+  }
+}
+
+function getCorrectAnswer(): unknown {
+  const q = question.value
+  if (!q) return undefined
+  switch (q.type) {
+    case 'mcq':
+    case 'graphic-mcq':
+      return q.correct
+    case 'multi':
+      return q.correct
+    case 'matching':
+    case 'enhanced-matching':
+      return q.correct
+    case 'hotspot':
+      return q.correct
+    case 'pulldown':
+      return pulldownCorrectAnswer(q)
+    default:
+      return undefined
+  }
+}
+
+const questionContext = computed(() => {
+  const q = question.value
+  if (!q) return null
+  const userAnswer = getCurrentUserAnswer()
+  const isAnswered = showFeedback.value && userAnswer != null
+  return {
+    question: q,
+    userAnswer,
+    correctAnswer: isAnswered ? getCorrectAnswer() : undefined,
+    isAnswered,
+    language: lang.value,
   }
 })
 
@@ -451,6 +523,14 @@ watch(
   { immediate: true },
 )
 
+watch(
+  () => question.value?.id,
+  (id) => {
+    if (id) ai.switchQuestion(id)
+  },
+  { immediate: true },
+)
+
 watch(mcqSelection, (val) => {
   const q = question.value
   if (!q || (q.type !== 'mcq' && q.type !== 'graphic-mcq')) return
@@ -707,6 +787,17 @@ onUnmounted(() => {
       :question-id="question.id"
       @update:model-value="setScratchPadNotes(question.id, $event)"
       @close="showScratchPad = false"
+    />
+
+    <ChatFab
+      :visible="showChatFab"
+      @toggle="showChatPanel = !showChatPanel"
+    />
+
+    <ChatPanel
+      :visible="showChatPanel"
+      :question-context="questionContext"
+      @close="showChatPanel = false"
     />
 
     <!-- Bottom nav -->
