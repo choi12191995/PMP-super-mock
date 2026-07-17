@@ -87,6 +87,7 @@
     "incorrect": "錯誤",
     "explanation": "解析",
     "scenario": "情境",
+    "caseStudyHeader": "情境案例 — 第 {current} 題 / 共 {total} 題",
     "resume": "繼續上次的考試",
     "resumePrompt": "您有一個未完成的考試。是否要繼續？",
     "resumeYes": "繼續",

@@ -87,6 +87,7 @@
     "incorrect": "Incorrect",
     "explanation": "Explanation",
     "scenario": "Scenario",
+    "caseStudyHeader": "Case Study — Question {current} of {total}",
     "resume": "Resume Previous Session",
     "resumePrompt": "You have an unfinished exam session. Would you like to resume?",
     "resumeYes": "Resume",

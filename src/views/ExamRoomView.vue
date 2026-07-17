@@ -1,11 +1,25 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch, type Component } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import McqRenderer from '@/components/question-types/McqRenderer.vue'
 import MultiRenderer from '@/components/question-types/MultiRenderer.vue'
+import MatchingRenderer from '@/components/question-types/MatchingRenderer.vue'
+import HotspotRenderer from '@/components/question-types/HotspotRenderer.vue'
+import PulldownRenderer from '@/components/question-types/PulldownRenderer.vue'
+import GraphicMcqRenderer from '@/components/question-types/GraphicMcqRenderer.vue'
+import CaseSetRenderer from '@/components/question-types/CaseSetRenderer.vue'
+import { loadAllCases } from '@/core/bank/loader'
 import { useExamSessionStore } from '@/stores/examSession'
-import type { McqQ, MultiQ, LText } from '@/core/types'
+import type {
+  McqQ,
+  MultiQ,
+  MatchingQ,
+  HotspotQ,
+  PulldownQ,
+  CaseSet,
+  LText,
+} from '@/core/types'
 
 const router = useRouter()
 const { t, locale } = useI18n()
@@ -14,6 +28,10 @@ const session = useExamSessionStore()
 const strikeThroughs = ref(new Map<string, Set<number>>())
 const mcqSelection = ref<number | null>(null)
 const multiSelection = ref<number[]>([])
+const matchingSelection = ref<number[]>([])
+const hotspotSelection = ref<string[]>([])
+const pulldownSelection = ref<Record<string, number>>({})
+const caseMap = ref(new Map<string, CaseSet>())
 
 const lang = computed(() => (locale.value === 'zh-TW' ? 'zh-TW' : 'en') as 'en' | 'zh-TW')
 
@@ -25,25 +43,153 @@ const currentStrikes = computed(() => {
   return strikeThroughs.value.get(q.id) ?? new Set<number>()
 })
 
+const currentCase = computed((): CaseSet | null => {
+  const q = question.value
+  if (!q?.caseId) return null
+  return caseMap.value.get(q.caseId) ?? null
+})
+
+const caseQuestionIndex = computed(() => {
+  const q = question.value
+  const cs = currentCase.value
+  if (!q || !cs) return 0
+  const idx = cs.questionIds.indexOf(q.id)
+  return idx >= 0 ? idx : 0
+})
+
+const caseQuestionTotal = computed(() => currentCase.value?.questionIds.length ?? 0)
+
+function pulldownCorrectAnswer(q: PulldownQ): Record<string, number> {
+  return Object.fromEntries(q.blanks.map((b) => [b.id, b.correct]))
+}
+
+function isPulldownComplete(q: PulldownQ, selections: Record<string, number>): boolean {
+  return q.blanks.every((b) => selections[b.id] !== undefined)
+}
+
 const hasAnswer = computed(() => {
   const q = question.value
   if (!q) return false
   const stored = session.getAnswer(q.id)
   if (stored?.given != null) return true
-  if (q.type === 'mcq' || q.type === 'graphic-mcq') return mcqSelection.value !== null
-  if (q.type === 'multi') return multiSelection.value.length === q.selectN
-  return false
+  switch (q.type) {
+    case 'mcq':
+    case 'graphic-mcq':
+      return mcqSelection.value !== null
+    case 'multi':
+      return multiSelection.value.length === q.selectN
+    case 'matching':
+    case 'enhanced-matching':
+      return matchingSelection.value.length === q.left.length
+    case 'hotspot':
+      return hotspotSelection.value.length > 0
+    case 'pulldown':
+      return isPulldownComplete(q, pulldownSelection.value)
+    default:
+      return false
+  }
 })
 
 const showFeedback = computed(() => {
   if (!session.config || session.config.feedbackMode !== 'immediate') return false
   const q = question.value
   if (!q) return false
-  if (q.type === 'multi') return multiSelection.value.length === q.selectN
-  return mcqSelection.value !== null
+  switch (q.type) {
+    case 'mcq':
+    case 'graphic-mcq':
+      return mcqSelection.value !== null
+    case 'multi':
+      return multiSelection.value.length === q.selectN
+    case 'matching':
+    case 'enhanced-matching':
+      return matchingSelection.value.length === q.left.length
+    case 'hotspot':
+      return hotspotSelection.value.length > 0
+    case 'pulldown':
+      return isPulldownComplete(q, pulldownSelection.value)
+    default:
+      return false
+  }
 })
 
 const answerDisabled = computed(() => showFeedback.value)
+
+const rendererComponent = computed((): Component | null => {
+  const q = question.value
+  if (!q) return null
+  switch (q.type) {
+    case 'mcq':
+      return McqRenderer
+    case 'graphic-mcq':
+      return GraphicMcqRenderer
+    case 'multi':
+      return MultiRenderer
+    case 'matching':
+    case 'enhanced-matching':
+      return MatchingRenderer
+    case 'hotspot':
+      return HotspotRenderer
+    case 'pulldown':
+      return PulldownRenderer
+    default:
+      return null
+  }
+})
+
+const rendererProps = computed(() => {
+  const q = question.value
+  if (!q) return {}
+
+  const base = {
+    showFeedback: showFeedback.value,
+    disabled: answerDisabled.value,
+    lang: lang.value,
+  }
+
+  switch (q.type) {
+    case 'mcq':
+    case 'graphic-mcq':
+      return {
+        ...base,
+        question: q as McqQ,
+        modelValue: mcqSelection.value,
+        correctAnswer: (q as McqQ).correct,
+        strikeThroughs: currentStrikes.value,
+      }
+    case 'multi':
+      return {
+        ...base,
+        question: q as MultiQ,
+        modelValue: multiSelection.value,
+        correctAnswer: (q as MultiQ).correct,
+        strikeThroughs: currentStrikes.value,
+      }
+    case 'matching':
+    case 'enhanced-matching':
+      return {
+        ...base,
+        question: q as MatchingQ,
+        modelValue: matchingSelection.value,
+        correctAnswer: (q as MatchingQ).correct,
+      }
+    case 'hotspot':
+      return {
+        ...base,
+        question: q as HotspotQ,
+        modelValue: hotspotSelection.value,
+        correctAnswer: (q as HotspotQ).correct,
+      }
+    case 'pulldown':
+      return {
+        ...base,
+        question: q as PulldownQ,
+        modelValue: pulldownSelection.value,
+        correctAnswer: pulldownCorrectAnswer(q as PulldownQ),
+      }
+    default:
+      return base
+  }
+})
 
 function ltext(text: LText): string {
   return lang.value === 'zh-TW' ? text.zh : text.en
@@ -54,14 +200,67 @@ function loadLocalSelection(): void {
   if (!q) return
 
   const stored = session.getAnswer(q.id)
-  if (q.type === 'mcq' || q.type === 'graphic-mcq') {
-    mcqSelection.value =
-      typeof stored?.given === 'number' ? stored.given : null
-  } else if (q.type === 'multi') {
-    multiSelection.value = Array.isArray(stored?.given)
-      ? [...(stored.given as number[])].sort((a, b) => a - b)
-      : []
+
+  switch (q.type) {
+    case 'mcq':
+    case 'graphic-mcq':
+      mcqSelection.value =
+        typeof stored?.given === 'number' ? stored.given : null
+      break
+    case 'multi':
+      multiSelection.value = Array.isArray(stored?.given)
+        ? [...(stored.given as number[])].sort((a, b) => a - b)
+        : []
+      break
+    case 'matching':
+    case 'enhanced-matching':
+      matchingSelection.value = Array.isArray(stored?.given)
+        ? [...(stored.given as number[])]
+        : []
+      break
+    case 'hotspot':
+      hotspotSelection.value = Array.isArray(stored?.given)
+        ? [...(stored.given as string[])]
+        : []
+      break
+    case 'pulldown':
+      pulldownSelection.value =
+        stored?.given && typeof stored.given === 'object' && !Array.isArray(stored.given)
+          ? { ...(stored.given as Record<string, number>) }
+          : {}
+      break
   }
+}
+
+function onRendererUpdate(value: unknown): void {
+  const q = question.value
+  if (!q) return
+
+  switch (q.type) {
+    case 'mcq':
+    case 'graphic-mcq':
+      mcqSelection.value = value as number | null
+      break
+    case 'multi':
+      multiSelection.value = value as number[]
+      break
+    case 'matching':
+    case 'enhanced-matching':
+      matchingSelection.value = value as number[]
+      break
+    case 'hotspot':
+      hotspotSelection.value = value as string[]
+      break
+    case 'pulldown':
+      pulldownSelection.value = value as Record<string, number>
+      break
+  }
+}
+
+function onStrikeUpdate(next: Set<number>): void {
+  const q = question.value
+  if (!q) return
+  strikeThroughs.value.set(q.id, next)
 }
 
 watch(
@@ -88,11 +287,38 @@ watch(
   { deep: true },
 )
 
-function updateStrikes(next: Set<number>): void {
-  const q = question.value
-  if (!q) return
-  strikeThroughs.value.set(q.id, next)
-}
+watch(
+  matchingSelection,
+  (val) => {
+    const q = question.value
+    if (!q || (q.type !== 'matching' && q.type !== 'enhanced-matching')) return
+    if (val.length !== q.left.length) return
+    session.answer(q.id, val)
+  },
+  { deep: true },
+)
+
+watch(
+  hotspotSelection,
+  (val) => {
+    const q = question.value
+    if (!q || q.type !== 'hotspot') return
+    if (val.length === 0) return
+    session.answer(q.id, val)
+  },
+  { deep: true },
+)
+
+watch(
+  pulldownSelection,
+  (val) => {
+    const q = question.value
+    if (!q || q.type !== 'pulldown') return
+    if (!isPulldownComplete(q, val)) return
+    session.answer(q.id, val)
+  },
+  { deep: true },
+)
 
 function toggleFlag(): void {
   const q = question.value
@@ -106,10 +332,62 @@ function confirmQuit(): void {
   router.push(`/results/${session.attemptId || 'latest'}`)
 }
 
-onMounted(() => {
+function isEditableTarget(target: EventTarget | null): boolean {
+  if (!(target instanceof HTMLElement)) return false
+  const tag = target.tagName
+  return tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA' || target.isContentEditable
+}
+
+function onKeydown(e: KeyboardEvent): void {
+  if (isEditableTarget(e.target)) return
+
+  if (e.key === 'f' || e.key === 'F') {
+    e.preventDefault()
+    toggleFlag()
+    return
+  }
+
+  if (e.key === 'ArrowLeft') {
+    e.preventDefault()
+    if (!session.isFirst) session.previous()
+    return
+  }
+
+  if (e.key === 'ArrowRight') {
+    e.preventDefault()
+    if (!session.isLast) session.next()
+    return
+  }
+
+  const q = question.value
+  if (!q || (q.type !== 'mcq' && q.type !== 'graphic-mcq')) return
+  if (answerDisabled.value) return
+
+  const num = Number(e.key)
+  if (num >= 1 && num <= 4 && num <= q.options.length) {
+    e.preventDefault()
+    mcqSelection.value = num - 1
+  }
+}
+
+onMounted(async () => {
   if (!session.isInProgress && session.state === 'configuring') {
     router.replace('/mode')
+    return
   }
+
+  try {
+    const cases = await loadAllCases()
+    caseMap.value = new Map(cases.map((c) => [c.id, c]))
+  } catch {
+    // Cases optional until bank includes caseId references
+  }
+
+  window.addEventListener('keydown', onKeydown)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', onKeydown)
 })
 </script>
 
@@ -155,30 +433,28 @@ onMounted(() => {
 
     <!-- Question card -->
     <div class="flex-1 rounded-2xl border border-border bg-surface-raised p-5 shadow-sm sm:p-6">
-      <McqRenderer
-        v-if="question.type === 'mcq' || question.type === 'graphic-mcq'"
-        :question="question as McqQ"
-        :model-value="mcqSelection"
-        :show-feedback="showFeedback"
-        :correct-answer="(question as McqQ).correct"
-        :disabled="answerDisabled"
-        :strike-throughs="currentStrikes"
+      <CaseSetRenderer
+        v-if="currentCase"
+        :scenario="currentCase.scenario"
+        :current-question-index="caseQuestionIndex"
+        :total-questions="caseQuestionTotal"
         :lang="lang"
-        @update:model-value="mcqSelection = $event"
-        @update:strike-throughs="updateStrikes"
-      />
+      >
+        <component
+          :is="rendererComponent"
+          v-if="rendererComponent"
+          v-bind="rendererProps"
+          @update:model-value="onRendererUpdate"
+          @update:strike-throughs="onStrikeUpdate"
+        />
+      </CaseSetRenderer>
 
-      <MultiRenderer
-        v-else-if="question.type === 'multi'"
-        :question="question as MultiQ"
-        :model-value="multiSelection"
-        :show-feedback="showFeedback"
-        :correct-answer="(question as MultiQ).correct"
-        :disabled="answerDisabled"
-        :strike-throughs="currentStrikes"
-        :lang="lang"
-        @update:model-value="multiSelection = $event"
-        @update:strike-throughs="updateStrikes"
+      <component
+        :is="rendererComponent"
+        v-else-if="rendererComponent"
+        v-bind="rendererProps"
+        @update:model-value="onRendererUpdate"
+        @update:strike-throughs="onStrikeUpdate"
       />
 
       <div v-else class="py-8 text-center text-on-surface-muted">
