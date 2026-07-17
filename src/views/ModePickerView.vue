@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { computed, onMounted, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { assembleForm } from '@/core/bank/assembleForm'
 import { loadAllQuestions, loadAllCases } from '@/core/bank/loader'
@@ -10,11 +10,13 @@ import type { Approach, Difficulty, Domain, ExamConfig, Question, QType } from '
 
 type ModeKey = ExamConfig['mode']
 
+const route = useRoute()
 const router = useRouter()
 const { t } = useI18n()
 const session = useExamSessionStore()
 
 const selectedMode = ref<ModeKey>('free')
+const tasks = ref<string[]>([])
 const loading = ref(false)
 const error = ref<string | null>(null)
 
@@ -119,9 +121,27 @@ function shuffle<T>(arr: T[]): T[] {
   return result
 }
 
+onMounted(() => {
+  const queryMode = route.query.mode as ModeKey | undefined
+  if (queryMode && ['real', 'full-untimed', 'free', 'custom'].includes(queryMode)) {
+    selectMode(queryMode)
+  }
+  const queryTasks = route.query.tasks
+  if (typeof queryTasks === 'string' && queryTasks) {
+    tasks.value = queryTasks.split(',').filter(Boolean)
+  } else if (Array.isArray(queryTasks)) {
+    tasks.value = queryTasks.flatMap((t) => String(t).split(',')).filter(Boolean)
+  }
+  const queryDomains = route.query.domains
+  if (typeof queryDomains === 'string' && queryDomains) {
+    domains.value = queryDomains.split(',').filter(Boolean) as Domain[]
+  }
+})
+
 function filterQuestions(all: Question[]): Question[] {
   return all.filter((q) => {
     if (domains.value.length && !domains.value.includes(q.domain)) return false
+    if (tasks.value.length && !tasks.value.includes(q.task)) return false
     if (difficulties.value.length && !difficulties.value.includes(q.difficulty)) return false
     if (approaches.value.length && !approaches.value.includes(q.approach)) return false
     if (selectedMode.value === 'free' || (selectedMode.value === 'custom' && onvue.value)) {
@@ -149,6 +169,7 @@ function buildConfig(filteredCount: number, seed?: number): ExamConfig {
     feedbackMode: feedbackMode.value,
     filters: {
       domains: [...domains.value],
+      tasks: tasks.value.length ? [...tasks.value] : undefined,
       difficulties: [...difficulties.value],
       approaches: [...approaches.value],
     },
