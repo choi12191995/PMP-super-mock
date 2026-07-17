@@ -1,0 +1,747 @@
+[
+  {
+    "id": "PPL-0001",
+    "type": "mcq",
+    "domain": "people",
+    "task": "PPL1",
+    "approach": "predictive",
+    "difficulty": 1,
+    "stem": {
+      "en": "You are the project manager for a hospital expansion program. The steering committee includes executives from clinical, finance, and facilities who disagree on whether patient safety or budget control should drive major decisions. Sponsorship is strong, but the team lacks a shared direction. What should you do first to develop a common vision?",
+      "zh": "您是醫院擴建計畫的專案經理。指導委員會包含臨床、財務與設施部門的高階主管，對於重大決策應以病患安全還是預算控管為優先意見分歧。雖然高層支持充足，但團隊缺乏共同方向。為建立共同願景，您首先應採取什麼行動？"
+    },
+    "options": [
+      {
+        "en": "Facilitate a structured workshop where stakeholders articulate shared goals, success criteria, and guiding principles for the program.",
+        "zh": "主持一場結構化工作坊，引導利害關係人闡述計畫的共同目標、成功準則與指導原則。"
+      },
+      {
+        "en": "Publish a detailed project schedule and assign work packages so the team focuses on deliverables instead of debating priorities.",
+        "zh": "發布詳細專案時程並分配工作包，讓團隊專注於可交付成果而非爭論優先順序。"
+      },
+      {
+        "en": "Ask the sponsor to issue a directive stating that budget control takes precedence over all clinical considerations.",
+        "zh": "請發起人發布指令，明訂預算控管優先於所有臨床考量。"
+      },
+      {
+        "en": "Defer vision discussions until the requirements document is baselined at the end of the planning phase.",
+        "zh": "將願景討論延後至規劃階段結束、需求文件基準化後再進行。"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Developing a common vision requires collaborative alignment on purpose and success measures before detailed planning. A facilitated workshop surfaces shared goals and resolves competing priorities constructively. Publishing a schedule first skips alignment and may embed the wrong priorities into the plan. A sponsor directive imposed without consensus creates resistance and does not build shared ownership. Deferring vision work until requirements are baselined allows conflicting assumptions to persist and increases rework later.",
+      "zh": "建立共同願景需在詳細規劃前先就目的與成功衡量標準達成協作一致。結構化工作坊能引導各方闡述共同目標並建設性地化解優先順序衝突。先發布時程表會跳過對齊步驟，可能將錯誤優先順序固化於計畫中。發起人強制下達指令而未取得共識，會引發抗拒且無法建立共同承擔。延後願景工作至需求基準化，衝突假設將持續存在並增加後續返工。"
+    },
+    "tags": ["common-vision", "stakeholder-alignment", "facilitation"]
+  },
+  {
+    "id": "PPL-0002",
+    "type": "mcq",
+    "domain": "people",
+    "task": "PPL2",
+    "approach": "agile",
+    "difficulty": 2,
+    "stem": {
+      "en": "You are the Scrum Master for a cross-functional product team building a mobile banking app. Two senior developers argue loudly during sprint planning about whether to refactor legacy payment code or deliver new features the product owner prioritized. Other team members have stopped participating. What is the most appropriate response?",
+      "zh": "您是開發行動銀行 App 的跨職能產品團隊 Scrum Master。兩位資深開發人員在衝刺規劃中激烈爭論，一方主張重構舊版支付程式碼，另一方堅持交付產品負責人優先的新功能。其他成員已停止參與討論。最適當的回應為何？"
+    },
+    "options": [
+      {
+        "en": "Facilitate a focused discussion using agreed team norms, help both sides state interests, and guide the team toward a sprint goal the product owner can accept.",
+        "zh": "依團隊共識規範引導聚焦討論，協助雙方表達利益訴求，並引導團隊朝向產品負責人可接受的衝刺目標前進。"
+      },
+      {
+        "en": "Split the developers into separate sub-teams so they can work independently without further conflict during the sprint.",
+        "zh": "將兩位開發人員分至不同子團隊，使其在衝刺期間獨立工作以避免再度衝突。"
+      },
+      {
+        "en": "Escalate the dispute immediately to the product owner and ask them to remove one developer from the team.",
+        "zh": "立即將爭議升級至產品負責人，並請其將其中一位開發人員移出團隊。"
+      },
+      {
+        "en": "Postpone sprint planning until both developers submit written position papers for management review.",
+        "zh": "延後衝刺規劃，待兩位開發人員提交書面立場說明供管理階層審閱。"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Collaborate/problem-solve fits agile teams when conflict blocks planning and team participation. Facilitation using team norms restores psychological safety and focuses on interests toward a workable sprint goal. Splitting sub-teams avoids the issue and fragments ownership without resolving the priority disagreement. Escalating to remove a developer is punitive and damages trust when facilitation has not been attempted. Postponing planning wastes the sprint cadence and lets conflict fester without a timely resolution path.",
+      "zh": "當衝突阻礙規劃與團隊參與時，協作／解決問題最符合敏捷團隊做法。依團隊規範引導討論可恢復心理安全，聚焦利益訴求並達成可行的衝刺目標。拆分子團隊迴避問題且分散責任，未解決優先順序分歧。在未嘗試引導前就升級並移除成員屬懲罰性做法，會損害信任。延後規劃浪費衝刺節奏，衝突持續發酵而無及時解決途徑。"
+    },
+    "tags": ["conflict-resolution", "scrum", "team-norms"]
+  },
+  {
+    "id": "PPL-0003",
+    "type": "mcq",
+    "domain": "people",
+    "task": "PPL3",
+    "approach": "predictive",
+    "difficulty": 2,
+    "stem": {
+      "en": "You are the project manager leading a global ERP implementation. Several workstream leads consistently miss steering committee updates and bypass your coordination process by emailing executives directly with status claims. Morale among compliant leads is declining. Which leadership action best addresses this behavior while maintaining executive confidence?",
+      "zh": "您負責領導全球 ERP 導入專案。數位工作流負責人經常缺席指導委員會更新會議，並繞過您的協調流程，直接以電郵向高階主管回報狀態。遵守流程的負責人士氣因此下降。哪項領導行動最能處理此行為，同時維持高階主管的信心？"
+    },
+    "options": [
+      {
+        "en": "Reinforce the agreed communication protocol in a team meeting, clarify escalation paths, and coach noncompliant leads on their role in integrated reporting.",
+        "zh": "在團隊會議中重申已同意的溝通協議，釐清升級路徑，並輔導未遵守者在其整合報告中的角色。"
+      },
+      {
+        "en": "Remove the noncompliant leads from the project and replace them before the next steering committee session.",
+        "zh": "在下次指導委員會前，將未遵守者移出專案並替換人選。"
+      },
+      {
+        "en": "Stop holding steering committee meetings until every workstream lead signs a compliance agreement.",
+        "zh": "暫停指導委員會，直至每位工作流負責人簽署合規協議。"
+      },
+      {
+        "en": "Allow direct executive emails so sponsors receive faster updates while you focus on technical delivery.",
+        "zh": "允許直接向高階主管發送電郵，使發起人更快取得更新，您則專注技術交付。"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Leading the team includes setting clear expectations and coaching performance toward agreed governance. Reinforcing the protocol and escalation paths restores a single source of truth for executives while addressing bypass behavior directly. Removing leads is disproportionate before coaching and may disrupt critical workstreams. Suspending steering meetings delays decisions sponsors need and punishes the whole program. Allowing direct emails perpetuates confusion, undermines your coordinating role, and erodes fairness for compliant leads.",
+      "zh": "領導團隊包含設定明確期望並依既定治理輔導績效。重申協議與升級路徑可恢復高階主管的單一資訊來源，同時直接處理繞過流程的行為。在未輔導前就替換負責人過於激烈，可能中斷關鍵工作流。暫停指導委員會會延誤發起人所需決策並懲罰整個計畫。允許直接電郵會持續造成資訊混亂、削弱協調角色，並對遵守者不公平。"
+    },
+    "tags": ["team-leadership", "communication-protocol", "coaching"]
+  },
+  {
+    "id": "PPL-0004",
+    "type": "mcq",
+    "domain": "people",
+    "task": "PPL4",
+    "approach": "agile",
+    "difficulty": 1,
+    "stem": {
+      "en": "You are the product owner for a customer loyalty platform. Marketing, legal, and customer support stakeholders were engaged late and now request changes that would alter sprint commitments. The team is mid-sprint and velocity is stable. What should you do to improve stakeholder engagement without destabilizing the current iteration?",
+      "zh": "您是客戶忠誠度平台的產品負責人。行銷、法務與客服利害關係人較晚才參與，現要求變更將影響衝刺承諾。團隊正處於衝刺中期，速度穩定。您應如何提升利害關係人參與，同時不動搖當前迭代？"
+    },
+    "options": [
+      {
+        "en": "Invite key stakeholders to the next sprint review and backlog refinement, capture new requests in the backlog, and clarify how feedback enters future sprints.",
+        "zh": "邀請關鍵利害關係人參加下次衝刺審查與待辦清單精煉，將新需求納入待辦，並說明回饋如何進入後續衝刺。"
+      },
+      {
+        "en": "Accept all requested changes immediately and ask the team to replan the remainder of the sprint around the new priorities.",
+        "zh": "立即接受所有變更要求，並請團隊依新優先順序重新規劃衝刺剩餘工作。"
+      },
+      {
+        "en": "Exclude late stakeholders from ceremonies until they complete mandatory agile training.",
+        "zh": "排除較晚參與的利害關係人，直至其完成必修敏捷訓練。"
+      },
+      {
+        "en": "Send stakeholders a weekly email summary and avoid live sessions to prevent further disruption.",
+        "zh": "僅以每週電郵摘要告知利害關係人，避免現場會議以防再度干擾。"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Engaging stakeholders in review and refinement creates transparency and a structured channel for input while protecting the current sprint commitment. Backlog refinement is the appropriate place to prioritize new requests for future iterations. Accepting all changes mid-sprint breaks team focus and undermines predictable delivery. Excluding stakeholders delays alignment and increases surprise requests later. Email-only updates are passive engagement and miss the collaborative inspection that builds trust and shared understanding.",
+      "zh": "邀請利害關係人參與審查與精煉可建立透明度與結構化回饋管道，同時保護當前衝刺承諾。待辦清單精煉是排定新需求進入後續迭代的適當場合。衝刺中期接受全部變更會打破團隊專注並削弱可預測交付。排除利害關係人會延後對齊並增加後續意外需求。僅以電郵更新屬被動參與，缺乏建立信任與共同理解的協作檢視。"
+    },
+    "tags": ["stakeholder-engagement", "sprint-review", "backlog-refinement"]
+  },
+  {
+    "id": "PPL-0005",
+    "type": "mcq",
+    "domain": "people",
+    "task": "PPL5",
+    "approach": "predictive",
+    "difficulty": 2,
+    "stem": {
+      "en": "You are managing a public infrastructure project funded by multiple agencies. Each agency expects different reporting formats, milestone definitions, and acceptance criteria for the same deliverables. Contract baselines are set, but teams receive conflicting guidance weekly. What is the best approach to align stakeholder expectations?",
+      "zh": "您管理一項由多個機構資助的公共基礎建設專案。各機構對相同可交付成果要求不同的報告格式、里程碑定義與驗收準則。合約基準已確立，但團隊每週收到相互矛盾的指引。對齊利害關係人期望的最佳做法為何？"
+    },
+    "options": [
+      {
+        "en": "Facilitate a joint expectations workshop with agency representatives to agree on unified definitions, reporting standards, and a single acceptance framework referenced in the baselines.",
+        "zh": "與各機構代表舉辦聯合期望工作坊，就統一定義、報告標準及可引用於基準的單一驗收架構達成共識。"
+      },
+      {
+        "en": "Produce separate deliverable versions for each agency so every stakeholder receives exactly what their template requires.",
+        "zh": "為各機構分別產出可交付成果版本，使每位利害關係人完全符合其範本要求。"
+      },
+      {
+        "en": "Follow the largest funding agency's requirements exclusively and inform others that their formats will be addressed after go-live.",
+        "zh": "僅遵循最大出資機構要求，並告知其他機構其格式將於上線後再處理。"
+      },
+      {
+        "en": "Ask each work package lead to interpret agency requests independently to maintain schedule performance.",
+        "zh": "請各工作包負責人自行詮釋機構要求，以維持時程績效。"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Aligning expectations requires explicit agreement on shared definitions and acceptance criteria across stakeholders with competing formats. A joint workshop produces a unified framework tied to baselines, reducing weekly conflicting guidance. Separate versions multiply cost, risk, and confusion about what is truly complete. Favoring one agency damages relationships and may violate funding obligations. Letting leads interpret independently creates inconsistent deliverables and audit findings despite apparent schedule focus.",
+      "zh": "對齊期望需在格式各異的利害關係人間，就共同定義與驗收準則達成明確共識。聯合工作坊可建立與基準連結的統一架構，減少每週矛盾指引。分版本產出會倍增成本、風險與完成定義的混淆。偏袒單一機構會損害關係並可能違反資助義務。讓負責人各自詮釋會造成交付不一致與稽核問題，即便表面維持時程。"
+    },
+    "tags": ["expectation-alignment", "multi-stakeholder", "acceptance-criteria"]
+  },
+  {
+    "id": "PPL-0006",
+    "type": "mcq",
+    "domain": "people",
+    "task": "PPL6",
+    "approach": "hybrid",
+    "difficulty": 2,
+    "stem": {
+      "en": "You are the project manager for a regulated medical device launch using predictive phases for hardware and agile iterations for companion software. Clinical affairs stakeholders expect full validation evidence at each gate, while software users expect biweekly feature releases. Tension is rising over what will be demonstrated at the next stage gate. What should you do to manage stakeholder expectations?",
+      "zh": "您負責受管制醫療器材上市專案，硬體採預測式階段、配套軟體採敏捷迭代。臨床事務利害關係人期望各關卡提供完整驗證證據，軟體使用者則期望雙週功能發布。對於下一階段關卡將展示何內容，緊張情勢升高。您應如何管理利害關係人期望？"
+    },
+    "options": [
+      {
+        "en": "Publish a hybrid roadmap showing gate evidence requirements alongside software release cadence, and review it with both groups before the gate.",
+        "zh": "發布混合路線圖，同時標示關卡證據要求與軟體發布節奏，並於關卡前與兩方審查。"
+      },
+      {
+        "en": "Delay the stage gate until software iterations catch up to hardware validation milestones.",
+        "zh": "延後階段關卡，直至軟體迭代趕上硬體驗證里程碑。"
+      },
+      {
+        "en": "Demonstrate only hardware validation at the gate and schedule a separate software demo for users afterward.",
+        "zh": "關卡僅展示硬體驗證，另排程向使用者進行軟體展示。"
+      },
+      {
+        "en": "Reduce validation scope at the gate so both groups see a combined feature demo on the same date.",
+        "zh": "縮減關卡驗證範圍，使兩方能在同一天看到合併功能展示。"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Managing expectations in hybrid delivery means making different cadences and evidence needs visible and agreed before gate decisions. A shared roadmap clarifies what each group receives and when, preventing last-minute surprises. Delaying the gate without negotiation disrupts predictive commitments and funding milestones. Showing only hardware ignores software stakeholders' legitimate cadence expectations. Cutting validation scope to force a joint demo compromises compliance and misrepresents readiness to clinical affairs.",
+      "zh": "混合交付中管理期望，需在關卡決策前讓不同節奏與證據需求透明且獲同意。共同路線圖釐清各方將取得什麼、何時取得，避免臨時意外。未協商即延後關卡會衝擊預測式承諾與資金里程碑。僅展示硬體忽略軟體利害關係人合理的節奏期望。為湊合展示而縮減驗證範圍會損害合規並向臨床事務誤傳就緒程度。"
+    },
+    "tags": ["expectation-management", "hybrid-delivery", "stage-gate"]
+  },
+  {
+    "id": "PPL-0007",
+    "type": "mcq",
+    "domain": "people",
+    "task": "PPL7",
+    "approach": "predictive",
+    "difficulty": 1,
+    "stem": {
+      "en": "You are closing a data center migration project. Three senior engineers who designed the cutover plan will leave for new roles within two weeks. Operations staff express anxiety about running undocumented failover procedures during nights and weekends. What should you prioritize to ensure knowledge transfer?",
+      "zh": "您正在結束資料中心移轉專案。三位設計切換計畫的資深工程師兩週內將離職。維運人員對於在夜間與週末執行未文件化的故障轉移程序感到不安。為確保知識移轉，您應優先處理什麼？"
+    },
+    "options": [
+      {
+        "en": "Schedule paired walkthroughs of cutover and failover procedures, update runbooks with operations staff, and verify their execution in a supervised rehearsal.",
+        "zh": "安排切換與故障轉移程序的結對演練，與維運人員共同更新運維手冊，並在監督下演練以驗證其執行能力。"
+      },
+      {
+        "en": "Record a single presentation from the engineers and distribute the slides to operations for self-study after the engineers depart.",
+        "zh": "請工程師錄製一次簡報並發送投影片，供維運人員在其離職後自學。"
+      },
+      {
+        "en": "Extend the project closure date by six months so engineers remain available for ad hoc questions.",
+        "zh": "將專案結案日期延長六個月，使工程師可回答臨時問題。"
+      },
+      {
+        "en": "Contract an external vendor to assume operations immediately and defer internal knowledge transfer until the next fiscal year.",
+        "zh": "立即外包維運給外部廠商，內部知識移轉延至下一會計年度。"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Effective knowledge transfer combines documentation with interactive handover and verified practice before experts leave. Paired walkthroughs and supervised rehearsal build operations confidence in critical failover steps. A recorded presentation alone lacks hands-on validation and may leave gaps in tacit knowledge. Extending closure six months is costly and delays benefits realization without structured transfer. Outsourcing immediately defers institutional learning and increases long-term dependency and risk.",
+      "zh": "有效知識移轉需結合文件化、互動交接與專家離開前的實地驗證。結對演練與監督複演可建立維運人員對關鍵故障轉移步驟的信心。僅錄製簡報缺乏實作驗證，可能遺漏隱性知識。延長結案六個月成本高且延後效益，又缺乏結構化移轉。立即外包會延後組織學習並增加長期依賴與風險。"
+    },
+    "tags": ["knowledge-transfer", "runbooks", "operational-readiness"]
+  },
+  {
+    "id": "PPL-0008",
+    "type": "mcq",
+    "domain": "people",
+    "task": "PPL1",
+    "approach": "hybrid",
+    "difficulty": 2,
+    "stem": {
+      "en": "You are leading a smart city initiative combining fixed-scope streetlight hardware with iterative citizen-facing mobile services. Neighborhood associations, the mayor's office, and vendor partners each describe success differently in early workshops. Without alignment, teams are pulling toward incompatible outcomes. What should you do to establish a common vision?",
+      "zh": "您領導智慧城市計畫，結合固定範圍的路燈硬體與迭代的市民行動服務。社區協會、市長辦公室與廠商夥伴在初期工作坊對成功的定義各異。缺乏對齊時，團隊朝不相容結果努力。您應如何建立共同願景？"
+    },
+    "options": [
+      {
+        "en": "Co-create a vision statement with measurable outcomes that links infrastructure delivery to citizen service goals, and confirm it with all parties.",
+        "zh": "與各方共同制定願景聲明及可衡量成果，連結基礎建設交付與市民服務目標，並取得確認。"
+      },
+      {
+        "en": "Let each workstream define its own success metrics and reconcile differences during final acceptance testing.",
+        "zh": "讓各工作流自行定義成功指標，於最終驗收測試時再調和差異。"
+      },
+      {
+        "en": "Adopt the vendor's proposed vision deck to accelerate procurement and revisit alignment after contract signing.",
+        "zh": "採用廠商提出的願景簡報以加速採購，簽約後再重新對齊。"
+      },
+      {
+        "en": "Focus the vision exclusively on on-time hardware installation because mobile services can evolve post-launch.",
+        "zh": "願景僅聚焦準時完成硬體安裝，行動服務可於上線後再演進。"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "A hybrid program needs an integrated vision connecting fixed deliverables and evolving services so stakeholders share purpose early. Co-creating measurable outcomes secures buy-in across associations, government, and vendors. Deferring reconciliation to acceptance testing invites expensive rework and public conflict. Adopting the vendor deck prioritizes sales narrative over community and political goals. A hardware-only vision sidesteps citizen service intent and undermines the initiative's stated smart city value.",
+      "zh": "混合計畫需要整合願景，連結固定交付與演進中的服務，使利害關係人早期共享目的。共同制定可衡量成果可取得社區、政府與廠商的承諾。延至驗收才調和會引發昂貴返工與公眾衝突。採用廠商簡報優先銷售敘事而非社區與政治目標。僅硬體的願景忽略市民服務意圖，削弱智慧城市計畫標榜的價值。"
+    },
+    "tags": ["common-vision", "smart-city", "hybrid-delivery"]
+  },
+  {
+    "id": "PPL-0009",
+    "type": "mcq",
+    "domain": "people",
+    "task": "PPL2",
+    "approach": "predictive",
+    "difficulty": 2,
+    "stem": {
+      "en": "You are the project manager on a construction program. The electrical subcontractor and mechanical subcontractor dispute responsibility for delayed ceiling rough-in work, and each refuses to attend joint coordination meetings. The general contractor pressures you to pick a side to keep concrete pours on schedule. What conflict approach should you take first?",
+      "zh": "您是營建計畫的專案經理。電機與機電分包商對延遲的天花板初裝責任各執一詞，且皆拒絕參加聯合協調會議。總包商施壓要求您選邊以維持混凝土澆置時程。您首先應採取哪種衝突處理方式？"
+    },
+    "options": [
+      {
+        "en": "Meet separately with each subcontractor to understand facts and contract obligations, then facilitate a joint session focused on schedule recovery options.",
+        "zh": "分別會晤各分包商以了解事實與合約義務，再主持聚焦時程追回方案的聯合會議。"
+      },
+      {
+        "en": "Issue a formal notice of default to both subcontractors to force immediate compliance.",
+        "zh": "向兩家分包商發出正式違約通知以強制立即合規。"
+      },
+      {
+        "en": "Accept the general contractor's recommendation and assign full delay liability to the electrical subcontractor.",
+        "zh": "接受總包商建議，將全部延遲責任歸於電機分包商。"
+      },
+      {
+        "en": "Pause all ceiling work until the dispute is resolved through litigation.",
+        "zh": "暫停所有天花板工程，直至訴訟解決爭議。"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Collaborate/problem-solve begins with understanding each party's facts and obligations before joint problem solving, especially when meetings have broken down. Separate meetings rebuild willingness to coordinate and focus on recovery rather than blame. Default notices escalate prematurely without a fact base and may trigger counterclaims. Assigning liability based on pressure rather than evidence damages your credibility as a neutral coordinator. Litigation pauses work with high cost and uncertain timelines, harming the schedule you are trying to protect.",
+      "zh": "協作／解決問題應先了解各方事實與義務再共同解決，尤其在會議已破裂時。分別會晤可重建協調意願並聚焦追回而非指責。缺乏事實基礎即發違約通知過早升級，可能引發反訴。在壓力下而非證據歸責會損害您作為中立協調者的可信度。訴訟會停工、成本高且時程不確定，反而傷害欲保護的時程。"
+    },
+    "tags": ["conflict-resolution", "construction", "subcontractor-management"]
+  },
+  {
+    "id": "PPL-0010",
+    "type": "mcq",
+    "domain": "people",
+    "task": "PPL3",
+    "approach": "hybrid",
+    "difficulty": 1,
+    "stem": {
+      "en": "You are the project manager for a payroll transformation with a predictive design phase and agile build sprints. Team members from HR operations and IT report feeling unclear about decision rights and daily priorities. Productivity is uneven across squads. Which action best demonstrates servant leadership?",
+      "zh": "您負責薪資轉型專案，設計階段採預測式、建置採敏捷衝刺。人資維運與 IT 成員反映決策權與每日優先順序不明，各小隊生產力不均。哪項行動最能展現僕人式領導？"
+    },
+    "options": [
+      {
+        "en": "Work with squads to clarify roles, remove impediments they identify, and shield them from conflicting requests while aligning leads on priorities.",
+        "zh": "與各小隊釐清角色、排除其指出的障礙，並在與負責人對齊優先順序的同時，保護團隊免受矛盾需求干擾。"
+      },
+      {
+        "en": "Centralize all task assignments through your office so every squad receives identical daily instructions.",
+        "zh": "所有任務指派集中由您的辦公室下達，使各小隊收到相同每日指示。"
+      },
+      {
+        "en": "Require squads to compete on velocity metrics and publish weekly rankings to stimulate performance.",
+        "zh": "要求小隊以速度指標競賽並公布每週排名以刺激績效。"
+      },
+      {
+        "en": "Step back from daily coordination entirely and let each squad self-organize without cross-team alignment.",
+        "zh": "完全退出每日協調，讓各小隊在無跨團隊對齊下自行組織。"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Servant leadership focuses on enabling teams by clarifying roles, removing blockers, and protecting them from churn while ensuring alignment at the leadership level. This addresses unclear decision rights in a hybrid model. Centralized daily instructions micromanage squads and ignore context differences between HR and IT work. Velocity competitions erode collaboration and psychological safety. Complete hands-off absence of cross-team alignment allows conflicting priorities to persist and worsens uneven productivity.",
+      "zh": "僕人式領導著重釐清角色、排除障礙並保護團隊免受需求頻繁變動干擾，同時在領導層確保對齊，以賦能團隊。這可處理混合模式下決策權不清的問題。集中每日指示是微觀管理，忽略人資與 IT 工作情境差異。速度競賽會侵蝕協作與心理安全。完全放手、缺乏跨團隊對齊會使矛盾優先順序持續並加劇生產力不均。"
+    },
+    "tags": ["servant-leadership", "team-empowerment", "impediment-removal"]
+  },
+  {
+    "id": "PPL-0011",
+    "type": "mcq",
+    "domain": "people",
+    "task": "PPL4",
+    "approach": "predictive",
+    "difficulty": 2,
+    "stem": {
+      "en": "You are managing an enterprise security upgrade. The chief information security officer wants weekly risk briefings, business unit leaders want monthly impact summaries, and the audit committee wants quarterly compliance dashboards. Stakeholders complain they learn about issues too late. What engagement approach should you implement?",
+      "zh": "您管理企業資安升級專案。資安長希望每週風險簡報，事業單位主管希望每月影響摘要，稽核委員會希望每季合規儀表板。利害關係人抱怨過晚才得知問題。您應實施哪種參與做法？"
+    },
+    "options": [
+      {
+        "en": "Develop a stakeholder engagement plan mapping each group's information needs, cadence, channel, and owner, and review it with them.",
+        "zh": "制定利害關係人參與計畫，對應各群的資訊需求、頻率、管道與負責人，並與其共同審查。"
+      },
+      {
+        "en": "Send everyone the same daily status email compiled from the project schedule to maximize transparency.",
+        "zh": "每日向所有人發送相同狀態電郵，彙整自專案時程，以最大化透明度。"
+      },
+      {
+        "en": "Limit updates to formal change control board meetings to avoid conflicting messages.",
+        "zh": "更新僅限正式變更管制委員會會議，以避免訊息衝突。"
+      },
+      {
+        "en": "Ask stakeholders to access a shared folder and pull reports whenever they need information.",
+        "zh": "請利害關係人自行至共用資料夾取用報告。"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Engaging stakeholders effectively requires a deliberate plan tailored to each group's needs, timing, and preferred channels. Mapping cadence and owners prevents late surprises while respecting different oversight roles. Identical daily emails overwhelm executives and still miss tailored compliance and risk content. Restricting updates to change boards is too infrequent for operational risk stakeholders. Pull-only folders place burden on stakeholders and weaken proactive engagement when issues emerge.",
+      "zh": "有效參與利害關係人需審慎規劃，依各群需求、時機與偏好管道量身訂做。對應頻率與負責人可避免過晚得知問題，同時尊重不同監督角色。相同每日電郵會淹沒高階主管，仍無法滿足合規與風險的客製內容。僅在變更委員會更新頻率過低，無法滿足營運風險利害關係人。僅供自行取用的資料夾把責任推給對方，問題出現時也削弱主動參與。"
+    },
+    "tags": ["stakeholder-engagement", "engagement-plan", "communication-cadence"]
+  },
+  {
+    "id": "PPL-0012",
+    "type": "mcq",
+    "domain": "people",
+    "task": "PPL5",
+    "approach": "agile",
+    "difficulty": 3,
+    "stem": {
+      "en": "You are the product owner for an internal analytics platform. Executives expect quarterly revenue impact forecasts from each release, while data science stakeholders insist models need multiple iterations before predictions are reliable. After two sprints, sponsors question whether agile delivery can meet their forecasting expectations. What should you do to align expectations?",
+      "zh": "您是內部分析平台的產品負責人。高階主管期望每次發布提供季度營收影響預測，資料科學利害關係人則堅持模型需多次迭代才可靠。兩次衝刺後，發起人質疑敏捷交付能否滿足預測期望。您應如何對齊期望？"
+    },
+    "options": [
+      {
+        "en": "Facilitate a expectations session defining progressive forecast maturity levels tied to release increments, with explicit uncertainty ranges early on.",
+        "zh": "主持期望對齊會議，定義與發布增量連結的漸進式預測成熟度等級，並在早期明列不確定範圍。"
+      },
+      {
+        "en": "Commit to full quarterly forecasts starting next sprint regardless of model readiness to preserve sponsor confidence.",
+        "zh": "不論模型就緒與否，自下次衝刺起承諾提供完整季度預測，以維持發起人信心。"
+      },
+      {
+        "en": "Switch the team to a predictive plan with a fixed analysis phase before any further releases.",
+        "zh": "將團隊改為預測式計畫，在後續發布前先完成固定分析階段。"
+      },
+      {
+        "en": "Stop sharing interim results and present only final forecasts at the end of the fiscal year.",
+        "zh": "停止分享階段性結果，僅於會計年度末呈現最終預測。"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Aligning expectations in iterative analytics work means agreeing on how forecast reliability matures across releases rather than pretending early sprints equal final precision. Progressive maturity levels with uncertainty ranges set honest executive expectations. Committing to full forecasts prematurely risks credibility when models are unvalidated. Abandoning agile for a long fixed phase ignores learning benefits without negotiating a middle ground. Withholding interim results increases sponsor anxiety and contradicts agile transparency principles.",
+      "zh": "在迭代分析工作中對齊期望，意味著同意預測可靠性如何隨發布逐步成熟，而非假裝早期衝刺即具最終精度。漸進成熟度與不確定範圍可誠實設定高階期望。過早承諾完整預測會在模型未驗證時損害可信度。未協商中間方案即放棄敏捷，忽略學習效益。隱藏階段性結果會加劇發起人焦慮，也違背敏捷透明原則。"
+    },
+    "tags": ["expectation-alignment", "agile-forecasting", "incremental-delivery"]
+  },
+  {
+    "id": "PPL-0013",
+    "type": "mcq",
+    "domain": "people",
+    "task": "PPL6",
+    "approach": "hybrid",
+    "difficulty": 2,
+    "stem": {
+      "en": "You are the project manager for a retail chain point-of-sale replacement. Store managers expect zero downtime during holiday seasons, while IT expects phased cutovers aligned to maintenance windows in the predictive rollout plan. After a pilot, managers report they were surprised by training hours required. What should you do next to manage expectations?",
+      "zh": "您負責零售連鎖 POS 汰換專案。店長期望旺季零停機，IT 則依預測式推廣計畫對齊維護時窗分階段切換。試點後，店長反映培訓時數超出預期。您下一步應如何管理期望？"
+    },
+    "options": [
+      {
+        "en": "Update the stakeholder register and communications plan with pilot lessons, reconfirm downtime and training assumptions before scaling rollout.",
+        "zh": "依試點經驗更新利害關係人清冊與溝通計畫，於擴大推廣前重新確認停機與培訓假設。"
+      },
+      {
+        "en": "Proceed with the original rollout schedule and address training complaints through individual store visits after go-live.",
+        "zh": "按原推廣時程進行，上線後以逐店訪視處理培訓抱怨。"
+      },
+      {
+        "en": "Cancel phased cutovers and deploy all stores simultaneously during a single overnight window.",
+        "zh": "取消分階段切換，於單一夜間時窗同步部署所有門市。"
+      },
+      {
+        "en": "Ask store managers to adjust staffing plans silently without changing the published rollout communications.",
+        "zh": "請店長自行調整人力計畫，但不修改已發布的推廣溝通內容。"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Managing expectations after a pilot requires incorporating lessons into stakeholder records and communications before scaling. Reconfirming downtime and training assumptions prevents repeated surprises during holiday-sensitive operations. Proceeding unchanged ignores validated feedback and erodes trust with store leaders who must execute the rollout. Simultaneous deployment increases enterprise risk and conflicts with maintenance-window constraints IT depends on. Silent staffing adjustments shift burden to stores without transparent reset of shared expectations.",
+      "zh": "試點後管理期望需將經驗納入利害關係人紀錄與溝通後再擴大。重新確認停機與培訓假設可避免旺季營運再次意外。照原計畫推進忽略已驗證回饋並侵蝕須執行推廣的店長信任。同步部署增加企業風險且與 IT 所依賴的維護時窗衝突。暗中調整人力把負擔推給門市，未透明重置共同期望。"
+    },
+    "tags": ["expectation-management", "pilot-lessons", "rollout-communication"]
+  },
+  {
+    "id": "PPL-0014",
+    "type": "mcq",
+    "domain": "people",
+    "task": "PPL7",
+    "approach": "agile",
+    "difficulty": 3,
+    "stem": {
+      "en": "You are the Scrum Master on a platform team transitioning to product-led support. Two experienced developers with unique legacy integration knowledge will rotate off after the next release. Support engineers attend retrospectives but rarely contribute during knowledge-sharing sessions. What combination of actions best ensures knowledge transfer?",
+      "zh": "您是轉向產品導向支援的平台團隊 Scrum Master。兩位具獨特舊系統整合知識的資深開發人員將於下次發布後輪調。支援工程師參加回顧但很少在知識分享環節發言。哪組行動最能確保知識移轉？"
+    },
+    "options": [
+      {
+        "en": "Pair developers with support engineers on integration stories, document decisions in the team wiki, and add knowledge-sharing goals to sprint plans.",
+        "zh": "安排開發人員與支援工程師結對處理整合故事，將決策文件化於團隊知識庫，並將知識分享目標納入衝刺計畫。"
+      },
+      {
+        "en": "Rely on automated test suites alone to capture integration behavior before developers rotate off.",
+        "zh": "在開發人員輪調前，僅依自動化測試套件捕捉整合行為。"
+      },
+      {
+        "en": "Schedule a one-time exit interview with the developers and store notes in a private manager folder.",
+        "zh": "與開發人員進行一次性離職訪談，將筆記存於主管私人資料夾。"
+      },
+      {
+        "en": "Postpone developer rotation until support engineers volunteer to lead all integration work independently.",
+        "zh": "延後開發人員輪調，直至支援工程師自願能獨立主導所有整合工作。"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Knowledge transfer in agile teams works best through pairing, lightweight documentation of decisions, and explicit sprint goals that make sharing accountable. This builds support engineers' confidence to contribute in ceremonies. Tests alone capture behavior but not rationale, troubleshooting heuristics, or context for edge cases. A private exit interview excludes the support team from accessible knowledge. Postponing rotation indefinitely avoids structured transfer and may never prepare support to lead independently.",
+      "zh": "敏捷團隊的知識移轉最好透過結對、決策的輕量文件化，以及使分享可問責的明確衝刺目標。這能建立支援工程師在儀式中發言的信心。僅測試可捕捉行為，無法傳承理由、除錯經驗法則或邊界情境脈絡。私人離職訪談排除支援團隊取得可及知識。無限期延後輪調迴避結構化移轉，支援也可能永遠無法獨立主導。"
+    },
+    "tags": ["knowledge-transfer", "pairing", "sprint-planning"]
+  },
+  {
+    "id": "PPL-0015",
+    "type": "mcq",
+    "domain": "people",
+    "task": "PPL8",
+    "approach": "predictive",
+    "difficulty": 1,
+    "stem": {
+      "en": "You are the project manager for a corporate headquarters relocation. Employees, facilities vendors, and the communications department need timely updates on move waves, parking changes, and IT cutover dates. Recent all-hands emails were dense and generated hundreds of clarification questions. What should you improve in the communication plan?",
+      "zh": "您是總部搬遷專案的專案經理。員工、設施廠商與溝通部門需及時取得搬遷梯次、停車變更與 IT 切換日期。近期全員電郵過於冗長，引發數百則澄清問題。您應改進溝通計畫的哪一部分？"
+    },
+    "options": [
+      {
+        "en": "Segment audiences, define message purpose and channel for each group, and use concise targeted updates with a single FAQ reference.",
+        "zh": "區隔受眾，為各群定義訊息目的與管道，並以精簡的定向更新搭配單一常見問答參考。"
+      },
+      {
+        "en": "Increase all-hands email frequency to daily so stakeholders never miss a change.",
+        "zh": "提高全員電郵頻率至每日，使利害關係人不錯過任何變更。"
+      },
+      {
+        "en": "Route all questions through the project manager inbox before any official announcement is sent.",
+        "zh": "所有問題須經專案經理信箱過濾後，才發送正式公告。"
+      },
+      {
+        "en": "Replace written updates with monthly town halls as the only communication channel.",
+        "zh": "以每月市政廳大會取代書面更新，作為唯一溝通管道。"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Planning communication means tailoring messages, channels, and cadence to audience needs rather than broadcasting one dense email to everyone. Segmented concise updates with a FAQ reduce noise and repeat questions. Daily all-hands emails increase fatigue without improving relevance for vendors versus employees. Centralizing all questions through one inbox creates a bottleneck and delays timely announcements. Monthly town halls alone are too infrequent for move-wave and IT cutover changes requiring near-term action.",
+      "zh": "規劃溝通意指依受眾需求調整訊息、管道與頻率，而非向所有人廣播一封冗長電郵。分眾精簡更新搭配常見問答可減少雜訊與重複問題。每日全員電郵增加疲勞，對廠商與員工也未必貼切。所有問題集中至單一信箱會造成瓶頸並延遲公告。僅靠每月市政廳對需近期行動的搬遷梯次與 IT 切換而言頻率過低。"
+    },
+    "tags": ["communication-plan", "audience-segmentation", "message-clarity"]
+  },
+  {
+    "id": "PPL-0016",
+    "type": "multi",
+    "domain": "people",
+    "task": "PPL8",
+    "approach": "hybrid",
+    "difficulty": 2,
+    "stem": {
+      "en": "You are the project manager for a multinational CRM rollout using predictive configuration standards and agile localization sprints. Regional sales leaders, compliance officers, and the corporate communications team each need different message detail before major cutover weekends. Miscommunication caused duplicate customer emails in the last wave. Which two actions should you include in the updated communication plan? (Select two.)",
+      "zh": "您負責跨國 CRM 推廣，配置標準採預測式、在地化採敏捷衝刺。區域業務主管、合規人員與企業溝通團隊在重大切換週末前需要不同細節的訊息。上一波溝通失誤導致重複寄送客戶電郵。您應在更新後的溝通計畫納入哪兩項行動？（選兩項）"
+    },
+    "options": [
+      {
+        "en": "Define a RACI for customer-facing announcements so only authorized roles approve and send cutover messages.",
+        "zh": "為對客公告定義 RACI，僅授權角色可核准並發送切換訊息。"
+      },
+      {
+        "en": "Publish a shared communication calendar showing regional cutover dates, message types, and approval deadlines.",
+        "zh": "發布共用溝通月曆，標示區域切換日期、訊息類型與核准截止日。"
+      },
+      {
+        "en": "Allow each region to craft independent customer emails without central review to maximize local relevance.",
+        "zh": "允許各區自行撰寫客戶電郵且無中央審查，以最大化在地相關性。"
+      },
+      {
+        "en": "Limit all cutover communications to verbal briefings during regional sales stand-ups.",
+        "zh": "切換溝通僅限區域業務站會的口頭簡報。"
+      },
+      {
+        "en": "Send one global email template simultaneously to all customers at the start of each cutover weekend.",
+        "zh": "每次切換週末開始時，向所有客戶同步發送同一全球電郵範本。"
+      }
+    ],
+    "correct": [0, 1],
+    "selectN": 2,
+    "explanation": {
+      "en": "Duplicate customer emails indicate unclear ownership and poor timing coordination. A RACI clarifies who approves and sends external messages, preventing overlapping sends. A shared calendar aligns regions, compliance, and corporate communications on dates, message types, and approval deadlines. Independent regional emails without review recreate duplication and compliance risk. Verbal-only stand-up briefings lack audit trails and exclude compliance officers needing written approval. One simultaneous global template ignores localization needs and regional cutover phasing.",
+      "zh": "重複客戶電郵顯示責任不清與時程協調不足。RACI 釐清誰核准並發送對外訊息，避免重疊發送。共用月曆使區域、合規與企業溝通就日期、訊息類型與核准截止對齊。無審查的區域獨立電郵會再度造成重複與合規風險。僅口頭站會缺乏稽核軌跡且排除需書面核准的合規人員。同一時間的全球範本忽略在地化與分階段切換需求。"
+    },
+    "tags": ["communication-plan", "RACI", "cutover-coordination"]
+  },
+  {
+    "id": "PPL-0017",
+    "type": "multi",
+    "domain": "people",
+    "task": "PPL2",
+    "approach": "agile",
+    "difficulty": 2,
+    "stem": {
+      "en": "You are the Scrum Master for a distributed team building a payment API. A tester in Taipei and a developer in Berlin have argued for three sprints over defect prioritization, reducing retrospective participation from others. The product owner wants harmony but insists critical defects must ship fixes within the sprint. Which two responses best address this conflict? (Select two.)",
+      "zh": "您是開發支付 API 的分散團隊 Scrum Master。台北測試人員與柏林開發人員已為缺陷優先順序爭論三個衝刺，其他成員也減少參與回顧。產品負責人希望和諧，但堅持重大缺陷須在衝刺內修復。哪兩項回應最能處理此衝突？（選兩項）"
+    },
+    "options": [
+      {
+        "en": "Facilitate a working agreement session on defect triage criteria and sprint commitment boundaries.",
+        "zh": "引導工作協議會議，訂定缺陷分級準則與衝刺承諾邊界。"
+      },
+      {
+        "en": "Coach both parties privately to express interests and propose options before the next sprint planning.",
+        "zh": "私下輔導雙方表達利益訴求並提出方案，再進入下次衝刺規劃。"
+      },
+      {
+        "en": "Assign defect priority decisions exclusively to the product owner and bar testers from sprint planning discussions.",
+        "zh": "缺陷優先順序全由產品負責人決定，並禁止測試人員參與衝刺規劃討論。"
+      },
+      {
+        "en": "Rotate the tester and developer off the team to eliminate interpersonal friction.",
+        "zh": "輪調測試與開發人員離開團隊以消除人際摩擦。"
+      },
+      {
+        "en": "Skip retrospectives until the dispute resolves naturally through velocity pressure.",
+        "zh": "暫停回顧，直至速度壓力使爭議自然化解。"
+      }
+    ],
+    "correct": [0, 1],
+    "selectN": 2,
+    "explanation": {
+      "en": "Persistent conflict over triage needs structured team norms plus individual coaching to restore collaboration. A working agreement on defect criteria and sprint boundaries aligns with the product owner's quality expectations while giving testers and developers shared rules. Private coaching helps parties shift from positions to interests before planning. Excluding testers from planning removes critical quality voice and does not resolve criteria disagreements. Rotating staff avoids root cause and disrupts domain knowledge. Skipping retrospectives removes the primary forum for inspecting team dynamics.",
+      "zh": "持續的分級爭議需要結構化團隊規範加上個別輔導以恢復協作。關於缺陷準則與衝刺邊界的工作協議，符合產品負責人的品質期望，也給測試與開發共同規則。私下輔導協助雙方從立場轉向利益再進入規劃。排除測試人員會移除關鍵品質聲音且未解決準則分歧。輪調人員迴避根因並中斷領域知識傳承。暫停回顧則失去檢視團隊動態的主要場域。"
+    },
+    "tags": ["conflict-resolution", "working-agreements", "distributed-teams"]
+  },
+  {
+    "id": "PPL-0018",
+    "type": "multi",
+    "domain": "people",
+    "task": "PPL3",
+    "approach": "hybrid",
+    "difficulty": 3,
+    "stem": {
+      "en": "You are the project manager leading a combined ERP and customer portal program. Predictive ERP workstreams follow stage gates while portal squads run two-week sprints. Cross-functional leads show strong technical skills but avoid cross-workstream decisions, causing integration defects and missed dependencies. Which two leadership actions should you take? (Select two.)",
+      "zh": "您領導 ERP 與客戶入口網站合併計畫。ERP 工作流依階段關卡、入口網站小隊採雙週衝刺。跨職能負責人技術強但迴避跨工作流決策，導致整合缺陷與依賴遺漏。您應採取哪兩項領導行動？（選兩項）"
+    },
+    "options": [
+      {
+        "en": "Establish an integration cadence with decision logs linking gate milestones to sprint dependencies.",
+        "zh": "建立整合節奏與決策紀錄，連結關卡里程碑與衝刺依賴。"
+      },
+      {
+        "en": "Clarify decision rights in a hybrid governance model and hold leads accountable for cross-team commitments.",
+        "zh": "在混合治理模型中釐清決策權，並使負責人對跨團隊承諾負責。"
+      },
+      {
+        "en": "Merge all squads into one predictive team structure to eliminate agile ceremonies.",
+        "zh": "將所有小隊合併為單一預測式團隊結構以消除敏捷儀式。"
+      },
+      {
+        "en": "Reduce leadership visibility so technical leads self-resolve issues without project management involvement.",
+        "zh": "降低領導能見度，讓技術負責人在無專案管理介入下自行解決問題。"
+      },
+      {
+        "en": "Reward individual workstream velocity over integration outcomes to motivate faster delivery.",
+        "zh": "以個別工作流速度而非整合成果作為獎酬，以激勵更快交付。"
+      }
+    ],
+    "correct": [0, 1],
+    "selectN": 2,
+    "explanation": {
+      "en": "Hybrid programs fail when decision rights and integration rhythms are ambiguous. An integration cadence with decision logs connects gate milestones to sprint dependencies, making cross-workstream choices visible and timely. Clarifying governance and accountability ensures leads own commitments beyond their silos. Collapsing into pure predictive structure destroys portal learning cycles without fixing decision avoidance. Reduced leadership visibility allows defects to persist unchecked. Rewarding local velocity incentivizes ignoring dependencies, worsening integration gaps.",
+      "zh": "混合計畫在決策權與整合節奏模糊時易失敗。整合節奏與決策紀錄將關卡里程碑連結衝刺依賴，使跨工作流決策可見且及時。釐清治理與問責確保負責人承擔跨部門的承諾。全面改為預測式結構會摧毀入口網站學習循環且未解決決策迴避。降低領導能見度使缺陷持續未受控。獎酬局部速度會誘使團隊忽略依賴，加劇整合缺口。"
+    },
+    "tags": ["team-leadership", "hybrid-governance", "integration-management"]
+  },
+  {
+    "id": "PPL-0019",
+    "type": "multi",
+    "domain": "people",
+    "task": "PPL4",
+    "approach": "predictive",
+    "difficulty": 3,
+    "stem": {
+      "en": "You are managing a pharmaceutical packaging line upgrade with strict regulatory stakeholders, plant operators, and external validation consultants. Inspection dates are fixed, yet operators report they were consulted only after equipment layouts were finalized. Consultant engagement is strong, but operator resistance is delaying trial runs. Which two actions best improve stakeholder engagement? (Select two.)",
+      "zh": "您管理藥品包裝線升級，面對嚴格的法規利害關係人、廠區操作員與外部驗證顧問。查核日期已固定，但操作員反映僅在設備布局定案後才被徵詢。顧問參與充分，操作員抗拒卻延遲試運轉。哪兩項行動最能改善利害關係人參與？（選兩項）"
+    },
+    "options": [
+      {
+        "en": "Conduct structured walkthroughs with operators on proposed layouts and capture usability impacts in the requirements trace matrix.",
+        "zh": "與操作員就提案布局進行結構化現場走查，並將可用性影響納入需求追溯矩陣。"
+      },
+      {
+        "en": "Update the stakeholder engagement plan with operator influence strategies, meeting cadence, and feedback resolution owners.",
+        "zh": "更新利害關係人參與計畫，納入操作員影響策略、會議頻率與回饋處理負責人。"
+      },
+      {
+        "en": "Limit operator participation to post-validation sign-off to avoid rework on finalized designs.",
+        "zh": "操作員僅限驗證後簽核參與，以避免已定案設計返工。"
+      },
+      {
+        "en": "Redirect all operator concerns through the validation consultants since they own compliance evidence.",
+        "zh": "所有操作員疑慮改由驗證顧問處理，因其負責合規證據。"
+      },
+      {
+        "en": "Replace operator representatives mid-project with managers who were not involved in daily line work.",
+        "zh": "專案中期以未參與日常產線工作的主管替換操作員代表。"
+      }
+    ],
+    "correct": [0, 1],
+    "selectN": 2,
+    "explanation": {
+      "en": "Late operator engagement in regulated environments creates resistance that threatens fixed inspection dates. Structured walkthroughs capture usability impacts while designs can still adjust, improving buy-in and trial readiness. Updating the engagement plan with influence strategies and feedback owners institutionalizes operator voice going forward. Post-validation-only participation repeats the original mistake and ignores operational expertise. Routing concerns only through consultants treats operators as passive and delays practical resolutions. Swapping in distant managers removes frontline knowledge needed for credible trials.",
+      "zh": "受管制環境中過晚納入操作員會產生抗拒，威脅固定查核日期。結構化現場走查在設計仍可調整時捕捉可用性影響，提升認同與試運轉準備。更新參與計畫的影響策略與回饋負責人，可制度化操作員的參與管道。僅驗證後參與重犯原錯且忽略營運專業。僅經顧問轉達疑慮將操作員視為被動並延遲實務解決。換成未參與日常產線的主管會失去試運轉所需的第一線知識。"
+    },
+    "tags": ["stakeholder-engagement", "operator-involvement", "regulated-environment"]
+  },
+  {
+    "id": "PPL-0020",
+    "type": "multi",
+    "domain": "people",
+    "task": "PPL8",
+    "approach": "agile",
+    "difficulty": 3,
+    "stem": {
+      "en": "You are the release train engineer for a financial services platform with fifteen teams. Product owners complain that status updates are inconsistent, while team members say ceremonies produce duplicate information. Executives want a monthly executive digest, and auditors require traceable decision records. Which two changes should you make to the communication approach? (Select two.)",
+      "zh": "您是金融服務平台、含十五個團隊的發布火車工程師。產品負責人抱怨狀態更新不一致，團隊成員則指儀式產生重複資訊。高階主管要每月執行摘要，稽核人員要求可追溯的決策紀錄。您應對溝通方式做哪兩項調整？（選兩項）"
+    },
+    "options": [
+      {
+        "en": "Define a tiered communication matrix specifying ceremony outputs, executive digest content, and audit record repositories.",
+        "zh": "定義分層溝通矩陣，明列儀式產出、高階摘要內容與稽核紀錄儲庫。"
+      },
+      {
+        "en": "Consolidate team-level status into a single integrated dashboard fed by standardized iteration metrics.",
+        "zh": "將團隊層級狀態整合至單一儀表板，以標準化迭代指標餵入資料。"
+      },
+      {
+        "en": "Add a daily executive stand-up with all fifteen team leads to improve real-time transparency.",
+        "zh": "新增每日高階站立會議，召集十五位團隊負責人以提升即時透明度。"
+      },
+      {
+        "en": "Eliminate all written records and rely on verbal updates during program increment planning.",
+        "zh": "取消所有書面紀錄，僅於計畫增量規劃時依口頭更新。"
+      },
+      {
+        "en": "Require each team to email unique status formats to executives to preserve team autonomy.",
+        "zh": "要求各團隊以不同格式電郵狀態給高階主管，以保留團隊自主性。"
+      }
+    ],
+    "correct": [0, 1],
+    "selectN": 2,
+    "explanation": {
+      "en": "Scaled agile communication needs clear tiers so ceremonies, executive summaries, and audit trails serve distinct purposes without duplication. A communication matrix assigns what each channel produces and where records live. A standardized integrated dashboard gives consistent team-level status for product owners and feeds executive digests efficiently. Daily executive stand-ups with fifteen leads are unsustainable and duplicate ceremony content. Eliminating written records fails auditor requirements and loses traceability. Unique email formats perpetuate the inconsistency executives already complain about.",
+      "zh": "大規模敏捷溝通需清晰分層，使儀式、高階摘要與稽核軌跡各司其職且不重複。溝通矩陣指派各管道產出與紀錄存放位置。標準化整合儀表板為產品負責人提供一致團隊狀態並有效支援高階摘要。每日十五人負責人站立會不可持續且重複儀式內容。取消書面紀錄不符稽核要求且失去可追溯性。各團隊不同電郵格式會延續高階主管已抱怨的不一致。"
+    },
+    "tags": ["communication-plan", "SAFe", "executive-reporting"]
+  }
+]

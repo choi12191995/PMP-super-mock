@@ -1,0 +1,18 @@
+[
+  {
+    "id": "CASE-001",
+    "scenario": {
+      "en": "GlobalTech Solutions is a multinational corporation implementing a large-scale digital transformation program across three continents. The program involves migrating legacy systems to cloud infrastructure, implementing AI-driven analytics, and retraining 2,000 employees. The project manager has been assigned to oversee the European regional implementation, which includes offices in London, Berlin, and Madrid. The project is in its third month, and initial stakeholder feedback indicates resistance from the Berlin office due to concerns about job security. The London team is progressing well with agile sprints, while the Madrid team is following a traditional waterfall approach due to regulatory requirements. Budget allocation is EUR 4.2 million with a 12-month timeline.",
+      "zh": "GlobalTech Solutions 是一家跨國公司，正在三大洲實施大規模數位轉型計畫。該計畫涉及將傳統系統遷移至雲端基礎設施、導入 AI 驅動的分析工具，並重新培訓 2,000 名員工。專案經理被指派負責歐洲區域的實施，包括倫敦、柏林和馬德里的辦公室。專案進入第三個月，初步利害關係人回饋顯示柏林辦公室因擔心工作保障而產生抵觸。倫敦團隊以敏捷衝刺方式進展順利，而馬德里團隊因法規要求採用傳統瀑布式方法。預算為 420 萬歐元，時程為 12 個月。"
+    },
+    "questionIds": ["PPL-0001", "PPL-0004", "PRC-0001", "BE-0003"]
+  },
+  {
+    "id": "CASE-002",
+    "scenario": {
+      "en": "MedDevice Corp is developing a next-generation surgical robot that must comply with FDA regulations (21 CFR Part 820) and EU MDR requirements. The project uses a hybrid approach: hardware development follows a V-model with stage gates, while the embedded software team uses SAFe with two-week iterations. The project is midway through development, and a critical vendor supplying titanium components has announced a 6-week delivery delay due to supply chain disruptions. The quality team has identified three non-conformances in the last prototype review. The project has consumed 55% of its USD 8 million budget with 45% of deliverables completed. A new FDA guidance document on AI-enabled medical devices was released last week, potentially impacting the software architecture.",
+      "zh": "MedDevice Corp 正在開發新一代手術機器人，必須符合 FDA 法規（21 CFR Part 820）和歐盟 MDR 要求。專案採用混合式方法：硬體開發遵循 V 型模型和階段閘門，而嵌入式軟體團隊使用 SAFe，以兩週為迭代週期。專案處於開發中期，供應鈦合金零件的關鍵供應商因供應鏈中斷宣布交貨延遲 6 週。品質團隊在最近的原型審查中發現三項不合格。專案已消耗 800 萬美元預算的 55%，完成 45% 的交付物。上週 FDA 發布了關於 AI 啟用醫療設備的新指引，可能影響軟體架構。"
+    },
+    "questionIds": ["PRC-0005", "PRC-0009", "BE-0002", "BE-0005"]
+  }
+]

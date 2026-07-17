@@ -1,0 +1,557 @@
+[
+  {
+    "id": "BE-0001",
+    "type": "mcq",
+    "domain": "business",
+    "task": "BE1",
+    "approach": "predictive",
+    "difficulty": 1,
+    "stem": {
+      "en": "You are the project manager for a regulated healthcare software rollout. The steering committee asks you to define how project decisions will be made, escalated, and audited throughout the lifecycle. Which document should you reference or update first?",
+      "zh": "你擔任受監管醫療軟體導入專案的專案經理。指導委員會要求你定義專案決策在整個生命週期內如何制定、升級及稽核。你應優先參考或更新哪份文件？"
+    },
+    "options": [
+      {
+        "en": "The project governance framework that defines decision rights, escalation paths, and oversight roles",
+        "zh": "定義決策權限、升級路徑與監督角色的專案治理架構"
+      },
+      {
+        "en": "The sprint backlog so the team can prioritize governance tasks in the next iteration",
+        "zh": "衝刺待辦清單，以便團隊在下一迭代中優先處理治理工作"
+      },
+      {
+        "en": "The risk register, because governance is primarily a risk response activity",
+        "zh": "風險登錄表，因為治理主要是一項風險應對活動"
+      },
+      {
+        "en": "The communications management plan to inform stakeholders about governance meetings",
+        "zh": "溝通管理計畫，以通知利害關係人有關治理會議"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Governance establishes who decides what, how issues escalate, and how performance is overseen. The governance framework is the primary reference for these structures. Updating the sprint backlog addresses team-level work but does not define enterprise decision rights. The risk register tracks threats and responses; governance is broader than risk alone. The communications plan describes how information flows but does not establish decision authority. For a regulated environment, aligning with the governance framework ensures auditability and clear accountability before operational plans are adjusted.",
+      "zh": "治理定義誰做哪些決策、問題如何升級，以及績效如何監督。治理架構是這些結構的主要依據。更新衝刺待辦清單處理的是團隊層級工作，無法定義企業決策權限。風險登錄表追蹤威脅與應對，但治理範圍比風險更廣。溝通計畫描述資訊如何流通，卻不建立決策權限。在受監管環境中，先對齊治理架構可確保可稽核性與明確問責，再調整作業計畫。"
+    },
+    "tags": ["governance", "decision-rights"]
+  },
+  {
+    "id": "BE-0002",
+    "type": "mcq",
+    "domain": "business",
+    "task": "BE2",
+    "approach": "agile",
+    "difficulty": 2,
+    "stem": {
+      "en": "Your agile team is building a payment feature for a fintech product. Legal informs you that new anti-money-laundering regulations take effect before the next release. The product owner wants to defer compliance work to a future sprint to protect velocity. What should you do first?",
+      "zh": "你的敏捷團隊正在為金融科技產品開發支付功能。法務通知你，新的反洗錢法規將在下一版發布前生效。產品負責人希望將合規工作延後到未來衝刺以維持速度。你應首先做什麼？"
+    },
+    "options": [
+      {
+        "en": "Facilitate a discussion with legal, the product owner, and the team to assess regulatory impact and reprioritize the backlog accordingly",
+        "zh": "促進法務、產品負責人與團隊討論，評估法規影響並相應重新排序待辦清單"
+      },
+      {
+        "en": "Accept the product owner's decision because the team is self-organizing and owns the backlog",
+        "zh": "接受產品負責人的決定，因為團隊自組織且擁有待辦清單"
+      },
+      {
+        "en": "Escalate immediately to senior management without consulting the team",
+        "zh": "在未諮詢團隊的情況下立即向高階管理層升級"
+      },
+      {
+        "en": "Document the compliance gap in the lessons learned register and address it after release",
+        "zh": "在經驗教訓登錄表中記錄合規缺口，並在發布後處理"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Compliance requirements are non-negotiable constraints that must be understood before prioritization decisions. Facilitating a cross-functional discussion ensures the team understands legal obligations, evaluates trade-offs transparently, and adjusts the backlog with informed consent. Accepting deferral without analysis exposes the organization to regulatory penalties. Escalating without team input wastes time and bypasses the product owner's accountability. Recording a gap for later does not mitigate legal exposure before release. Agile teams still operate within organizational and regulatory boundaries.",
+      "zh": "合規要求是不可協商的約束，必須在優先排序前釐清。促進跨職能討論可確保團隊理解法律義務、透明評估取捨，並在充分知情下調整待辦清單。未經分析即接受延後會使組織面臨監管處罰。未徵詢團隊即升級會浪費時間並繞過產品負責人的責任。僅記錄缺口待日後處理無法在發布前降低法律風險。敏捷團隊仍須在組織與法規界限內運作。"
+    },
+    "tags": ["compliance", "regulatory"]
+  },
+  {
+    "id": "BE-0003",
+    "type": "mcq",
+    "domain": "business",
+    "task": "BE3",
+    "approach": "hybrid",
+    "difficulty": 2,
+    "stem": {
+      "en": "A hybrid ERP implementation uses a predictive baseline for infrastructure while software configuration follows two-week sprints. A change request would add a new integration module, affecting both the fixed milestone schedule and three sprint backlogs. What is the most appropriate first step?",
+      "zh": "某混合式 ERP 導入以預測式基線管理基礎設施，軟體設定則採兩週衝刺。一項變更請求將新增整合模組，同時影響固定里程碑時程與三個衝刺待辦清單。最適當的第一步是什麼？"
+    },
+    "options": [
+      {
+        "en": "Submit the change through the integrated change control process and assess impacts on both the predictive baseline and agile backlogs",
+        "zh": "透過整合變更控制流程提交變更，並評估對預測式基線與敏捷待辦清單的雙重影響"
+      },
+      {
+        "en": "Add the integration stories directly to the next sprint because agile teams embrace change",
+        "zh": "直接將整合故事加入下一衝刺，因為敏捷團隊擁抱變更"
+      },
+      {
+        "en": "Reject the change because the predictive baseline cannot be modified after approval",
+        "zh": "拒絕變更，因為預測式基線在核准後不可修改"
+      },
+      {
+        "en": "Implement the module as a workaround and update documentation at project closure",
+        "zh": "以變通方式實作模組，並在專案結束時更新文件"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Hybrid projects require a unified change control process that evaluates impacts across both predictive and adaptive work streams. Integrated change control ensures scope, schedule, cost, and backlog priorities are assessed before commitment. Adding stories without formal review bypasses governance and may breach the baseline contract. Rejecting all baseline changes ignores legitimate business needs and the purpose of change control. Workarounds create technical debt and compliance gaps. The change control board or equivalent body should decide based on a holistic impact analysis.",
+      "zh": "混合式專案需要統一的變更控制流程，評估對預測式與適應式工作流的影響。整合變更控制確保在承諾前評估範圍、時程、成本與待辦清單優先順序。未經正式審查即加入故事會繞過治理並可能違反基線合約。拒絕所有基線變更忽略合法業務需求與變更控制的目的。變通做法會產生技術債與合規缺口。變更控制委員會或同等機制應依全面影響分析做決定。"
+    },
+    "tags": ["change-control", "hybrid"]
+  },
+  {
+    "id": "BE-0004",
+    "type": "mcq",
+    "domain": "business",
+    "task": "BE4",
+    "approach": "agile",
+    "difficulty": 1,
+    "stem": {
+      "en": "During a daily stand-up, a developer reports that a third-party API license expired, blocking two in-progress stories. The scrum master asks what you, as project manager, should do first. What is the best response?",
+      "zh": "在每日站會中，一位開發者回報第三方 API 授權已到期，阻礙兩個進行中的故事。Scrum Master 詢問你作為專案經理應首先做什麼。最佳回應是什麼？"
+    },
+    "options": [
+      {
+        "en": "Work with the product owner to remove or reorder blocked stories and initiate procurement or vendor contact to restore the license",
+        "zh": "與產品負責人合作移除或重排受阻故事，並啟動採購或聯繫供應商以恢復授權"
+      },
+      {
+        "en": "Wait until the next sprint planning to address the blocker so the team can finish the stand-up quickly",
+        "zh": "等到下次衝刺規劃再處理阻礙，以便團隊快速結束站會"
+      },
+      {
+        "en": "Assign the developer to work overtime until a workaround is coded",
+        "zh": "指派開發者加班直到寫出變通方案"
+      },
+      {
+        "en": "Record the issue in the risk register and continue the sprint without changes",
+        "zh": "在風險登錄表記錄問題，並在不變更的情況下繼續衝刺"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "An expired license is an active impediment blocking delivery now, not a future risk. The project manager should help the team adapt immediately by adjusting sprint priorities and resolving the external dependency through procurement or vendor engagement. Waiting for sprint planning delays value delivery unnecessarily. Forcing overtime addresses symptoms, not the root cause, and harms sustainability. Recording it only in the risk register treats a current blocker as a hypothetical future event. Agile teams escalate impediments promptly so flow can be restored.",
+      "zh": "授權到期是當前阻礙交付的障礙，而非未來風險。專案經理應立即協助團隊調整衝刺優先順序，並透過採購或供應商聯繫解決外部依賴。等到衝刺規劃會不必要地延遲價值交付。強迫加班只處理症狀而非根本原因，並損害永續性。僅在風險登錄表記錄會把當前阻礙當成假設性事件。敏捷團隊應及時升級障礙以恢復流程。"
+    },
+    "tags": ["impediments", "blockers"]
+  },
+  {
+    "id": "BE-0005",
+    "type": "mcq",
+    "domain": "business",
+    "task": "BE5",
+    "approach": "predictive",
+    "difficulty": 3,
+    "stem": {
+      "en": "Your organization is evaluating whether to proceed with a data-center migration. The business case shows strong ROI, but a preliminary assessment reveals that a single vendor failure could cause extended downtime affecting revenue-critical systems. The sponsor wants a go/no-go decision at next week's gate review. What should you recommend?",
+      "zh": "你的組織正在評估是否進行資料中心遷移。商業案例顯示投資報酬率強勁，但初步評估顯示單一供應商故障可能導致長時間停機，影響營收關鍵系統。贊助者希望在下週關卡審查做出 go/no-go 決策。你應建議什麼？"
+    },
+    "options": [
+      {
+        "en": "Present the business case alongside a quantitative risk analysis with response strategies and recommend a conditional proceed decision pending mitigation validation",
+        "zh": "在商業案例旁呈現量化風險分析與應對策略，並建議在緩解措施驗證完成前做出有條件的 proceed 決策"
+      },
+      {
+        "en": "Recommend an immediate no-go because any single-point-of-failure risk is unacceptable",
+        "zh": "因任何單點故障風險都不可接受而建議立即 no-go"
+      },
+      {
+        "en": "Recommend proceed based on ROI alone because risk management is handled during execution",
+        "zh": "僅依 ROI 建議 proceed，因為風險管理在執行階段處理"
+      },
+      {
+        "en": "Defer the gate review until all vendor contracts are renegotiated, regardless of timeline impact",
+        "zh": "在所有供應商合約重新談判完成前延後關卡審查，不論時程影響"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Gate reviews require balanced input: benefits, costs, and risks together inform the decision. Presenting quantitative risk analysis with proposed responses allows leadership to proceed conditionally while requiring proof that mitigations are effective. An automatic no-go ignores potentially manageable risks and business value. Proceeding on ROI alone violates integrated decision-making and may create unacceptable exposure. Indefinitely deferring the review without a structured plan stalls the portfolio without resolving the underlying risk. Conditional approval with clear exit criteria is a mature governance practice.",
+      "zh": "關卡審查需要平衡輸入：效益、成本與風險共同支持決策。呈現量化風險分析與擬定應對可讓領導層有條件 proceed，同時要求證明緩解有效。自動 no-go 忽略可能可管理的風險與業務價值。僅依 ROI proceed 違反整合決策並可能產生不可接受的暴露。在無結構計畫下無限期延後審查會使組合停滯而未解決根本風險。附明確退出條件的有條件核准是成熟的治理做法。"
+    },
+    "tags": ["risk", "gate-review"]
+  },
+  {
+    "id": "BE-0006",
+    "type": "mcq",
+    "domain": "business",
+    "task": "BE6",
+    "approach": "agile",
+    "difficulty": 2,
+    "stem": {
+      "en": "After three sprints, your team's velocity is stable but customer support tickets about usability defects are rising. Retrospectives surface the same root cause—insufficient design review before coding—but no improvement sticks. What should you do next to drive continuous improvement?",
+      "zh": "三個衝刺後，團隊速率穩定，但關於可用性缺陷的客服工單增加。回顧會反覆出現相同根本原因——編碼前設計審查不足——但改善無法持續。你應如何推動持續改善？"
+    },
+    "options": [
+      {
+        "en": "Facilitate a retrospective focused on defining one measurable improvement experiment with clear ownership and review it at the next sprint retrospective",
+        "zh": "引導以定義一項可衡量的改善實驗為焦點的回顧會，明確責任並在下次衝刺回顧中檢視"
+      },
+      {
+        "en": "Replace the scrum master because retrospectives are not producing results",
+        "zh": "更換 Scrum Master，因為回顧會未產生成果"
+      },
+      {
+        "en": "Add more stories to each sprint to create pressure for higher quality",
+        "zh": "增加每衝刺故事數以施壓提高品質"
+      },
+      {
+        "en": "Skip retrospectives for two sprints to focus entirely on defect fixes",
+        "zh": "跳過兩次衝刺回顧以全力修復缺陷"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Continuous improvement works through small, owned experiments with measurable outcomes. A focused retrospective that commits to one change, assigns an owner, and inspects results at the next retro creates accountability and learning loops. Blaming the scrum master ignores systemic process gaps. Adding scope increases pressure without fixing the design review gap and typically worsens quality. Skipping retrospectives removes the very forum needed to solve recurring problems. Kaizen in agile relies on inspect-and-adapt cycles, not heroics or blame.",
+      "zh": "持續改善透過小型、有責任人的實驗與可衡量成果運作。聚焦的回顧會承諾一項變更、指定負責人並在下次回顧檢視結果，建立問責與學習循環。責怪 Scrum Master 忽略系統性流程缺口。增加範圍只施壓而未修復設計審查缺口，通常會惡化品質。跳過回顧會移除解決反覆問題的場域。敏捷中的 Kaizen 依賴檢視與調適循環，而非英雄主義或指責。"
+    },
+    "tags": ["continuous-improvement", "retrospective"]
+  },
+  {
+    "id": "BE-0007",
+    "type": "mcq",
+    "domain": "business",
+    "task": "BE7",
+    "approach": "hybrid",
+    "difficulty": 3,
+    "stem": {
+      "en": "Your company is merging two divisions, and your project will replace both divisions' legacy CRM systems with a single platform. Frontline sales staff in Division A resist the change, citing lost commission tracking features, while Division B staff are eager adopters. Executive leadership expects go-live in six months. What is the most effective approach?",
+      "zh": "公司正在合併兩個事業部，你的專案將以單一平台取代兩個事業部的舊版 CRM。A 事業部第一線業務人員以失去佣金追蹤功能為由抗拒變革，B 事業部人員則積極採用。高階領導期望六個月內上線。最有效的方法是什麼？"
+    },
+    "options": [
+      {
+        "en": "Develop a change impact assessment and targeted engagement plan that addresses Division A's specific losses while leveraging Division B champions",
+        "zh": "制定變革影響評估與針對性參與計畫，處理 A 事業部的具體損失並善用 B 事業部的變革 champion"
+      },
+      {
+        "en": "Mandate go-live on the original date and provide one generic training session for all staff",
+        "zh": "按原定日期強制上線，並為全體員工提供一場通用培訓"
+      },
+      {
+        "en": "Delay the project until Division A voluntarily accepts the new system",
+        "zh": "延後專案直到 A 事業部自願接受新系統"
+      },
+      {
+        "en": "Deploy only to Division B first and permanently exclude Division A from the rollout",
+        "zh": "先僅部署至 B 事業部並永久排除 A 事業部"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Organizational change requires understanding who is impacted, what they lose and gain, and tailoring interventions accordingly. An impact assessment with targeted engagement addresses Division A's legitimate concerns while using Division B as a positive reference group. Mandating go-live with generic training ignores resistance drivers and increases adoption failure. Waiting indefinitely for voluntary acceptance misses leadership commitments. Permanently excluding a division defeats the merger objective. Change management integrates stakeholder analysis, sponsorship, and phased readiness—not force or abandonment.",
+      "zh": "組織變革需要了解受影響者、他們失去與獲得什麼，並據此量身介入。影響評估與針對性參與可處理 A 事業部的合理顧慮，同時以 B 事業部為正向參考。強制上線加通用培訓忽略抗拒原因並提高採用失敗率。無限期等待自願接受會錯失領導承諾。永久排除一事業部違背合併目標。變革管理整合利害關係人分析、贊助與分階段就緒——而非強迫或放棄。"
+    },
+    "tags": ["organizational-change", "resistance"]
+  },
+  {
+    "id": "BE-0008",
+    "type": "mcq",
+    "domain": "business",
+    "task": "BE8",
+    "approach": "predictive",
+    "difficulty": 2,
+    "stem": {
+      "en": "Midway through a construction project, the government announces new environmental inspection requirements that will add four weeks to the approval timeline. The contract is firm fixed-price and penalties apply for late completion. What should you do first?",
+      "zh": "營造專案進行到一半，政府宣布新的環境檢查要求，將使核准時程增加四週。合約為固定總價且延遲完工有罰則。你應首先做什麼？"
+    },
+    "options": [
+      {
+        "en": "Analyze the external change impact on schedule and cost, then engage the sponsor and contract administrator about potential contract adjustments or claims",
+        "zh": "分析外部變更對時程與成本的影響，並與贊助者及合約管理員討論可能的合約調整或求償"
+      },
+      {
+        "en": "Absorb the delay internally without informing the client to preserve the relationship",
+        "zh": "在內部吸收延遲且不告知客戶以維護關係"
+      },
+      {
+        "en": "Immediately terminate the contract citing force majeure",
+        "zh": "立即以不可抗力終止合約"
+      },
+      {
+        "en": "Accelerate all remaining activities to offset the four-week delay without revising the baseline",
+        "zh": "在不修訂基線的情況下加速所有剩餘活動以抵消四週延遲"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "External environmental regulatory changes are outside the project team's control and may qualify as contract-level events. Analyzing schedule and cost impact first provides factual basis for sponsor and legal discussions about claims, change orders, or schedule relief. Hiding the delay violates transparency and may breach contract notification clauses. Terminating without analysis is premature and damages client trust. Blind crashing may increase cost and safety risk without addressing the approval bottleneck. External environment changes require formal impact assessment and stakeholder alignment.",
+      "zh": "外部環境法規變更是專案團隊無法控制的，可能構成合約層級事件。先分析時程與成本影響可為與贊助者及法務討論求償、變更令或時程寬限提供事實基礎。隱瞞延遲違反透明原則並可能違反合約通知條款。未經分析即終止過於倉促並損害客戶信任。盲目趕工可能增加成本與安全風險而未解決核准瓶頸。外部環境變更需要正式影響評估與利害關係人對齊。"
+    },
+    "tags": ["external-environment", "regulatory"]
+  },
+  {
+    "id": "BE-0009",
+    "type": "mcq",
+    "domain": "business",
+    "task": "BE1",
+    "approach": "predictive",
+    "difficulty": 2,
+    "stem": {
+      "en": "A portfolio governance board asks whether your digital transformation project aligns with the organization's strategic pillars. You need to demonstrate alignment at the next stage-gate review. Which artifact best supports this demonstration?",
+      "zh": "組合治理委員會詢問你的數位轉型專案是否與組織策略支柱對齊。你需要在下一次階段關卡審查中證明對齊。哪份產出物最能支持此證明？"
+    },
+    "options": [
+      {
+        "en": "A benefits traceability matrix linking project deliverables to strategic objectives and KPIs",
+        "zh": "將專案交付物連結至策略目標與 KPI 的效益追溯矩陣"
+      },
+      {
+        "en": "The project schedule showing critical path activities",
+        "zh": "顯示關鍵路徑活動的專案時程"
+      },
+      {
+        "en": "The team charter describing roles and responsibilities",
+        "zh": "描述角色與職責的團隊章程"
+      },
+      {
+        "en": "The issue log listing open defects",
+        "zh": "列出未關閉缺陷的問題日誌"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Governance boards evaluate strategic alignment through traceable benefits, not operational detail alone. A benefits traceability matrix explicitly maps deliverables to strategic pillars and measurable outcomes, answering the board's question directly. The schedule shows timing but not strategic value. The team charter defines internal roles, not organizational alignment. The issue log reflects execution problems, not strategic fit. Portfolio governance requires evidence that investments deliver intended organizational value.",
+      "zh": "治理委員會透過可追溯的效益評估策略對齊，而非僅看營運細節。效益追溯矩陣明確將交付物對應策略支柱與可衡量成果，直接回答委員會問題。時程顯示時間點而非策略價值。團隊章程定義內部角色，非組織對齊。問題日誌反映執行問題，非策略契合。組合治理需要投資能交付預期組織價值的證據。"
+    },
+    "tags": ["governance", "benefits-realization"]
+  },
+  {
+    "id": "BE-0010",
+    "type": "mcq",
+    "domain": "business",
+    "task": "BE2",
+    "approach": "predictive",
+    "difficulty": 1,
+    "stem": {
+      "en": "Your project handles personally identifiable information (PII) for EU customers. The compliance officer asks you to confirm that data processing activities are documented before user acceptance testing begins. Which project document should already contain this information?",
+      "zh": "你的專案處理歐盟客戶的個人識別資訊（PII）。合規長要求你確認在使用者驗收測試開始前已記錄資料處理活動。哪份專案文件應已包含此資訊？"
+    },
+    "options": [
+      {
+        "en": "The compliance management plan or data protection appendix within the project management plan",
+        "zh": "合規管理計畫或專案管理計畫中的資料保護附錄"
+      },
+      {
+        "en": "The sprint review minutes from the last iteration",
+        "zh": "上一迭代的衝刺審查會議紀錄"
+      },
+      {
+        "en": "The resource histogram showing team availability",
+        "zh": "顯示團隊可用性的資源直方圖"
+      },
+      {
+        "en": "The stakeholder engagement assessment matrix",
+        "zh": "利害關係人參與評估矩陣"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Compliance requirements for PII processing must be planned and documented before testing exposes real data. The compliance management plan or data protection appendix defines lawful processing, retention, and controls aligned with regulations such as GDPR. Sprint review minutes capture iteration demos, not regulatory compliance. Resource histograms show staffing, not data governance. The stakeholder matrix tracks engagement levels, not legal data obligations. Predictive projects embed compliance planning in the integrated project management plan from the start.",
+      "zh": "PII 處理的合規要求必須在測試暴露真實資料前規劃並記錄。合規管理計畫或資料保護附錄定義合法處理、保留與控制，對齊 GDPR 等法規。衝刺審查紀錄迭代展示，非監管合規。資源直方圖顯示人力，非資料治理。利害關係人矩陣追蹤參與程度，非法律資料義務。預測式專案從一開始就在整合專案管理計畫中嵌入合規規劃。"
+    },
+    "tags": ["compliance", "GDPR"]
+  },
+  {
+    "id": "BE-0011",
+    "type": "mcq",
+    "domain": "business",
+    "task": "BE3",
+    "approach": "agile",
+    "difficulty": 3,
+    "stem": {
+      "en": "A key stakeholder submits a change request during sprint execution asking for a new reporting dashboard. The product owner agrees it is valuable but the team estimates it exceeds remaining sprint capacity. The stakeholder threatens to withdraw funding if not delivered this sprint. What should you do?",
+      "zh": "關鍵利害關係人在衝刺執行中提交變更請求，要求新增報表儀表板。產品負責人認同有價值，但團隊估計超出剩餘衝刺容量。利害關係人威脅若本衝刺未交付將撤回資金。你應怎麼做？"
+    },
+    "options": [
+      {
+        "en": "Support the product owner in facilitating a transparent trade-off discussion, documenting scope swap options and escalating funding concerns to the sponsor if needed",
+        "zh": "支持產品負責人引導透明的取捨討論，記錄範圍交換選項，必要時將資金疑慮升級至贊助者"
+      },
+      {
+        "en": "Instruct the team to work weekends to deliver the dashboard without removing any committed work",
+        "zh": "指示團隊週末加班交付儀表板且不移除任何已承諾工作"
+      },
+      {
+        "en": "Accept the change silently and defer previously committed stories without stakeholder notification",
+        "zh": "默默接受變更並在未通知利害關係人的情況下延後已承諾故事"
+      },
+      {
+        "en": "Reject the stakeholder's request outright because scope is frozen during a sprint",
+        "zh": "因衝刺期間範圍凍結而直接拒絕利害關係人請求"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Agile change control protects sprint commitments while enabling transparent negotiation. The product owner owns backlog prioritization; the project manager facilitates stakeholder communication and escalates business-level threats like funding withdrawal to the sponsor. Forcing overtime without scope trade-offs violates sustainable pace and likely fails quality standards. Silently swapping scope breaks trust with stakeholders whose stories were deferred. Outright rejection ignores legitimate business value and damages relationships. The correct path balances agility with governance through visible trade-off decisions.",
+      "zh": "敏捷變更控制在保護衝刺承諾的同時促成透明協商。產品負責人擁有待辦清單優先排序；專案經理促進利害關係人溝通並將資金撤回等業務層威脅升級至贊助者。在無範圍取捨下強迫加班違反永續節奏且可能未達品質標準。默默交換範圍會破壞被延後故事利害關係人的信任。直接拒絕忽略合法業務價值並損害關係。正確路徑透過可見的取捨決策平衡敏捷與治理。"
+    },
+    "tags": ["change-control", "stakeholder-pressure"]
+  },
+  {
+    "id": "BE-0012",
+    "type": "mcq",
+    "domain": "business",
+    "task": "BE4",
+    "approach": "hybrid",
+    "difficulty": 2,
+    "stem": {
+      "en": "In a hybrid product launch, the predictive workstream is on schedule but the agile team discovered a critical security flaw that requires two extra sprints to fix. Marketing has already announced the launch date publicly. What should you do first?",
+      "zh": "在混合式產品上市專案中，預測式工作流按時程進行，但敏捷團隊發現需額外兩個衝刺修復的關鍵安全漏洞。行銷已公開宣布上市日期。你應首先做什麼？"
+    },
+    "options": [
+      {
+        "en": "Convene a cross-workstream issue review with the sponsor, security, and marketing to assess impact and determine whether the launch date must change",
+        "zh": "召集跨工作流問題審查，與贊助者、資安及行銷評估影響並決定上市日期是否必須變更"
+      },
+      {
+        "en": "Release on the announced date with a plan to patch the security flaw post-launch",
+        "zh": "按宣布日期發布並計畫上市後修補安全漏洞"
+      },
+      {
+        "en": "Cancel the agile workstream and transfer security fixes to the predictive team",
+        "zh": "取消敏捷工作流並將安全修復轉交預測式團隊"
+      },
+      {
+        "en": "Instruct marketing to proceed while the development team works in secret to meet the date",
+        "zh": "指示行銷繼續進行，同時開發團隊秘密趕工以赶上日期"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "A critical security flaw is a business-level issue affecting launch readiness, not merely a team impediment. Cross-workstream review brings together sponsor authority, security expertise, and marketing commitments to make an informed decision. Releasing with a known critical flaw creates legal, reputational, and customer harm. Canceling an agile workstream mid-flight disrupts established ownership without guaranteed speed gains. Secret crunching hides risk from stakeholders who need accurate information. Issue management at this scale requires transparent escalation and integrated decision-making.",
+      "zh": "關鍵安全漏洞是影響上市就緒度的業務層級問題，非僅團隊障礙。跨工作流審查匯集贊助者權威、資安專業與行銷承諾以做出知情決策。在已知關鍵漏洞下發布會造成法律、聲譽與客戶損害。中途取消敏捷工作流會擾亂既定責任且無法保證加速。秘密趕工向需準確資訊的利害關係人隱藏風險。此規模的問題管理需要透明升級與整合決策。"
+    },
+    "tags": ["impediments", "security"]
+  },
+  {
+    "id": "BE-0013",
+    "type": "multi",
+    "domain": "business",
+    "task": "BE5",
+    "approach": "hybrid",
+    "difficulty": 3,
+    "selectN": 2,
+    "stem": {
+      "en": "Your organization uses a hybrid delivery model for a cloud migration. The risk manager asks you to identify TWO activities that should occur during project initiation to establish effective risk management. Which two should you select?",
+      "zh": "你的組織以混合式交付模式進行雲端遷移。風險經理要求你指出兩項應在專案啟動階段進行以建立有效風險管理的活動。你應選哪兩項？"
+    },
+    "options": [
+      {
+        "en": "Facilitate a risk identification workshop with cross-functional stakeholders including operations and security",
+        "zh": "與包含營運及資安在內的跨職能利害關係人舉辦風險識別工作坊"
+      },
+      {
+        "en": "Define risk thresholds and escalation criteria aligned with organizational risk appetite",
+        "zh": "定義與組織風險偏好對齊的風險閾值與升級準則"
+      },
+      {
+        "en": "Close all identified risks before the first sprint begins",
+        "zh": "在第一次衝刺開始前關閉所有已識別風險"
+      },
+      {
+        "en": "Transfer all technical risks to the cloud vendor via contract and stop tracking them",
+        "zh": "透過合約將所有技術風險轉移給雲端供應商並停止追蹤"
+      },
+      {
+        "en": "Wait until the first retrospective to begin risk discussions",
+        "zh": "等到第一次回顧會才開始風險討論"
+      }
+    ],
+    "correct": [0, 1],
+    "explanation": {
+      "en": "Effective risk management begins at initiation with broad identification and clear governance parameters. A cross-functional workshop surfaces threats early from diverse perspectives. Defining thresholds and escalation criteria aligns project risk handling with organizational appetite before execution starts. Closing all risks at initiation is impossible—many risks are ongoing and require monitoring. Transferring all technical risk to a vendor ignores residual and secondary risks the organization still owns. Deferring risk discussions to a retrospective misses the planning window when response strategies are cheapest to implement.",
+      "zh": "有效風險管理在啟動階段以廣泛識別與明確治理參數開始。跨職能工作坊從多元觀點早期浮現威脅。定義閾值與升級準則使專案風險處理在執行前與組織偏好對齊。在啟動時關閉所有風險不可能——許多風險持續存在需監控。將所有技術風險轉移給供應商忽略組織仍須承擔的殘餘與次生風險。延後至回顧會才討論風險會錯過規劃窗口，屆時應對策略成本最低。"
+    },
+    "tags": ["risk", "initiation"]
+  },
+  {
+    "id": "BE-0014",
+    "type": "multi",
+    "domain": "business",
+    "task": "BE7",
+    "approach": "agile",
+    "difficulty": 1,
+    "selectN": 2,
+    "stem": {
+      "en": "Your agile team is adopting a new CI/CD pipeline that changes how developers deploy code. Several senior developers are skeptical. As project manager, which TWO actions best support organizational change in this context?",
+      "zh": "你的敏捷團隊正在採用改變開發者部署方式的新 CI/CD 管線。幾位資深開發者持懷疑態度。作為專案經理，哪兩項行動最能在這情境下支持組織變革？"
+    },
+    "options": [
+      {
+        "en": "Involve skeptical developers early in pilot design and incorporate their feedback into rollout plans",
+        "zh": "讓持懷疑態度的開發者早期參與試點設計並將其回饋納入推廣計畫"
+      },
+      {
+        "en": "Identify and empower team members who successfully adopt the pipeline to mentor others",
+        "zh": "找出成功採用管線的團隊成員並授權其指導他人"
+      },
+      {
+        "en": "Mandate immediate full adoption and remove access to the legacy deployment process on day one",
+        "zh": "第一天即強制全面採用並移除舊版部署流程的存取權"
+      },
+      {
+        "en": "Exclude skeptical developers from pipeline decisions to avoid delays",
+        "zh": "排除持懷疑態度的開發者參與管線決策以避免延遲"
+      },
+      {
+        "en": "Postpone the change until every developer voluntarily agrees",
+        "zh": "延後變革直到每位開發者自願同意"
+      }
+    ],
+    "correct": [0, 1],
+    "explanation": {
+      "en": "Organizational change succeeds through participation and peer influence. Involving skeptics in pilot design converts resistance into ownership and surfaces practical concerns early. Empowering early adopters as mentors leverages social proof within the team. Mandating day-one cutover without support creates fear and workarounds. Excluding skeptics reinforces opposition and loses valuable expertise. Waiting for unanimous voluntary agreement stalls improvement indefinitely. Agile change management favors incremental adoption with coaching, not coercion or exclusion.",
+      "zh": "組織變革透過參與與同儕影響成功。讓懷疑者參與試點設計將抗拒轉為主人翁意識並早期浮現實務顧慮。授權早期採用者擔任導師可運用團隊內社會證明。第一天強制切換且無支援會產生恐懼與變通做法。排除懷疑者強化對立並失去寶貴專業。等待全員自願同意會無限期阻礙改善。敏捷變革管理偏好漸進採用與輔導，而非強迫或排除。"
+    },
+    "tags": ["organizational-change", "adoption"]
+  },
+  {
+    "id": "BE-0015",
+    "type": "multi",
+    "domain": "business",
+    "task": "BE8",
+    "approach": "predictive",
+    "difficulty": 2,
+    "selectN": 2,
+    "stem": {
+      "en": "A predictive infrastructure project sources critical components from a supplier in a region experiencing geopolitical instability. Select TWO actions you should take to address external environment risks.",
+      "zh": "某預測式基礎設施專案從地緣政治不穩定區域的供應商採購關鍵元件。請選兩項你應採取以應對外部環境風險的行動。"
+    },
+    "options": [
+      {
+        "en": "Develop alternative sourcing options and document them in the risk register with assigned owners",
+        "zh": "發展替代採購方案並在風險登錄表中記錄並指定負責人"
+      },
+      {
+        "en": "Increase inventory buffer or secure advance purchase agreements for long-lead components",
+        "zh": "增加庫存緩衝或為長交期元件簽訂預購協議"
+      },
+      {
+        "en": "Ignore geopolitical news because the contract penalizes the supplier for late delivery",
+        "zh": "忽略地緣政治新聞，因合約對供應商延遲交付有罰則"
+      },
+      {
+        "en": "Reduce project scope to eliminate all externally sourced components",
+        "zh": "縮減專案範圍以消除所有外部採購元件"
+      },
+      {
+        "en": "Wait until a supply disruption occurs before taking any action",
+        "zh": "等到供應中斷發生後才採取任何行動"
+      }
+    ],
+    "correct": [0, 1],
+    "explanation": {
+      "en": "External environment risks require proactive mitigation before disruptions materialize. Alternative sourcing with documented owners provides a ready fallback if the primary supplier becomes unavailable. Inventory buffers or advance purchase agreements protect against supply chain delays beyond contractual penalties, which cannot restore lost time. Ignoring geopolitical signals is reactive and naive—penalties do not prevent physical disruption. Eliminating all external components is usually infeasible and may invalidate the business case. Waiting for disruption converts a manageable risk into a certain issue.",
+      "zh": "外部環境風險需在中斷發生前主動緩解。有記錄負責人的替代採購在主要供應商不可用時提供備援。庫存緩衝或預購協議可防範合約罰則無法挽回的供應鏈延遲。忽略地緣政治訊號是被動且天真的——罰則無法防止實體中斷。消除所有外部元件通常不可行且可能使商業案例失效。等待中斷發生會把可管理風險變成確定問題。"
+    },
+    "tags": ["external-environment", "supply-chain"]
+  }
+]

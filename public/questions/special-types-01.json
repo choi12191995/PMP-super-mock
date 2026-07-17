@@ -1,0 +1,392 @@
+[
+  {
+    "id": "SPE-0001",
+    "type": "matching",
+    "domain": "business",
+    "task": "BE1",
+    "approach": "predictive",
+    "difficulty": 2,
+    "stem": {
+      "en": "Match each governance concept on the left with its correct description on the right.",
+      "zh": "將左側各治理概念與右側正確描述配對。"
+    },
+    "left": [
+      {
+        "en": "Stage gate",
+        "zh": "階段關卡"
+      },
+      {
+        "en": "Decision rights matrix",
+        "zh": "決策權限矩陣"
+      },
+      {
+        "en": "Benefits owner",
+        "zh": "效益負責人"
+      },
+      {
+        "en": "Audit trail",
+        "zh": "稽核軌跡"
+      }
+    ],
+    "right": [
+      {
+        "en": "Documents who is accountable for realizing measurable value after delivery",
+        "zh": "記錄誰在交付後負責實現可衡量的價值"
+      },
+      {
+        "en": "A checkpoint where predefined criteria determine whether work continues, changes, or stops",
+        "zh": "依預定準則決定工作是否繼續、變更或停止的檢查點"
+      },
+      {
+        "en": "A chronological record of decisions and changes for compliance review",
+        "zh": "供合規審查用的決策與變更時序記錄"
+      },
+      {
+        "en": "A table specifying which role may approve, recommend, or be informed about decisions",
+        "zh": "指明各角色可核准、建議或僅需知會決策的表格"
+      }
+    ],
+    "correct": [1, 3, 0, 2],
+    "explanation": {
+      "en": "A stage gate is a formal checkpoint in phase-gate or predictive governance where deliverables are evaluated against criteria before the next phase is funded. A decision rights matrix (often RACI-based) clarifies approval authority to prevent bottlenecks and unauthorized decisions. The benefits owner remains accountable for value realization after the project team disbands. An audit trail provides traceability of decisions and changes for regulatory or internal compliance. Confusing these concepts leads to unclear accountability and governance gaps.",
+      "zh": "階段關卡是階段式或預測式治理中的正式檢查點，在下一階段獲得資金前依準則評估交付物。決策權限矩陣（常基於 RACI）釐清核准權限，避免瓶頸與未授權決策。效益負責人在專案團隊解散後仍對價值實現負責。稽核軌跡提供決策與變更的可追溯性以供監管或內部合規。混淆這些概念會導致問責不清與治理缺口。"
+    },
+    "tags": ["matching-concepts", "governance"]
+  },
+  {
+    "id": "SPE-0002",
+    "type": "matching",
+    "domain": "people",
+    "task": "PPL4",
+    "approach": "hybrid",
+    "difficulty": 2,
+    "stem": {
+      "en": "Match each stakeholder engagement tool on the left with its primary purpose on the right.",
+      "zh": "將左側各利害關係人參與工具與右側主要用途配對。"
+    },
+    "left": [
+      {
+        "en": "Power/interest grid",
+        "zh": "權力/利益方格"
+      },
+      {
+        "en": "Salience model",
+        "zh": "顯著性模型"
+      },
+      {
+        "en": "Stakeholder register",
+        "zh": "利害關係人登錄表"
+      },
+      {
+        "en": "Engagement assessment matrix",
+        "zh": "參與評估矩陣"
+      }
+    ],
+    "right": [
+      {
+        "en": "Tracks current vs. desired engagement levels (C, D, E, I, L, N, T, U)",
+        "zh": "追蹤目前與期望參與程度（C、D、E、I、L、N、T、U）"
+      },
+      {
+        "en": "Central repository of stakeholder identification and key attributes",
+        "zh": "利害關係人識別與關鍵屬性的中央儲存庫"
+      },
+      {
+        "en": "Classifies stakeholders by power, urgency, and legitimacy",
+        "zh": "依權力、緊迫性與正當性分類利害關係人"
+      },
+      {
+        "en": "Plots stakeholders by level of authority and level of concern about outcomes",
+        "zh": "依權威程度與對成果關注程度繪製利害關係人"
+      }
+    ],
+    "correct": [3, 2, 1, 0],
+    "explanation": {
+      "en": "The power/interest grid maps stakeholders by authority and concern, guiding whether to manage closely, keep satisfied, keep informed, or monitor. The salience model adds urgency and legitimacy to power for prioritization. The stakeholder register is the foundational document listing identified stakeholders and their attributes. The engagement assessment matrix compares current and desired engagement states using codes such as Unaware, Resistant, Neutral, and Supportive. Using the wrong tool for the wrong purpose—for example, treating the register as an engagement strategy—leads to incomplete stakeholder management.",
+      "zh": "權力/利益方格依權威與關注程度繪製利害關係人，指導應密切管理、保持滿意、保持知會或監控。顯著性模型在權力基礎上加入緊迫性與正當性以排定優先順序。利害關係人登錄表是列出已識別利害關係人及其屬性的基礎文件。參與評估矩陣以不知悉、抗拒、中立、支持等代碼比較目前與期望參與狀態。誤用工具——例如把登錄表當參與策略——會導致利害關係人管理不完整。"
+    },
+    "tags": ["matching-concepts", "stakeholders"]
+  },
+  {
+    "id": "SPE-0003",
+    "type": "hotspot",
+    "domain": "process",
+    "task": "PRC8",
+    "approach": "predictive",
+    "difficulty": 2,
+    "stem": {
+      "en": "Your project team identified a risk that a key subcontractor may default, causing a three-month delay on the critical path. The probability is assessed as low, but the schedule impact is high. Click the area on the risk matrix that represents where this risk should be plotted.",
+      "zh": "你的專案團隊識別出一項風險：關鍵分包商可能違約，導致關鍵路徑延遲三個月。機率評估為低，但時程影響為高。請點選風險矩陣上代表此風險應繪製位置的區域。"
+    },
+    "media": "risk-matrix.svg",
+    "regions": [
+      {
+        "id": "r1",
+        "label": {
+          "en": "High Impact / High Probability",
+          "zh": "高影響 / 高機率"
+        }
+      },
+      {
+        "id": "r2",
+        "label": {
+          "en": "High Impact / Low Probability",
+          "zh": "高影響 / 低機率"
+        }
+      },
+      {
+        "id": "r3",
+        "label": {
+          "en": "Low Impact / High Probability",
+          "zh": "低影響 / 高機率"
+        }
+      },
+      {
+        "id": "r4",
+        "label": {
+          "en": "Low Impact / Low Probability",
+          "zh": "低影響 / 低機率"
+        }
+      }
+    ],
+    "correct": ["r2"],
+    "explanation": {
+      "en": "A risk matrix plots each risk based on its assessed probability and impact. Here, low probability combined with high schedule impact places the subcontractor default risk in the high-impact, low-probability quadrant. Risks in this quadrant often warrant contingency planning or fallback suppliers even though they are unlikely. High/high risks demand immediate active management. Low/high probability-impact combinations typically receive monitoring only. Low/low risks may be accepted or documented with minimal response. Correct placement ensures the team allocates appropriate response effort.",
+      "zh": "風險矩陣依評估機率與影響繪製各項風險。此處低機率加上高時程影響，將分包商違約風險置於高影響、低機率象限。此象限風險雖不太可能，常仍需應變計畫或備援供應商。高/高風險需立即主動管理。低影響/高機率組合通常僅監控。低/低風險可接受或僅最小應對。正確定位確保團隊分配適當的應對資源。"
+    },
+    "tags": ["risk-matrix", "schedule"]
+  },
+  {
+    "id": "SPE-0004",
+    "type": "hotspot",
+    "domain": "business",
+    "task": "BE5",
+    "approach": "hybrid",
+    "difficulty": 3,
+    "stem": {
+      "en": "During a portfolio risk review, your project has a regulatory compliance risk: new data privacy rules may require rework costing $500K (high financial impact) with a medium likelihood of enactment before go-live. Click the quadrant on the risk matrix where this risk belongs.",
+      "zh": "在組合風險審查中，你的專案有一項監管合規風險：新資料隱私法規可能在 go-live 前生效，需耗資 50 萬美元返工（高財務影響），生效可能性為中等。請點選此風險所屬的風險矩陣象限。"
+    },
+    "media": "risk-matrix.svg",
+    "regions": [
+      {
+        "id": "r1",
+        "label": {
+          "en": "High Impact / High Probability",
+          "zh": "高影響 / 高機率"
+        }
+      },
+      {
+        "id": "r2",
+        "label": {
+          "en": "High Impact / Low Probability",
+          "zh": "高影響 / 低機率"
+        }
+      },
+      {
+        "id": "r3",
+        "label": {
+          "en": "Low Impact / High Probability",
+          "zh": "低影響 / 高機率"
+        }
+      },
+      {
+        "id": "r4",
+        "label": {
+          "en": "Low Impact / Low Probability",
+          "zh": "低影響 / 低機率"
+        }
+      }
+    ],
+    "correct": ["r1"],
+    "explanation": {
+      "en": "Medium probability paired with high financial impact places this compliance risk in the high-impact, high-probability quadrant on a standard 3×3 or similar matrix where medium maps to the upper range. Risks here require active mitigation—such as designing for compliance early, engaging legal counsel, and building schedule contingency. High impact with low probability would suggest contingency reserves only. Low impact risks receive lighter treatment regardless of probability. Misplacing a high-priority regulatory risk leads to inadequate budget and schedule reserves.",
+      "zh": "中等機率加上高財務影響，在標準 3×3 或類似矩陣（中等對應較高區間）中將此合規風險置於高影響、高機率象限。此處風險需主動緩解——如早期合規設計、法務參與及時程緩衝。高影響低機率僅需應變儲備。低影響風險不論機率均較輕處理。誤置高優先監管風險會導致預算與時程儲備不足。"
+    },
+    "tags": ["risk-matrix", "compliance"]
+  },
+  {
+    "id": "SPE-0005",
+    "type": "pulldown",
+    "domain": "process",
+    "task": "PRC6",
+    "approach": "predictive",
+    "difficulty": 1,
+    "stem": {
+      "en": "Complete the following earned value formulas: The Cost Performance Index (CPI) is calculated as {{b1}}, and a Schedule Performance Index (SPI) less than 1.0 indicates the project is {{b2}}.",
+      "zh": "完成以下實獲值公式：成本績效指數（CPI）的計算方式為 {{b1}}，而時程績效指數（SPI）小於 1.0 表示專案 {{b2}}。"
+    },
+    "blanks": [
+      {
+        "id": "b1",
+        "options": [
+          {
+            "en": "EV / AC",
+            "zh": "EV / AC"
+          },
+          {
+            "en": "AC / EV",
+            "zh": "AC / EV"
+          },
+          {
+            "en": "EV / PV",
+            "zh": "EV / PV"
+          }
+        ],
+        "correct": 0
+      },
+      {
+        "id": "b2",
+        "options": [
+          {
+            "en": "behind schedule",
+            "zh": "進度落後"
+          },
+          {
+            "en": "over budget",
+            "zh": "超出預算"
+          },
+          {
+            "en": "ahead of schedule",
+            "zh": "進度超前"
+          }
+        ],
+        "correct": 0
+      }
+    ],
+    "explanation": {
+      "en": "CPI equals Earned Value divided by Actual Cost (EV/AC). A CPI above 1.0 means work is being accomplished for less cost than planned; below 1.0 means over budget. SPI equals EV divided by Planned Value (EV/PV), not CPI's formula—confusing the two is a common exam trap. SPI below 1.0 means less work was completed than planned by that date, indicating the project is behind schedule. SPI above 1.0 means ahead of schedule. Over budget is indicated by CPI below 1.0, not SPI.",
+      "zh": "CPI 等於實獲值除以實際成本（EV/AC）。CPI 大於 1.0 表示以低於計畫成本完成工作；小於 1.0 表示超出預算。SPI 等於 EV 除以計畫價值（EV/PV），非 CPI 公式——混淆兩者是常見考題陷阱。SPI 小於 1.0 表示截至該日完成工作少於計畫，即進度落後。SPI 大於 1.0 表示進度超前。超出預算由 CPI 小於 1.0 表示，非 SPI。"
+    },
+    "tags": ["EVM", "formulas"]
+  },
+  {
+    "id": "SPE-0006",
+    "type": "pulldown",
+    "domain": "process",
+    "task": "PRC9",
+    "approach": "agile",
+    "difficulty": 2,
+    "stem": {
+      "en": "Complete the agile metrics statements: When the team's velocity {{b1}} over consecutive sprints, it most likely indicates a stable, predictable delivery rate. A product backlog item that meets the Definition of Ready should be {{b2}} before sprint planning.",
+      "zh": "完成以下敏捷指標敘述：當團隊速率在多個連續衝刺中 {{b1}} 時，最可能表示交付速率穩定且可預測。符合就緒定義（Definition of Ready）的產品待辦項目應在衝刺規劃前 {{b2}}。"
+    },
+    "blanks": [
+      {
+        "id": "b1",
+        "options": [
+          {
+            "en": "remains relatively consistent",
+            "zh": "保持相對一致"
+          },
+          {
+            "en": "doubles each sprint",
+            "zh": "每衝刺加倍"
+          },
+          {
+            "en": "drops to zero",
+            "zh": "降至零"
+          }
+        ],
+        "correct": 0
+      },
+      {
+        "id": "b2",
+        "options": [
+          {
+            "en": "estimated and understood by the team",
+            "zh": "已由團隊估算且理解"
+          },
+          {
+            "en": "coded and tested",
+            "zh": "已編碼並測試"
+          },
+          {
+            "en": "deployed to production",
+            "zh": "已部署至正式環境"
+          }
+        ],
+        "correct": 0
+      }
+    ],
+    "explanation": {
+      "en": "Stable velocity across sprints enables reliable forecasting and is a sign of a mature, predictable agile team. Velocity that doubles each sprint is unrealistic and suggests measurement error or scope inconsistency. Zero velocity indicates the team completed no story points—an anomaly, not stability. The Definition of Ready ensures backlog items are estimated, sized, and understood before entering sprint planning; they should not already be coded, tested, or deployed—that happens during the sprint. Pulldown items test precise understanding of agile planning gates versus execution activities.",
+      "zh": "跨衝刺穩定速率使預測可靠，是成熟可預測敏捷團隊的跡象。每衝刺加倍不切實際且暗示衡量錯誤或範圍不一致。零速率表示團隊未完成故事點——是異常而非穩定。就緒定義確保待辦項目在進入衝刺規劃前已估算、定大小且被理解；不應已編碼、測試或部署——那在衝刺中進行。下拉題測試對敏捷規劃關卡與執行活動的精確理解。"
+    },
+    "tags": ["agile-metrics", "velocity"]
+  },
+  {
+    "id": "SPE-0007",
+    "type": "graphic-mcq",
+    "domain": "process",
+    "task": "PRC9",
+    "approach": "agile",
+    "difficulty": 2,
+    "stem": {
+      "en": "Based on the sprint burn-down chart shown, the ideal line trends toward zero while the actual line remains flat above zero for the last four days of a two-week sprint. What is the most likely conclusion?",
+      "zh": "根據所示衝刺燃盡圖，理想線朝零下降，但實際線在兩週衝刺的最後四天保持平坦且高於零。最可能的結論是什麼？"
+    },
+    "media": "burndown-chart.svg",
+    "options": [
+      {
+        "en": "The team is unlikely to complete all committed sprint work and should discuss scope adjustment with the product owner",
+        "zh": "團隊不太可能完成所有已承諾的衝刺工作，應與產品負責人討論範圍調整"
+      },
+      {
+        "en": "The team is ahead of schedule and should pull additional stories from the product backlog",
+        "zh": "團隊進度超前，應從產品待辦清單拉入更多故事"
+      },
+      {
+        "en": "The flat line indicates perfect progress matching the ideal trend",
+        "zh": "平坦線表示進度完美符合理想趨勢"
+      },
+      {
+        "en": "The burn-down chart is invalid and should be discarded without team discussion",
+        "zh": "燃盡圖無效，應在未與團隊討論的情況下丟棄"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "A burn-down chart tracks remaining work over time. When the actual line flattens while the ideal line continues descending, remaining work is not decreasing—indicating blocked or incomplete stories. With only days left in the sprint, completing all committed work is unlikely without scope negotiation. A flat line above zero is not ahead of schedule; ahead would show actual below ideal. It does not match the ideal trend—the lines diverge. Discarding the chart ignores a valuable signal; the team should inspect and adapt, discussing impediments and scope with the product owner.",
+      "zh": "燃盡圖追蹤剩餘工作隨時間變化。實際線平坦而理想線持續下降，表示剩餘工作未減少——暗示受阻或未完成故事。衝刺僅剩數日，若不協商範圍很難完成所有承諾工作。零以上平坦線並非超前；超前應為實際線低於理想線。也不符合理想趨勢——兩線分歧。丟棄圖表忽略寶貴訊號；團隊應檢視並調適，與產品負責人討論障礙與範圍。"
+    },
+    "tags": ["burndown-chart", "agile-metrics"]
+  },
+  {
+    "id": "SPE-0008",
+    "type": "graphic-mcq",
+    "domain": "people",
+    "task": "PPL3",
+    "approach": "hybrid",
+    "difficulty": 3,
+    "stem": {
+      "en": "The RACI chart shown assigns one team member as Accountable (A) for integration testing while four members are Responsible (R) for executing test cases. During execution, the accountable person is unavailable for two weeks. Based on the chart and team leadership principles, what should the project manager do?",
+      "zh": "所示 RACI 圖將一位團隊成員指定為整合測試的當責者（A），四位成員負責（R）執行測試案例。執行期間當責者請假兩週。依 RACI 圖與團隊領導原則，專案經理應怎麼做？"
+    },
+    "media": "raci-chart.svg",
+    "options": [
+      {
+        "en": "Designate a temporary accountable delegate and communicate the change to all R and C roles before testing proceeds",
+        "zh": "指定暫時當責代理人，並在測試繼續前將變更通知所有 R 與 C 角色"
+      },
+      {
+        "en": "Cancel all integration testing until the accountable person returns",
+        "zh": "在當責者返回前取消所有整合測試"
+      },
+      {
+        "en": "Allow responsible members to self-decide without a designated accountable person",
+        "zh": "允許負責成員在無指定當責者的情況下自行決定"
+      },
+      {
+        "en": "Reassign all responsible roles to the project manager for the two-week period",
+        "zh": "在兩週期間將所有負責角色重新指派給專案經理"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "RACI defines exactly one Accountable role per activity—the person who ultimately answers for correct completion. When that person is unavailable, leadership requires designating a delegate to preserve decision authority and avoid gaps. Cancelling testing ignores project schedule commitments without exploring alternatives. Allowing responsible members to operate without accountability violates RACI principles and creates confusion over approvals. Reassigning all responsible work to the project manager micromanages execution roles and overloads the PM. Effective team leadership maintains clear accountability even during absences.",
+      "zh": "RACI 定義每項活動僅一位當責者——對正確完成負最終責任的人。當該人不可用時，領導力要求指定代理人以維持決策權限並避免缺口。取消測試在未探索替代方案下忽略時程承諾。允許負責成員在無當責者下運作違反 RACI 原則並造成核准混淆。將所有負責工作重新指派給專案經理是微觀管理執行角色並使 PM 超載。有效團隊領導在缺席期間仍維持明確問責。"
+    },
+    "tags": ["RACI", "team-leadership"]
+  }
+]

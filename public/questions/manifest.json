@@ -1,0 +1,18 @@
+{
+  "version": "0.1.0",
+  "counts": {
+    "total": 68,
+    "people": 22,
+    "process": 29,
+    "business": 17
+  },
+  "chunks": [
+    { "file": "people-01.json", "domain": "people", "count": 20, "hash": "seed" },
+    { "file": "process-01.json", "domain": "process", "count": 25, "hash": "seed" },
+    { "file": "business-01.json", "domain": "business", "count": 15, "hash": "seed" },
+    { "file": "special-types-01.json", "domain": "process", "count": 8, "hash": "seed" }
+  ],
+  "cases": [
+    { "file": "cases-01.json", "count": 2 }
+  ]
+}

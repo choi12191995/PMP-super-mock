@@ -1,0 +1,927 @@
+[
+  {
+    "id": "PRC-0001",
+    "type": "mcq",
+    "domain": "process",
+    "task": "PRC1",
+    "approach": "predictive",
+    "difficulty": 1,
+    "stem": {
+      "en": "You are managing a hospital expansion using a predictive approach. The sponsor asks why the project management plan must be approved before baseline work begins. The team has already drafted subsidiary plans for scope, schedule, and cost. Several functional managers want to start procurement immediately to avoid delays. What should you do first?",
+      "zh": "你正以預測式方法管理一項醫院擴建專案。贊助者詢問為何必須在開始基準化工作前先核准專案管理計畫。團隊已草擬範疇、時程與成本等子計畫，數位職能經理希望立即啟動採購以避免延遲。你首先應該做什麼？"
+    },
+    "options": [
+      {
+        "en": "Integrate the subsidiary plans into the project management plan and obtain formal approval before executing procurement",
+        "zh": "將各子計畫整合成專案管理計畫，並在執行採購前取得正式核准"
+      },
+      {
+        "en": "Authorize procurement for long-lead items while the project management plan is finalized in parallel",
+        "zh": "在專案管理計畫定稿的同時，先授權長交期項目的採購"
+      },
+      {
+        "en": "Submit only the schedule management plan for approval because it drives all other activities",
+        "zh": "僅提交時程管理計畫以供核准，因為它驅動所有其他活動"
+      },
+      {
+        "en": "Escalate to the PMO to override the approval requirement given the schedule pressure",
+        "zh": "因時程壓力而向 PMO 升級，要求豁免核准要求"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "The project management plan integrates all subsidiary plans and baselines and must be approved before execution in a predictive lifecycle. Option A aligns with integrated change control and the principle that work is directed by the approved plan. Option B bypasses governance and creates rework if the integrated plan changes procurement assumptions. Option C is incomplete because the schedule plan alone does not represent the full integrated baseline. Option D incorrectly treats approval as optional; the PMO supports standards but does not replace sponsor or governance approval.",
+      "zh": "專案管理計畫整合所有子計畫與基準，在預測式生命週期中必須先獲核准才能執行。選項 A 符合整合變更控制，且工作應依已核准計畫推進。選項 B 繞過治理，若整合計畫改變採購假設將造成返工。選項 C 不完整，僅時程計畫無法代表完整整合基準。選項 D 錯誤地將核准視為可選；PMO 支援標準但無法取代贊助者或治理機制的核准。"
+    },
+    "tags": ["integrated-management", "project-management-plan", "baseline"]
+  },
+  {
+    "id": "PRC-0002",
+    "type": "mcq",
+    "domain": "process",
+    "task": "PRC1",
+    "approach": "agile",
+    "difficulty": 2,
+    "stem": {
+      "en": "You lead a cross-functional agile team delivering a mobile banking feature. Mid-sprint, the product owner proposes adding a fraud-alert notification that was not in the sprint goal. Developers estimate it will consume most remaining capacity. The scrum master suggests deferring it, but compliance insists it is urgent. What is the best approach to protect delivery while addressing the concern?",
+      "zh": "你帶領跨職能敏捷團隊交付行動銀行功能。衝刺中期，產品負責人提議加入未納入衝刺目標的詐欺警示通知。開發人員估計將耗用大部分剩餘產能。Scrum Master 建議延後，但合規單位堅稱緊急。在兼顧交付與顧慮下，最佳做法是什麼？"
+    },
+    "options": [
+      {
+        "en": "Facilitate a discussion with the product owner to reprioritize the backlog and adjust the sprint only through agreed agile planning practices",
+        "zh": "與產品負責人促成討論，重新排序待辦清單，並僅透過雙方同意的敏捷規劃做法調整衝刺"
+      },
+      {
+        "en": "Accept the new work immediately because compliance requirements always override the sprint goal",
+        "zh": "立即接受新工作，因合規要求永遠優先於衝刺目標"
+      },
+      {
+        "en": "Complete the current sprint goal and add the notification silently without updating the backlog",
+        "zh": "完成現有衝刺目標，並在未更新待辦清單的情況下悄悄加入通知功能"
+      },
+      {
+        "en": "Cancel the sprint and restart planning with a new team composition",
+        "zh": "取消衝刺並以更換團隊組成的方式重新規劃"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "In agile delivery, scope changes are managed through transparent backlog prioritization and collaborative planning, not unilateral insertion of work. Option A preserves the integrated delivery approach by engaging the product owner and using proper replanning. Option B ignores team capacity and sprint commitment without negotiation. Option C hides scope change, breaking traceability and stakeholder trust. Option D is disproportionate; a single urgent item does not require canceling the sprint or re-forming the team.",
+      "zh": "敏捷交付中，範疇變更應透過透明的待辦清單排序與協作規劃管理，而非單方面插入工作。選項 A 透過與產品負責人協作並採正確重規劃，維護整合交付方式。選項 B 在未協商下忽略團隊產能與衝刺承諾。選項 C 隱藏範疇變更，破壞可追溯性與利害關係人信任。選項 D 過度反應；單一緊急項目不應取消衝刺或重組團隊。"
+    },
+    "tags": ["agile-delivery", "backlog-prioritization", "integrated-management"]
+  },
+  {
+    "id": "PRC-0003",
+    "type": "mcq",
+    "domain": "process",
+    "task": "PRC2",
+    "approach": "predictive",
+    "difficulty": 2,
+    "stem": {
+      "en": "During a predictive ERP implementation, business analysts present a 120-page requirements document. Stakeholders disagree on whether several features belong in Phase 1 or a future release. The sponsor wants a signed scope baseline before design starts next week. The team has not yet decomposed deliverables. What should you do next to establish scope?",
+      "zh": "在預測式 ERP 實施期間，業務分析師提出 120 頁需求文件。利害關係人對若干功能是否屬於第一階段或未來版本意見分歧。贊助者希望在下週設計開始前簽署範疇基準。團隊尚未分解可交付成果。你下一步應如何建立範疇？"
+    },
+    "options": [
+      {
+        "en": "Facilitate scope definition workshops to clarify deliverables, document exclusions, and obtain stakeholder acceptance before creating the WBS",
+        "zh": "促成範疇定義工作坊以釐清可交付成果、記錄排除項目，並在建立 WBS 前取得利害關係人認可"
+      },
+      {
+        "en": "Build the WBS immediately from the requirements document and resolve disagreements during testing",
+        "zh": "立即依需求文件建立 WBS，並在測試階段解決分歧"
+      },
+      {
+        "en": "Approve Phase 1 scope based on the sponsor's verbal direction to protect the schedule",
+        "zh": "依贊助者口頭指示核准第一階段範疇，以保障時程"
+      },
+      {
+        "en": "Defer scope decisions until the procurement contract is signed with the ERP vendor",
+        "zh": "延後範疇決策，直到與 ERP 廠商簽署採購合約"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Scope must be clearly defined and accepted before the WBS and scope baseline are created. Option A addresses conflicting stakeholder expectations through structured definition and explicit exclusions. Option B baselines unclear scope, guaranteeing change requests and rework later. Option C lacks formal acceptance and traceability required for a scope baseline. Option D incorrectly ties scope definition to procurement timing; vendor contracts should reflect agreed scope, not define it.",
+      "zh": "範疇必須在建立 WBS 與範疇基準前先清楚定義並獲認可。選項 A 透過結構化定義與明確排除項目，處理利害關係人期望分歧。選項 B 將不明確範疇基準化，必然導致後續變更請求與返工。選項 C 缺乏範疇基準所需的正式認可與可追溯性。選項 D 錯誤地將範疇定義綁定採購時機；合約應反映已同意範疇，而非反過來定義範疇。"
+    },
+    "tags": ["scope-management", "wbs", "requirements"]
+  },
+  {
+    "id": "PRC-0004",
+    "type": "mcq",
+    "domain": "process",
+    "task": "PRC2",
+    "approach": "predictive",
+    "difficulty": 1,
+    "stem": {
+      "en": "A construction project has an approved scope baseline and WBS dictionary. The architect submits a change to relocate a mechanical room, which would shift several work packages. The contractor asks you to implement the change immediately to avoid idle crews. No change request has been submitted. What should you do?",
+      "zh": "某建案已有核准的範疇基準與 WBS 詞典。建築師提交變更，將機房移位，會影響多個工作包。承包商要求你立即實施變更，以免施工隊閒置。目前尚未提交變更請求。你應該怎麼做？"
+    },
+    "options": [
+      {
+        "en": "Direct the team to follow the perform integrated change control process before implementing any scope change",
+        "zh": "要求團隊在實施任何範疇變更前，先遵循執行整合變更控制流程"
+      },
+      {
+        "en": "Approve the relocation verbally and update the WBS after construction catches up",
+        "zh": "口頭核准移位，並等施工趕上後再更新 WBS"
+      },
+      {
+        "en": "Reject the change because the scope baseline cannot be modified after approval",
+        "zh": "拒絕變更，因範疇基準核准後不可修改"
+      },
+      {
+        "en": "Implement the change and absorb the cost impact within the management reserve",
+        "zh": "直接實施變更，並以管理儲備吸收成本影響"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Approved baselines can change, but only through integrated change control that evaluates impact on scope, schedule, cost, and other constraints. Option A is correct. Option B creates scope creep and undocumented baseline drift. Option C is wrong because baselines are controlled, not frozen forever. Option D implements change without analysis and misuses management reserve, which requires formal approval for unknown-unknown risks, not uncontrolled scope changes.",
+      "zh": "已核准基準可以變更，但必須透過整合變更控制，評估對範疇、時程、成本等限制因素的影響。選項 A 正確。選項 B 造成範疇潛變與基準漂移且缺乏文件。選項 C 錯誤，基準是受控而非永久凍結。選項 D 在未分析下實施變更，且誤用管理儲備——該儲備用於未知風險，而非未受控的範疇變更。"
+    },
+    "tags": ["scope-management", "change-control", "wbs"]
+  },
+  {
+    "id": "PRC-0005",
+    "type": "mcq",
+    "domain": "process",
+    "task": "PRC3",
+    "approach": "agile",
+    "difficulty": 2,
+    "stem": {
+      "en": "Your agile team delivers incremental value for a subscription analytics platform. After three releases, usage data shows customers rarely open advanced dashboards, but they heavily use export features added as a quick experiment. The product owner wants to drop the dashboard epic and invest in export enhancements. Some developers argue the original roadmap must be preserved. What should you recommend?",
+      "zh": "你的敏捷團隊為訂閱式分析平台增量交付價值。三次發布後，使用數據顯示客戶很少開啟進階儀表板，但大量使用實驗性快速上線的匯出功能。產品負責人希望下架儀表板史詩，改投資匯出強化。部分開發人員認為必須維持原路線圖。你應建議什麼？"
+    },
+    "options": [
+      {
+        "en": "Use validated learning from customer usage to reprioritize the backlog toward features that deliver measurable value",
+        "zh": "依客戶使用情況的驗證式學習，重新排序待辦清單，聚焦可衡量價值的功能"
+      },
+      {
+        "en": "Continue the dashboard epic because abandoning it would waste prior sprint investment",
+        "zh": "繼續儀表板史詩，因放棄會浪費先前衝刺投入"
+      },
+      {
+        "en": "Freeze the backlog until the original business case is re-approved by finance",
+        "zh": "凍結待辦清單，直到財務重新核准原始商業案例"
+      },
+      {
+        "en": "Split the team so one group finishes the roadmap while another handles exports",
+        "zh": "拆分團隊，一組完成原路線圖，另一組處理匯出功能"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Value-based delivery emphasizes maximizing outcomes using feedback and empirical data rather than clinging to outdated plans. Option A aligns with agile principles of adapting based on validated learning. Option B commits the sunk-cost fallacy and may deliver low-value features. Option C blocks responsiveness and ignores current customer evidence. Option D adds complexity without resolving the fundamental prioritization question and may dilute focus.",
+      "zh": "以價值為基礎的交付強調依回饋與實證數據最大化成果，而非固守過時計畫。選項 A 符合敏捷依驗證式學習調整的原則。選項 B 落入沉沒成本謬誤，可能交付低價值功能。選項 C 阻礙應變並忽略現有客戶證據。選項 D 增加複雜度卻未解決優先排序根本問題，且可能分散焦點。"
+    },
+    "tags": ["value-delivery", "backlog-prioritization", "agile"]
+  },
+  {
+    "id": "PRC-0006",
+    "type": "mcq",
+    "domain": "process",
+    "task": "PRC3",
+    "approach": "hybrid",
+    "difficulty": 3,
+    "stem": {
+      "en": "A hybrid program combines a fixed regulatory compliance deadline with iterative customer-facing modules. The steering committee measures success only by on-time regulatory submission, while the business sponsor tracks net promoter score improvements from released modules. Teams conflict over whether to cut a high-value module to protect the regulatory workstream. What should you do to align value delivery?",
+      "zh": "某混合式計畫結合固定法規合規截止日與迭代式客戶模組。指導委員會僅以準時提交法規成果衡量成功，業務贊助者則追蹤已發布模組的淨推薦值提升。團隊對是否刪減高價值模組以保護法規工作流產生衝突。你應如何對齊價值交付？"
+    },
+    "options": [
+      {
+        "en": "Facilitate agreement on value measures and decision rules that balance mandatory compliance outcomes with prioritized incremental benefits",
+        "zh": "促成對價值衡量與決策規則的共識，平衡強制合規成果與優先排序的增量效益"
+      },
+      {
+        "en": "Defer all customer modules until regulatory submission is complete regardless of business impact",
+        "zh": "不論業務影響，將所有客戶模組延後至法規提交完成"
+      },
+      {
+        "en": "Let each workstream optimize locally and report independently at phase gates",
+        "zh": "讓各工作流自行最佳化並在階段關卡獨立報告"
+      },
+      {
+        "en": "Rebaseline the program to a purely predictive model to eliminate iteration",
+        "zh": "將計畫重訂基準為純預測式模式以消除迭代"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Hybrid environments require explicit alignment on what value means across fixed and adaptive elements. Option A establishes shared decision criteria so trade-offs are governed rather than debated ad hoc. Option B may sacrifice significant business value without evaluating relative priority and risk. Option C creates suboptimization and conflicting messages to stakeholders. Option D ignores the deliberate hybrid design and may reduce responsiveness without solving the measurement conflict.",
+      "zh": "混合式環境需明確對齊固定與適應性元素下的價值定義。選項 A 建立共同決策準則，使取捨受治理而非臨時爭論。選項 B 可能在未評估相對優先序與風險下犧牲重大業務價值。選項 C 造成次級最佳化與對利害關係人的矛盾訊息。選項 D 忽略刻意的混合設計，可能降低應變能力卻未解決衡量衝突。"
+    },
+    "tags": ["value-delivery", "hybrid", "benefits-realization"]
+  },
+  {
+    "id": "PRC-0007",
+    "type": "mcq",
+    "domain": "process",
+    "task": "PRC4",
+    "approach": "predictive",
+    "difficulty": 3,
+    "stem": {
+      "en": "You manage a global software rollout with specialists in three time zones. Two senior engineers are assigned 80% to your project and 40% to another initiative, causing recurring bottlenecks on critical design tasks. Functional managers refuse additional headcount, citing budget caps. Milestone quality reviews are slipping. What is the most appropriate action to manage resources?",
+      "zh": "你管理跨三個時區的全球軟體推廣專案。兩名資深工程師 80% 投入本專案、40% 投入另一計畫，導致關鍵設計任務反覆瓶頸。職能經理以預算上限為由拒絕增員。里程碑品質審查一再延後。管理資源最適當的做法是什麼？"
+    },
+    "options": [
+      {
+        "en": "Negotiate with functional managers to clarify priorities, adjust allocations, and update the resource management plan with escalation if conflicts persist",
+        "zh": "與職能經理協商釐清優先序、調整配置，並更新資源管理計畫；若衝突持續則升級處理"
+      },
+      {
+        "en": "Replace both engineers with junior staff to reduce dependency on shared resources",
+        "zh": "以初階人員替換兩名工程師，以降低對共享資源的依賴"
+      },
+      {
+        "en": "Extend the schedule silently and keep the current allocations unchanged",
+        "zh": "悄悄延長時程並維持現有配置不變"
+      },
+      {
+        "en": "Hire contractors immediately without consulting the resource management plan or procurement process",
+        "zh": "立即雇用承包商，且未參考資源管理計畫或採購流程"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Resource conflicts in a matrix organization are resolved through negotiation, clear priorities, and updates to the resource management plan, with escalation when needed. Option A addresses root cause: over-allocation and competing commitments. Option B may introduce quality and schedule risk on critical design work without fixing allocation policy. Option C hides the problem from stakeholders and baselines. Option D skips planned acquisition steps and may violate budget or procurement constraints.",
+      "zh": "矩陣式組織中的資源衝突應透過協商、明確優先序與更新資源管理計畫解決，必要時升級。選項 A 處理根本原因：過度配置與多重承諾。選項 B 可能在關鍵設計工作引入品質與時程風險，且未修正配置政策。選項 C 向利害關係人與基準隱藏問題。選項 D 跳過規劃中的取得步驟，可能違反預算或採購限制。"
+    },
+    "tags": ["resource-management", "matrix-organization", "negotiation"]
+  },
+  {
+    "id": "PRC-0008",
+    "type": "mcq",
+    "domain": "process",
+    "task": "PRC4",
+    "approach": "agile",
+    "difficulty": 1,
+    "stem": {
+      "en": "An agile team of seven developers, two testers, and one UX designer consistently fails to finish committed sprint backlog items. Retrospectives reveal that team members are pulled daily into production support for another product. The product owner wants full velocity next sprint. What should you do first?",
+      "zh": "七名開發、兩名測試與一名 UX 設計師組成的敏捷團隊經常無法完成承諾的衝刺待辦項目。回顧會議顯示成員每日被拉去支援另一產品的維運。產品負責人希望下個衝刺恢復完整速率。你首先應做什麼？"
+    },
+    "options": [
+      {
+        "en": "Work with functional managers and the product owner to protect team capacity by limiting interruptions and confirming dedicated resource commitments",
+        "zh": "與職能經理及產品負責人合作，限制干擾並確認專責資源承諾，以保護團隊產能"
+      },
+      {
+        "en": "Increase the sprint commitment to motivate the team to work longer hours",
+        "zh": "提高衝刺承諾量以激勵團隊加班"
+      },
+      {
+        "en": "Remove testers from the team so developers can move faster",
+        "zh": "移除測試人員，讓開發人員加速"
+      },
+      {
+        "en": "Switch to individual assignments so each member is accountable for specific stories",
+        "zh": "改為個人分派，讓每位成員對特定故事負責"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Stable, dedicated team capacity is essential for predictable agile delivery. Option A addresses the real constraint: external interruptions and unclear resource dedication. Option B ignores capacity limits and risks burnout without fixing allocation. Option C undermines cross-functional delivery and quality by removing testing from the flow. Option D contradicts agile teamwork and shared ownership, often reducing collaboration and throughput rather than improving it.",
+      "zh": "穩定且專責的團隊產能是敏捷可預測交付的關鍵。選項 A 處理真正限制：外部干擾與資源承諾不明。選項 B 忽略產能上限，在未修正配置下冒燃盡風險。選項 C 削弱跨職能交付與品質。選項 D 與敏捷團隊合作及共同責任相悖，常降低協作與產出。"
+    },
+    "tags": ["resource-management", "agile-teams", "capacity"]
+  },
+  {
+    "id": "PRC-0009",
+    "type": "mcq",
+    "domain": "process",
+    "task": "PRC5",
+    "approach": "hybrid",
+    "difficulty": 2,
+    "stem": {
+      "en": "Your hybrid infrastructure project must procure cloud services under a firm deadline while agile squads iterate integration patterns. Procurement wants a single three-year fixed-price contract for cost certainty. Technical leads need flexibility to change service tiers as learning emerges. Legal has drafted standard terms. What should you do before signing?",
+      "zh": "你的混合式基礎設施專案須在固定截止日前採購雲端服務，同時敏捷小隊迭代整合模式。採購單位希望簽三年固定總價合約以確保成本。技術負責人需依學習結果調整服務層級。法務已草擬標準條款。簽署前你應做什麼？"
+    },
+    "options": [
+      {
+        "en": "Analyze procurement requirements and recommend a contract structure that balances cost control with permitted scope and tier adjustments",
+        "zh": "分析採購需求，建議在成本控管與允許的範疇及層級調整之間取得平衡的合約結構"
+      },
+      {
+        "en": "Sign the fixed-price contract immediately to lock pricing before vendor rates increase",
+        "zh": "立即簽署固定總價合約，在廠商調價前鎖定價格"
+      },
+      {
+        "en": "Delay procurement until agile squads finalize every integration detail",
+        "zh": "延後採購，直到敏捷小隊定稿所有整合細節"
+      },
+      {
+        "en": "Use verbal agreements with the vendor and formalize the contract after go-live",
+        "zh": "與廠商口頭協議，上線後再正式簽約"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Procurement in hybrid projects should align contract type with uncertainty and delivery approach. Option A evaluates trade-offs and seeks a structure such as framework agreements or change provisions that support iteration. Option B may block necessary adjustments and increase change-order friction. Option C ignores schedule constraints and procurement lead times. Option D creates legal and performance risk without enforceable terms.",
+      "zh": "混合式專案的採購應使合約類型與不確定性及交付方式一致。選項 A 評估取捨，尋求如框架協議或變更條款等可支援迭代的結構。選項 B 可能阻礙必要調整並增加變更單摩擦。選項 C 忽略時程限制與採購前置時間。選項 D 在缺乏可執行條款下造成法律與績效風險。"
+    },
+    "tags": ["procurement", "contracts", "hybrid"]
+  },
+  {
+    "id": "PRC-0010",
+    "type": "mcq",
+    "domain": "process",
+    "task": "PRC5",
+    "approach": "predictive",
+    "difficulty": 2,
+    "stem": {
+      "en": "During source selection for a data center build, you receive three vendor proposals. Vendor A has the lowest price but weak references on similar scale. Vendor B is highest priced with strong technical scores. Vendor C is mid-priced and meets mandatory requirements. Evaluation criteria were published in the procurement documents. The sponsor pressures you to choose Vendor A. What should you do?",
+      "zh": "資料中心建置的供應商選擇階段，你收到三份提案。廠商 A 價格最低但類似規模參考資料薄弱。廠商 B 價格最高但技術評分強。廠商 C 中等價格且符合強制要求。評選標準已公布於採購文件。贊助者施壓選 A。你應怎麼做？"
+    },
+    "options": [
+      {
+        "en": "Complete the structured evaluation against published criteria and document the recommendation with supporting scores before any award decision",
+        "zh": "依已公布標準完成結構化評選，並在任何決標前先文件化建議與支持性評分"
+      },
+      {
+        "en": "Award Vendor A immediately to maintain sponsor support and capture savings",
+        "zh": "立即決標給廠商 A，以維持贊助者支持並取得節省"
+      },
+      {
+        "en": "Negotiate with Vendor B to match Vendor A's price without re-scoring proposals",
+        "zh": "與廠商 B 議價至 A 的價格，且不重新評分提案"
+      },
+      {
+        "en": "Cancel the procurement and sole-source Vendor C to shorten the timeline",
+        "zh": "取消採購並單一來源指定廠商 C 以縮短時程"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Source selection must follow documented evaluation criteria to ensure fairness, compliance, and defensible decisions. Option A applies the planned process and transparent scoring before any award. Option B introduces bias and may select a vendor unable to deliver, increasing total cost of ownership. Option C skips proper evaluation and may violate procurement policy or miss technical risks. Option D bypasses competitive selection without a justified sole-source rationale required by governance.",
+      "zh": "供應商選擇必須遵循文件化評選標準，以確保公平、合規與可辯護的決策。選項 A 套用規劃流程與透明評分。選項 B 引入偏見，可能選到無法交付的廠商並提高總持有成本。選項 C 跳過正當評選且可能違反採購政策。選項 D 在未具正當單一來源理由下繞過競爭性選擇。"
+    },
+    "tags": ["procurement", "source-selection", "vendor-management"]
+  },
+  {
+    "id": "PRC-0011",
+    "type": "mcq",
+    "domain": "process",
+    "task": "PRC6",
+    "approach": "agile",
+    "difficulty": 2,
+    "stem": {
+      "en": "An agile product initiative is funded through quarterly releases with a fixed team burn rate. After two sprints, analytics show feature adoption below forecast, while cloud costs rose due to unplanned load testing environments. Finance requests a revised forecast before approving the next funding tranche. What should you provide?",
+      "zh": "某敏捷產品計畫以固定團隊燃盡率按季撥款。兩個衝刺後，分析顯示功能採用率低於預測，雲端成本因未規劃的負載測試環境而上升。財務要求在核准下一期撥款前先收到修訂預測。你應提供什麼？"
+    },
+    "options": [
+      {
+        "en": "Update cost and benefit forecasts using actual sprint data, explain variances, and propose funding aligned with revised value assumptions",
+        "zh": "依實際衝刺數據更新成本與效益預測、說明差異，並提出與修訂價值假設一致的撥款建議"
+      },
+      {
+        "en": "Request the same funding tranche because agile projects should not reforecast mid-release",
+        "zh": "要求相同撥款，因敏捷專案不應在發布中期重估"
+      },
+      {
+        "en": "Stop load testing to reduce costs without discussing impact on quality or release readiness",
+        "zh": "停止負載測試以降低成本，且不討論對品質或發布準備度的影響"
+      },
+      {
+        "en": "Transfer cloud costs to the vendor's account without updating the financial baseline",
+        "zh": "將雲端成本轉至廠商帳戶，且不更新財務基準"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Financial management in agile contexts still requires transparent forecasting based on empirical performance and value trends. Option A connects actuals to funding decisions responsibly. Option B ignores evidence and may undermine trust with finance stakeholders. Option C is a local cost cut that may increase defect risk without integrated analysis. Option D misallocates costs and fails to address forecasting and governance requirements.",
+      "zh": "敏捷情境下的財務管理仍需依實證績效與價值趨勢透明預測。選項 A 負責地將實際數據連結撥款決策。選項 B 忽略證據，可能損害與財務利害關係人的信任。選項 C 是局部降本，可能在缺乏整合分析下提高缺陷風險。選項 D 錯誤分攤成本，且未滿足預測與治理要求。"
+    },
+    "tags": ["financial-management", "forecasting", "agile"]
+  },
+  {
+    "id": "PRC-0012",
+    "type": "mcq",
+    "domain": "process",
+    "task": "PRC6",
+    "approach": "hybrid",
+    "difficulty": 3,
+    "stem": {
+      "en": "A hybrid program reports BAC of $4.2M. At month eight, cumulative EV is $2.1M, AC is $2.4M, and PV is $2.3M. The predictive workstream is complete, but adaptive modules continue. The CFO asks whether additional funding is needed and whether performance will recover without scope reduction. Which analysis best supports your response?",
+      "zh": "某混合式計畫 BAC 為 420 萬美元。第八個月累計 EV 210 萬、AC 240 萬、PV 230 萬。預測式工作流已完成，但適應性模組仍在進行。CFO 詢問是否需要追加預算，以及在不縮減範疇下績效能否回升。哪項分析最能支持你的回覆？"
+    },
+    "options": [
+      {
+        "en": "Calculate CPI, SPI, EAC, and ETC using EVM, then interpret trends separately for completed and remaining adaptive work",
+        "zh": "以 EVM 計算 CPI、SPI、EAC 與 ETC，並分別解讀已完成與剩餘適應性工作的趨勢"
+      },
+      {
+        "en": "Compare AC to BAC only and request contingency if AC exceeds 50% of BAC",
+        "zh": "僅比較 AC 與 BAC，若 AC 超過 BAC 50% 即申請應急費"
+      },
+      {
+        "en": "Report that EVM is invalid for hybrid projects and rely solely on sprint burndown charts",
+        "zh": "主張混合式專案不適用 EVM，僅依衝刺燃盡圖報告"
+      },
+      {
+        "en": "Use PV alone to prove the project is on budget because EV equals half of BAC",
+        "zh": "僅用 PV 證明專案在預算內，因 EV 等於 BAC 的一半"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "EVM provides integrated cost and schedule performance indices and forecast completion costs. Option A uses CPI ($0.875), SPI ($0.913), and EAC formulas to inform funding decisions while noting different workstreams. Option B ignores schedule performance and earned value, leading to incomplete conclusions. Option C incorrectly dismisses EVM; hybrid programs still benefit from EVM on measurable deliverables supplemented by agile metrics. Option D misuses PV and ignores cost overrun shown by AC exceeding EV.",
+      "zh": "EVM 提供整合的成本與時程績效指標及完工預測成本。選項 A 運用 CPI（0.875）、SPI（0.913）與 EAC 公式支持撥款決策，並註明不同工作流。選項 B 忽略時程績效與實獲值，結論不完整。選項 C 錯誤否定 EVM；混合式計畫仍可在可衡量可交付成果上使用 EVM，並輔以敏捷指標。選項 D 誤用 PV，且忽略 AC 高於 EV 所顯示的成本超支。"
+    },
+    "tags": ["evm", "financial-management", "forecasting"]
+  },
+  {
+    "id": "PRC-0013",
+    "type": "mcq",
+    "domain": "process",
+    "task": "PRC7",
+    "approach": "predictive",
+    "difficulty": 2,
+    "stem": {
+      "en": "A medical device project must comply with strict regulatory quality standards. Inspections find recurring documentation errors in batch records despite team checklists. The quality manager proposes additional peer reviews, while operations wants to skip reviews to hit a launch date. The defect rate remains above the quality metric threshold in the quality management plan. What should you do?",
+      "zh": "某醫療器材專案須符合嚴格法規品質標準。稽核發現批次紀錄文件錯誤反覆發生，儘管團隊已有查檢表。品質經理建議增加同儕審查，營運單位則想跳過審查以趕上市日。缺陷率仍高於品質管理計畫中的品質指標門檻。你應怎麼做？"
+    },
+    "options": [
+      {
+        "en": "Implement corrective actions aligned with the quality management plan and analyze root causes before accepting schedule trade-offs",
+        "zh": "依品質管理計畫實施矯正措施，並在接受時程取捨前先分析根本原因"
+      },
+      {
+        "en": "Approve launch and plan to fix documentation errors in a post-release patch",
+        "zh": "核准上市，並計畫在發布後修補文件錯誤"
+      },
+      {
+        "en": "Remove quality metrics from status reports to avoid alarming regulators",
+        "zh": "從狀態報告移除品質指標，以免驚動監管單位"
+      },
+      {
+        "en": "Replace the quality manager with operations staff to accelerate decisions",
+        "zh": "以營運人員替換品質經理以加速決策"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Quality is managed through planned processes, metrics, and corrective action rather than bypassing standards for schedule. Option A follows the quality management plan and addresses systemic causes. Option B exposes regulatory and patient safety risk and violates quality policy. Option C is unethical and destroys transparency with stakeholders and auditors. Option D eliminates independent quality oversight and does not resolve the defect pattern.",
+      "zh": "品質應透過規劃流程、指標與矯正措施管理，而非為時程繞過標準。選項 A 遵循品質管理計畫並處理系統性根本原因。選項 B 帶來法規與病患安全風險且違反品質政策。選項 C 不道德且破壞對利害關係人與稽核者的透明度。選項 D 移除獨立品質監督，且未解決缺陷模式。"
+    },
+    "tags": ["quality-management", "corrective-action", "metrics"]
+  },
+  {
+    "id": "PRC-0014",
+    "type": "mcq",
+    "domain": "process",
+    "task": "PRC7",
+    "approach": "agile",
+    "difficulty": 1,
+    "stem": {
+      "en": "Your agile team defines Definition of Done including automated tests and peer review. Several stories were marked done last sprint but failed staging tests, forcing rework in the current sprint. Developers say pressure to demo to stakeholders caused them to skip tests. The product owner wants the same velocity next sprint. What should you do?",
+      "zh": "你的敏捷團隊定義完成定義（DoD），包含自動化測試與同儕審查。上個衝刺多個故事標記完成卻未通過預備環境測試，迫使本衝刺返工。開發人員稱因對利害關係人 demo 的壓力而跳過測試。產品負責人希望下衝刺維持相同速率。你應怎麼做？"
+    },
+    "options": [
+      {
+        "en": "Reinforce the Definition of Done in sprint planning and ensure only work meeting agreed quality criteria counts toward completion",
+        "zh": "在衝刺規劃中強化 DoD，並確保僅符合約定品質標準的工作計入完成"
+      },
+      {
+        "en": "Lower the Definition of Done temporarily so the team can meet demo commitments",
+        "zh": "暫時降低 DoD，讓團隊能達成 demo 承諾"
+      },
+      {
+        "en": "Exclude failed stories from velocity calculations without discussing process changes",
+        "zh": "將失敗故事排除在速率計算外，且不討論流程改變"
+      },
+      {
+        "en": "Assign a dedicated tester at sprint end to validate all stories after developers finish",
+        "zh": "在衝刺末期指派專責測試人員，於開發完成後才驗證所有故事"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Agile quality is built in through enforced Definition of Done, not deferred inspection at sprint end. Option A restores discipline so velocity reflects truly complete work. Option B accumulates technical debt and repeats the failure mode that caused staging defects. Option C hides performance problems without fixing process and misleads forecasting. Option D shifts testing to the end, contradicting built-in quality and likely repeating staging failures.",
+      "zh": "敏捷品質透過強制執行的 DoD 內建，而非延後檢驗。選項 A 恢復紀律，使速率反映真正完成的工作。選項 B 累積技術債並重複失敗模式。選項 C 隱藏績效問題卻未修正流程。選項 D 將測試推遲到末期，與內建品質相悖，且可能再次在預備環境失敗。"
+    },
+    "tags": ["quality-management", "definition-of-done", "agile"]
+  },
+  {
+    "id": "PRC-0015",
+    "type": "mcq",
+    "domain": "process",
+    "task": "PRC8",
+    "approach": "hybrid",
+    "difficulty": 2,
+    "stem": {
+      "en": "A hybrid project has a fixed public launch date for a predictive core platform while agile teams deliver add-on modules. Critical path analysis shows core testing overlapping with two module sprints. Integration testing is not scheduled until late. The schedule baseline has zero float on the launch milestone. What should you do first?",
+      "zh": "某混合式專案對預測式核心平台有固定公開上線日，敏捷團隊交付附加模組。關鍵路徑分析顯示核心測試與兩個模組衝刺重疊。整合測試排得很晚。時程基準中上線里程碑零浮時。你首先應做什麼？"
+    },
+    "options": [
+      {
+        "en": "Perform schedule network analysis to identify dependencies, assess resource conflicts, and propose adjustments before compressing activities blindly",
+        "zh": "執行時程網路分析，識別相依性、評估資源衝突，並在盲目趕工前先提出調整方案"
+      },
+      {
+        "en": "Crash all remaining activities by adding overtime without updating the schedule model",
+        "zh": "對所有剩餘活動以加班趕工，且不更新時程模型"
+      },
+      {
+        "en": "Remove integration testing from the schedule to protect the launch date",
+        "zh": "從時程移除整合測試以保護上線日"
+      },
+      {
+        "en": "Delay the agile modules indefinitely because the core path controls the launch",
+        "zh": "無限期延後敏捷模組，因核心路徑決定上線"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Schedule management requires analyzing dependencies and critical path impacts before choosing compression or fast-tracking techniques. Option A uses network analysis to make informed trade-offs across hybrid workstreams. Option B may increase cost and risk without addressing logical dependencies. Option C sacrifices quality and increases failure risk at launch by removing essential testing. Option D may eliminate intended value without exploring parallel integration strategies that preserve releases.",
+      "zh": "時程管理應先分析相依性與關鍵路徑影響，再選擇趕工或快速追蹤等技巧。選項 A 以網路分析在混合工作流間做出有依據的取捨。選項 B 可能增加成本與風險卻未處理邏輯相依。選項 C 犧牲品質並提高上線失敗風險。選項 D 可能在未探索平行整合策略下消除預期價值。"
+    },
+    "tags": ["schedule-management", "critical-path", "hybrid"]
+  },
+  {
+    "id": "PRC-0016",
+    "type": "mcq",
+    "domain": "process",
+    "task": "PRC8",
+    "approach": "predictive",
+    "difficulty": 3,
+    "stem": {
+      "en": "You manage a predictive highway construction project with an approved schedule baseline. A supplier delay pushes delivery of prefabricated bridge segments by six weeks. The contract includes liquidated damages for late completion. The team proposes fast-tracking downstream paving and inspection while segments are delayed. Historical records show quality issues when paving preceded segment fit checks. What is the best approach?",
+      "zh": "你管理預測式高速公路工程，已有核准時程基準。供應商延遲使預製橋段交貨晚六週。合約含延遲完工違約金。團隊提議在橋段延遲期間快速追蹤後續鋪面與檢驗。歷史紀錄顯示在橋段合模檢查前鋪面曾出現品質問題。最佳做法是什麼？"
+    },
+    "options": [
+      {
+        "en": "Analyze schedule alternatives, quantify risk of fast-tracking, and recommend a recovery plan that protects mandatory quality hold points",
+        "zh": "分析時程替代方案、量化快速追蹤風險，並建議保護強制品質停點的趕工計畫"
+      },
+      {
+        "en": "Approve fast-tracking immediately to avoid liquidated damages regardless of quality history",
+        "zh": "立即核准快速追蹤，不論品質歷史以避免違約金"
+      },
+      {
+        "en": "Issue a change request to remove inspection hold points and update the baseline silently",
+        "zh": "提出變更請求移除檢驗停點，並悄悄更新基準"
+      },
+      {
+        "en": "Wait for the supplier without developing a recovery schedule or notifying stakeholders",
+        "zh": "等待供應商，且不制定趕工時程或通知利害關係人"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Schedule compression must balance time savings against quality, safety, and contractual constraints. Option A evaluates recovery options with explicit risk analysis and preserves required hold points. Option B prioritizes penalties over known quality failures and may create rework. Option C bypasses governance and compromises standards without stakeholder approval. Option D fails proactive schedule control and stakeholder communication required when baselines are threatened.",
+      "zh": "時程壓縮必須平衡省時與品質、安全及合約限制。選項 A 以明確風險分析評估趕工方案並保留必要停點。選項 B 在已知品質問題下仍優先避免罰款。選項 C 繞過治理並妥協標準。選項 D 未主動進行時程控制，且在基準受威脅時未與利害關係人溝通。"
+    },
+    "tags": ["schedule-management", "fast-tracking", "risk-analysis"]
+  },
+  {
+    "id": "PRC-0017",
+    "type": "mcq",
+    "domain": "process",
+    "task": "PRC9",
+    "approach": "agile",
+    "difficulty": 2,
+    "stem": {
+      "en": "You report status on an agile transformation program to the steering committee. Two squads show improving velocity, but customer-reported defects rose 30% after the last release. The release burndown looks healthy. Product ownership is uneven across squads. Committee members ask whether the program is green. What is the most accurate status approach?",
+      "zh": "你向指導委員會報告敏捷轉型計畫狀態。兩個小隊速率改善，但上次發布後客戶通報缺陷增加 30%。發布燃盡圖看起來正常。各小隊產品負責程度不均。委員詢問計畫是否為綠燈。最準確的狀態報告方式是什麼？"
+    },
+    "options": [
+      {
+        "en": "Present a balanced dashboard combining flow metrics, quality trends, and value outcomes rather than relying on velocity alone",
+        "zh": "呈現結合流程指標、品質趨勢與價值成果的平衡儀表板，而非僅依速率"
+      },
+      {
+        "en": "Report green because burndown and velocity indicate the teams are performing well",
+        "zh": "報告綠燈，因燃盡與速率顯示團隊表現良好"
+      },
+      {
+        "en": "Report red and recommend canceling agile practices until defects return to baseline",
+        "zh": "報告紅燈並建議取消敏捷做法，直到缺陷回到基線"
+      },
+      {
+        "en": "Exclude defect data from the steering report to maintain stakeholder confidence",
+        "zh": "從指導報告排除缺陷數據以維持利害關係人信心"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Evaluating project status requires multiple measures that reflect delivery health, quality, and value—not a single agile metric. Option A gives decision makers an accurate composite view and highlights the defect trend. Option B overinterprets velocity and burndown while ignoring customer impact. Option C is an extreme reaction that does not diagnose root causes such as weak product ownership. Option D misleads governance and violates transparent reporting obligations.",
+      "zh": "評估專案狀態需多重衡量，反映交付健康、品質與價值，而非單一敏捷指標。選項 A 提供決策者準確的綜合視角並凸顯缺陷趨勢。選項 B 過度解讀速率與燃盡卻忽略客戶影響。選項 C 過度反應，未診斷如產品負責不足等根本原因。選項 D 誤導治理並違反透明報告義務。"
+    },
+    "tags": ["status-reporting", "metrics", "agile"]
+  },
+  {
+    "id": "PRC-0018",
+    "type": "mcq",
+    "domain": "process",
+    "task": "PRC9",
+    "approach": "hybrid",
+    "difficulty": 1,
+    "stem": {
+      "en": "Monthly status reviews for a hybrid CRM rollout show the predictive data migration workstream at SPI 0.95 and CPI 1.02, while adaptive configuration sprints show declining throughput and rising escaped defects. Executives receive separate slides from each workstream lead with conflicting overall ratings. What should you implement?",
+      "zh": "混合式 CRM 推廣的每月狀態審查顯示，預測式資料移轉工作流 SPI 0.95、CPI 1.02，適應性設定衝刺則產能下降且漏出缺陷增加。各工作流負責人提交的分開簡報對整體評級互相矛盾。你應實施什麼？"
+    },
+    "options": [
+      {
+        "en": "Establish an integrated status reporting framework with agreed KPIs, thresholds, and a single consolidated narrative for leadership",
+        "zh": "建立整合狀態報告框架，含共識 KPI、門檻與供領導層使用的單一整合敘述"
+      },
+      {
+        "en": "Allow each workstream to continue independent reporting because hybrid methods cannot be combined",
+        "zh": "允許各工作流繼續獨立報告，因混合方法無法整合"
+      },
+      {
+        "en": "Report only EVM indices because they apply to the entire project uniformly",
+        "zh": "僅報告 EVM 指標，因其均適用於整個專案"
+      },
+      {
+        "en": "Switch to weekly verbal updates to avoid documenting conflicting metrics",
+        "zh": "改為每週口頭更新，以避免文件化衝突指標"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Hybrid project status evaluation needs a unified reporting approach that blends predictive and adaptive measures with clear interpretation rules. Option A resolves conflicting narratives and supports informed decisions. Option B perpetuates confusion and prevents integrated oversight. Option C ignores agile throughput and defect trends that EVM alone may not capture for adaptive work. Option D reduces accountability and traceability required for governance.",
+      "zh": "混合式專案狀態評估需要統一報告方式，融合預測與適應性衡量並有清楚解讀規則。選項 A 解決矛盾敘述並支持有依據的決策。選項 B 延續混淆並阻礙整合監督。選項 C 忽略 EVM 單獨可能無法捕捉適應性工作的產能與缺陷趨勢。選項 D 降低治理所需的問責與可追溯性。"
+    },
+    "tags": ["status-reporting", "evm", "hybrid"]
+  },
+  {
+    "id": "PRC-0019",
+    "type": "mcq",
+    "domain": "process",
+    "task": "PRC10",
+    "approach": "predictive",
+    "difficulty": 3,
+    "stem": {
+      "en": "A predictive ERP cutover succeeded, but operations reports unresolved defects in three interfaces and incomplete training records. The sponsor wants formal closure this week to release staff to other projects. Contracts allow a 30-day warranty period. Lessons learned workshops have not occurred. Finance has not confirmed final invoices. What should you do before closing?",
+      "zh": "預測式 ERP 切換已成功，但營運通報三個介面仍有未解缺陷且訓練紀錄不完整。贊助者希望本週正式結案以釋出人力。合約允許 30 天保固期。尚未舉行經驗教訓工作坊。財務尚未確認最終發票。結案前你應做什麼？"
+    },
+    "options": [
+      {
+        "en": "Verify acceptance criteria, complete administrative closure steps, transition support responsibilities, and document outstanding items per the closure plan",
+        "zh": "查驗驗收標準、完成行政結案步驟、移交支援責任，並依結案計畫文件化未完成事項"
+      },
+      {
+        "en": "Close the project immediately and transfer all defects to the operations budget silently",
+        "zh": "立即結案，並悄悄將所有缺陷轉至營運預算"
+      },
+      {
+        "en": "Keep the project open indefinitely until every minor defect is eliminated",
+        "zh": "無限期保持專案開啟，直到消除每個 minor 缺陷"
+      },
+      {
+        "en": "Archive project files without stakeholder sign-off because the cutover event is complete",
+        "zh": "因切換已完成，在未獲利害關係人簽核下封存專案文件"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Project closure requires confirming deliverable acceptance, completing contractual and financial closeout, capturing lessons learned, and defining transition of ongoing support—not merely finishing execution. Option A follows structured closure while transparently handling open items and warranty terms. Option B skips acceptance and hides liabilities. Option C confuses warranty/support with project management closure and may delay resource release unnecessarily. Option D omits formal acceptance and administrative requirements.",
+      "zh": "專案結案需確認可交付成果驗收、完成合約與財務結案、擷取經驗教訓並定義 ongoing 支援移交，而非僅完成執行。選項 A 依結構化結案並透明處理未完成事項與保固條款。選項 B 跳過驗收並隱藏責任。選項 C 混淆保固/支援與專案管理結案，可能不必要延遲資源釋出。選項 D 省略正式驗收與行政要求。"
+    },
+    "tags": ["project-closure", "transition", "acceptance"]
+  },
+  {
+    "id": "PRC-0020",
+    "type": "mcq",
+    "domain": "process",
+    "task": "PRC10",
+    "approach": "agile",
+    "difficulty": 2,
+    "stem": {
+      "en": "An agile product team completed its final release and moved to maintenance mode. The product owner confirms acceptance of the release backlog. Team members ask whether a retrospective and knowledge transfer are still needed since the squad will disband. Organizational standards require updating the asset repository and capturing lessons for future products. What should you ensure happens during closure?",
+      "zh": "敏捷產品團隊完成最終發布並進入維護模式。產品負責人確認發布待辦驗收。成員問小隊解散是否仍需回顧與知識移轉。組織標準要求更新資產庫並擷取供未來產品使用的經驗。結案期間你應確保發生什麼？"
+    },
+    "options": [
+      {
+        "en": "Conduct final retrospective and knowledge transfer activities, update repositories, and formally release resources per organizational closure guidelines",
+        "zh": "舉行最終回顧與知識移轉、更新儲存庫，並依組織結案指引正式釋出資源"
+      },
+      {
+        "en": "Skip closure activities because agile teams continuously improve and do not formally close",
+        "zh": "跳過結案活動，因敏捷團隊持續改進且不需正式結案"
+      },
+      {
+        "en": "Transfer documentation responsibility to maintenance staff without a handoff session",
+        "zh": "在未舉行交接會議下，將文件責任轉給維護人員"
+      },
+      {
+        "en": "Keep the team intact on standby indefinitely to avoid losing product knowledge",
+        "zh": "無限期保留團隊待命，以免流失產品知識"
+      }
+    ],
+    "correct": 0,
+    "explanation": {
+      "en": "Agile projects still require closure activities: acceptance confirmation, knowledge transfer, asset updates, and resource release. Option A satisfies organizational standards and preserves institutional knowledge for future teams. Option B misapplies continuous improvement as a substitute for formal closure obligations. Option C risks incomplete transfer and tacit knowledge loss without structured handoff. Option D ignores resource planning and may incur unnecessary cost after acceptance is confirmed.",
+      "zh": "敏捷專案仍需結案活動：確認驗收、知識移轉、更新資產與釋出資源。選項 A 符合組織標準並保留組織知識。選項 B 誤將持續改進當作正式結案義務的替代。選項 C 有交接不完整與隱性知識流失風險。選項 D 忽略資源規劃，且在驗收後可能產生不必要成本。"
+    },
+    "tags": ["project-closure", "knowledge-transfer", "agile"]
+  },
+  {
+    "id": "PRC-0021",
+    "type": "multi",
+    "domain": "process",
+    "task": "PRC1",
+    "approach": "hybrid",
+    "difficulty": 2,
+    "stem": {
+      "en": "You are tailoring a hybrid project management plan for a regulated product launch with iterative customer pilots. The PMO template is predictive-heavy. Select the TWO elements that should be explicitly defined in the integrated plan to support both governance and adaptive delivery. (Choose 2)",
+      "zh": "你正為受法規約束且含迭代客戶試點的產品上市，裁剪混合式專案管理計畫。PMO 範本偏重預測式。請選出兩項應在整合計畫中明確定義、以同時支援治理與適應性交付的元素。（選 2 項）"
+    },
+    "options": [
+      {
+        "en": "Development approach and life cycle description for each major deliverable stream",
+        "zh": "各主要可交付成果流的開發方法與生命週期描述"
+      },
+      {
+        "en": "Detailed Gantt chart with fixed task assignments for every pilot experiment",
+        "zh": "含每項試點實驗固定任務分派的詳細甘特圖"
+      },
+      {
+        "en": "Change control procedures that distinguish compliance-driven changes from backlog reprioritization",
+        "zh": "區分合規驅動變更與待辦清單重排的變更控制程序"
+      },
+      {
+        "en": "Mandatory elimination of iterative cycles once the regulatory design is approved",
+        "zh": "法規設計核准後強制取消迭代週期"
+      },
+      {
+        "en": "A requirement that all metrics be reported only at project closure",
+        "zh": "要求所有指標僅在專案結案時報告"
+      }
+    ],
+    "correct": [0, 2],
+    "selectN": 2,
+    "explanation": {
+      "en": "A hybrid integrated plan must describe how work will be delivered and how changes are governed across predictive and adaptive streams. Option A clarifies life cycles so teams and auditors understand tailoring. Option C prevents either excessive bureaucracy on backlog changes or uncontrolled changes to regulated baselines. Option B over-specifies adaptive experiments in a predictive tool, reducing flexibility. Option D contradicts the hybrid intent by removing iteration after design approval when pilots may still be needed. Option E destroys ongoing governance and status visibility required during delivery.",
+      "zh": "混合式整合計畫必須描述工作如何交付，以及如何在預測與適應性工作流間治理變更。選項 A 釐清生命週期，使團隊與稽核者理解裁剪方式。選項 C 避免對待辦變更過度官僚，或未受控修改受管制基準。選項 B 以預測式工具過度規範適應性實驗，降低彈性。選項 D 在設計核准後取消迭代，與混合意圖相悖，試點可能仍必要。選項 E 破壞交付期間所需的持續治理與狀態可見性。"
+    },
+    "tags": ["integrated-management", "hybrid", "tailoring"]
+  },
+  {
+    "id": "PRC-0022",
+    "type": "multi",
+    "domain": "process",
+    "task": "PRC5",
+    "approach": "predictive",
+    "difficulty": 1,
+    "stem": {
+      "en": "Before awarding a fixed-price contract for a national logistics system, your procurement team is finalizing source selection documents. Legal and technical evaluators are assigned, but no scoring sheet has been approved. The sponsor wants to shorten selection by skipping negotiations with the preferred vendor. Select the TWO activities that should be completed as part of the conduct procurements process. (Choose 2)",
+      "zh": "在決標全國物流系統固定總價合約前，採購團隊正定稿供應商選擇文件。法務與技術評審人員已指派，但評分表尚未核准。贊助者希望跳過與首選廠商議約以縮短選商時程。請選出兩項屬於「實施採購」流程應完成的工作。（選 2 項）"
+    },
+    "options": [
+      {
+        "en": "Evaluate seller proposals against documented selection criteria",
+        "zh": "依文件化選擇標準評估賣方提案"
+      },
+      {
+        "en": "Negotiate contract terms with the selected seller before award",
+        "zh": "決標前與選定賣方議定合約條款"
+      },
+      {
+        "en": "Develop the project charter with the external vendor",
+        "zh": "與外部廠商共同制定專案章程"
+      },
+      {
+        "en": "Close all project accounts before signing the contract",
+        "zh": "簽約前結清所有專案帳戶"
+      },
+      {
+        "en": "Perform final benefits realization measurement for the procured system",
+        "zh": "對採購系統執行最終效益實現衡量"
+      }
+    ],
+    "correct": [0, 1],
+    "selectN": 2,
+    "explanation": {
+      "en": "Conduct procurements includes receiving responses, applying evaluation criteria, negotiating where appropriate, and awarding contracts. Option A ensures defensible, criteria-based selection. Option B finalizes terms such as scope, milestones, and remedies before commitment. Option C is an initiating process performed before detailed procurement and typically without vendor co-authorship of the charter. Option D belongs to project or procurement closure after work is complete, not before award. Option E occurs post-implementation during benefits management, not during source selection.",
+      "zh": "實施採購包含接收回應、套用評選標準、必要時議約並決標。選項 A 確保可辯護、依標準的選擇。選項 B 在承諾前定稿範疇、里程碑與救濟等條款。選項 C 屬啟動流程，通常在詳細採購前完成，且非與廠商共撰章程。選項 D 屬專案或採購結案，發生於工作完成後而非決標前。選項 E 發生於實施後的效益管理，而非供應商選擇階段。"
+    },
+    "tags": ["procurement", "source-selection", "contracts"]
+  },
+  {
+    "id": "PRC-0023",
+    "type": "multi",
+    "domain": "process",
+    "task": "PRC7",
+    "approach": "agile",
+    "difficulty": 2,
+    "stem": {
+      "en": "An agile team serving a healthcare portal wants to strengthen quality management without adding heavyweight phase gates. The scrum master proposes updates to team agreements. Select the TWO practices that most directly support manage quality in an agile context. (Choose 2)",
+      "zh": "服務醫療入口網站的敏捷團隊希望強化品質管理，但不增加繁重階段關卡。Scrum Master 提議更新團隊協議。請選出兩項最直接支援敏捷情境下「管理品質」的做法。（選 2 項）"
+    },
+    "options": [
+      {
+        "en": "Maintain and enforce a team Definition of Done linked to non-functional requirements",
+        "zh": "維護並執行連結非功能需求的團隊完成定義（DoD）"
+      },
+      {
+        "en": "Integrate automated testing and continuous integration into the delivery pipeline",
+        "zh": "將自動化測試與持續整合納入交付管道"
+      },
+      {
+        "en": "Require a separate quality phase at the end of every release train",
+        "zh": "要求每個發布火車末期都設獨立品質階段"
+      },
+      {
+        "en": "Freeze the backlog for six weeks to allow exhaustive manual inspection",
+        "zh": "凍結待辦清單六週以進行全面人工檢驗"
+      },
+      {
+        "en": "Remove retrospectives to avoid distracting developers from coding",
+        "zh": "移除回顧會議以免分散開發人員寫程式"
+      }
+    ],
+    "correct": [0, 1],
+    "selectN": 2,
+    "explanation": {
+      "en": "Agile quality management emphasizes built-in quality through standards of completion and fast feedback loops. Option A embeds quality criteria into every increment. Option B detects defects early through automation, supporting continuous quality. Option C reintroduces predictive phase gates that delay feedback and contradict agile flow. Option D stops value delivery and is impractical for iterative products. Option E removes a primary mechanism for process improvement and would likely degrade quality over time.",
+      "zh": "敏捷品質管理強調透過完成標準與快速回饋迴圈內建品質。選項 A 將品質準則嵌入每個增量。選項 B 透過自動化早期發現缺陷，支援持續品質。選項 C 重新引入預測式階段關卡，延遲回饋並與敏捷流動相悖。選項 D 停止價值交付且對迭代產品不實際。選項 E 移除流程改進的主要機制，長期可能降低品質。"
+    },
+    "tags": ["quality-management", "definition-of-done", "continuous-integration"]
+  },
+  {
+    "id": "PRC-0024",
+    "type": "multi",
+    "domain": "process",
+    "task": "PRC8",
+    "approach": "hybrid",
+    "difficulty": 3,
+    "stem": {
+      "en": "A hybrid program must recover five weeks on a committed regulatory submission date while continuing fortnightly module releases. The schedule management plan allows crashing and fast-tracking with risk review. Select the TWO techniques you should apply first after updating the schedule model. (Choose 2)",
+      "zh": "某混合式計畫須在承諾的法規提交日追回五週，同時維持雙週模組發布。時程管理計畫允許在風險審查下趕工與快速追蹤。更新時程模型後，請選出兩項你應優先採用的技巧。（選 2 項）"
+    },
+    "options": [
+      {
+        "en": "Fast-track selected activities by performing critical integration tasks in parallel where dependencies allow",
+        "zh": "在相依性允許下，以平行執行關鍵整合任務的方式快速追蹤選定活動"
+      },
+      {
+        "en": "Crash critical-path activities by adding approved resources after analyzing cost and risk impacts",
+        "zh": "在分析成本與風險影響後，以增派核准資源方式趕工關鍵路徑活動"
+      },
+      {
+        "en": "Remove mandatory compliance reviews from the critical path without change control",
+        "zh": "在未經變更控制下，自關鍵路徑移除強制合規審查"
+      },
+      {
+        "en": "Extend module releases to quarterly cycles without assessing stakeholder impact",
+        "zh": "在未評估利害關係人影響下，將模組發布延長為每季週期"
+      },
+      {
+        "en": "Delete buffer tasks from the schedule file to show an earlier finish date",
+        "zh": "自時程檔刪除緩衝任務以顯示較早完工日"
+      }
+    ],
+    "correct": [0, 1],
+    "selectN": 2,
+    "explanation": {
+      "en": "Schedule compression techniques include fast-tracking parallel work and crashing with additional resources, both requiring impact analysis per the schedule management plan. Option A may recover time when logical dependencies permit overlap. Option B trades cost for duration on critical-path tasks after risk review. Option C violates compliance and change control, creating unacceptable regulatory risk. Option D is a scope/release cadence change, not a direct compression technique, and ignores value delivery commitments. Option E manipulates the schedule presentation without actually recovering time and removes needed contingency.",
+      "zh": "時程壓縮技巧包含在允許下平行工作的快速追蹤，以及增資源趕工，兩者皆需依時程管理計畫進行影響分析。選項 A 在邏輯相依允許時可回收時間。選項 B 在風險審查後以成本換取關鍵路徑工期。選項 C 違反合規與變更控制，造成不可接受的法規風險。選項 D 是發布節奏變更而非直接壓縮技巧，且忽略價值交付承諾。選項 E 僅操弄時程呈現，未真正追回時間且移除必要緩衝。"
+    },
+    "tags": ["schedule-management", "fast-tracking", "crashing"]
+  },
+  {
+    "id": "PRC-0025",
+    "type": "multi",
+    "domain": "process",
+    "task": "PRC10",
+    "approach": "predictive",
+    "difficulty": 2,
+    "stem": {
+      "en": "Your predictive infrastructure project has received final acceptance from the sponsor. Operations has confirmed transition to the service desk, but vendor final invoices, archive indexing, and the lessons learned workshop are still pending. Human resources needs confirmation before reassigning core team members. Select the TWO actions that are appropriate during the close project or phase process. (Choose 2)",
+      "zh": "你的預測式基礎設施專案已獲贊助者最終驗收。營運已確認移交服務台，但廠商最終發票、歸檔索引與經驗教訓工作坊仍待完成。人資需在重新分派核心成員前先收到確認。請選出兩項屬於「結束專案或階段」流程的適當行動。（選 2 項）"
+    },
+    "options": [
+      {
+        "en": "Finalize and archive project documents in the organizational repository",
+        "zh": "在組織儲存庫中定稿並歸檔專案文件"
+      },
+      {
+        "en": "Conduct a lessons learned session and update organizational process assets",
+        "zh": "舉行經驗教訓會議並更新組織流程資產"
+      },
+      {
+        "en": "Reopen scope baseline to add enhancement requests identified during acceptance",
+        "zh": "重新開啟範疇基準以加入驗收期間識別的強化需求"
+      },
+      {
+        "en": "Issue a new project charter for the same deliverables under a different name",
+        "zh": "以不同名稱為相同可交付成果發布新專案章程"
+      },
+      {
+        "en": "Begin detailed planning for phase two without closing phase one records",
+        "zh": "在未結案第一階段紀錄下，開始第二階段詳細規劃"
+      }
+    ],
+    "correct": [0, 1],
+    "selectN": 2,
+    "explanation": {
+      "en": "Closing a project or phase includes finalizing deliverable acceptance documentation, archiving records, releasing resources, and capturing lessons learned for organizational process assets. Option A preserves institutional knowledge and supports audits. Option B converts team experience into reusable improvements. Option C should be handled through a new change or follow-on project, not by reopening a closed baseline during closure. Option D improperly re-initiates work without a defined business case for a new project. Option E skips administrative closure, causing confusion between phases and incomplete financial or contract records.",
+      "zh": "結束專案或階段包含定稿驗收文件、歸檔紀錄、釋出資源，並擷取經驗教訓更新組織流程資產。選項 A 保留組織知識並支援稽核。選項 B 將團隊經驗轉為可重用改進。選項 C 應透過新變更或後續專案處理，而非在結案時重開已關閉基準。選項 D 在未定義新專案商業案例下不當重新啟動工作。選項 E 跳過行政結案，造成階段混淆與財務或合約紀錄不完整。"
+    },
+    "tags": ["project-closure", "lessons-learned", "opas"]
+  }
+]
