@@ -21,7 +21,7 @@ watch(
 <template>
   <div class="flex min-h-screen flex-col">
     <AppHeader />
-    <main id="main-content" class="flex-1" role="main">
+    <main id="main-content" class="flex-1 pb-28" role="main">
       <RouterView />
     </main>
     <AppBottomNav />

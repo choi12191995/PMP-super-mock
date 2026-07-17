@@ -844,7 +844,7 @@ onUnmounted(() => {
 
     <!-- Bottom nav -->
     <div
-      class="glass-bar fixed inset-x-0 bottom-16 z-30 border-t px-4 py-3"
+      class="glass-bar fixed inset-x-0 bottom-20 z-30 border-t px-4 py-3"
     >
       <div class="mx-auto flex max-w-5xl gap-3">
         <button
