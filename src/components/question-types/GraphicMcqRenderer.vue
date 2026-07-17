@@ -10,6 +10,7 @@ defineProps<{
   disabled: boolean
   strikeThroughs: Set<number>
   lang: 'en' | 'zh-TW'
+  sessionSeed?: number
 }>()
 
 defineEmits<{
@@ -39,6 +40,7 @@ defineEmits<{
       :disabled="disabled"
       :strike-throughs="strikeThroughs"
       :lang="lang"
+      :session-seed="sessionSeed"
       @update:model-value="$emit('update:modelValue', $event)"
       @update:strike-throughs="$emit('update:strikeThroughs', $event)"
     />

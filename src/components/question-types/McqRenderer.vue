@@ -1,6 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import type { McqQ, LText } from '@/core/types'
+import {
+  displayToOriginalIndex,
+  optionDisplayOrder,
+  originalToDisplayIndex,
+  remapCorrectToDisplay,
+} from '@/core/shuffleOptions'
 
 const props = defineProps<{
   question: McqQ
@@ -10,6 +16,7 @@ const props = defineProps<{
   disabled: boolean
   strikeThroughs: Set<number>
   lang: 'en' | 'zh-TW'
+  sessionSeed?: number
 }>()
 
 const emit = defineEmits<{
@@ -20,6 +27,33 @@ const emit = defineEmits<{
 const longPressTriggered = ref(false)
 let pressTimer: ReturnType<typeof setTimeout> | null = null
 
+const displayOrder = computed(() =>
+  optionDisplayOrder(props.question.id, props.question.options.length, props.sessionSeed ?? 0),
+)
+
+const shuffledOptions = computed(() =>
+  displayOrder.value.map((originalIndex) => props.question.options[originalIndex]),
+)
+
+const displayCorrectAnswer = computed(() =>
+  remapCorrectToDisplay(props.correctAnswer, displayOrder.value),
+)
+
+const displayModelValue = computed(() => {
+  if (props.modelValue === null) return null
+  const displayIndex = originalToDisplayIndex(props.modelValue, displayOrder.value)
+  return displayIndex >= 0 ? displayIndex : null
+})
+
+const displayStrikeThroughs = computed(() => {
+  const next = new Set<number>()
+  for (const originalIndex of props.strikeThroughs) {
+    const displayIndex = originalToDisplayIndex(originalIndex, displayOrder.value)
+    if (displayIndex >= 0) next.add(displayIndex)
+  }
+  return next
+})
+
 function ltext(text: LText): string {
   return props.lang === 'zh-TW' ? text.zh : text.en
 }
@@ -28,19 +62,20 @@ function optionLabel(index: number): string {
   return String.fromCharCode(65 + index)
 }
 
-function toggleStrike(index: number): void {
+function toggleStrike(displayIndex: number): void {
+  const originalIndex = displayToOriginalIndex(displayIndex, displayOrder.value)
   const next = new Set(props.strikeThroughs)
-  if (next.has(index)) next.delete(index)
-  else next.add(index)
+  if (next.has(originalIndex)) next.delete(originalIndex)
+  else next.add(originalIndex)
   emit('update:strikeThroughs', next)
 }
 
-function onPointerDown(index: number): void {
+function onPointerDown(displayIndex: number): void {
   longPressTriggered.value = false
   if (pressTimer) clearTimeout(pressTimer)
   pressTimer = setTimeout(() => {
     longPressTriggered.value = true
-    toggleStrike(index)
+    toggleStrike(displayIndex)
     if (navigator.vibrate) navigator.vibrate(10)
   }, 500)
 }
@@ -52,20 +87,22 @@ function onPointerUp(): void {
   }
 }
 
-function onSelect(index: number): void {
+function onSelect(displayIndex: number): void {
   if (longPressTriggered.value) {
     longPressTriggered.value = false
     return
   }
-  if (props.disabled || props.strikeThroughs.has(index)) return
-  emit('update:modelValue', index)
+  if (props.disabled || displayStrikeThroughs.value.has(displayIndex)) return
+  const originalIndex = displayToOriginalIndex(displayIndex, displayOrder.value)
+  emit('update:modelValue', originalIndex)
 }
 
-function optionClasses(index: number): string[] {
-  const selected = props.modelValue === index
-  const struck = props.strikeThroughs.has(index)
-  const isCorrect = props.showFeedback && index === props.correctAnswer
-  const isWrong = props.showFeedback && selected && index !== props.correctAnswer
+function optionClasses(displayIndex: number): string[] {
+  const selected = displayModelValue.value === displayIndex
+  const struck = displayStrikeThroughs.value.has(displayIndex)
+  const isCorrect = props.showFeedback && displayIndex === displayCorrectAnswer.value
+  const isWrong =
+    props.showFeedback && selected && displayIndex !== displayCorrectAnswer.value
 
   const classes = [
     'group flex min-h-[44px] w-full cursor-pointer items-start gap-3 rounded-xl border-2 px-4 py-3 text-left transition',
@@ -91,10 +128,11 @@ function optionClasses(index: number): string[] {
   return classes
 }
 
-function radioClasses(index: number): string[] {
-  const selected = props.modelValue === index
-  const isCorrect = props.showFeedback && index === props.correctAnswer
-  const isWrong = props.showFeedback && selected && index !== props.correctAnswer
+function radioClasses(displayIndex: number): string[] {
+  const selected = displayModelValue.value === displayIndex
+  const isCorrect = props.showFeedback && displayIndex === displayCorrectAnswer.value
+  const isWrong =
+    props.showFeedback && selected && displayIndex !== displayCorrectAnswer.value
 
   const classes = [
     'mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 transition',
@@ -117,33 +155,33 @@ function radioClasses(index: number): string[] {
 
     <div class="space-y-3" role="radiogroup" :aria-label="ltext(question.stem)">
       <button
-        v-for="(option, index) in question.options"
-        :key="index"
+        v-for="(option, displayIndex) in shuffledOptions"
+        :key="displayOrder[displayIndex]"
         type="button"
         role="radio"
-        :aria-checked="modelValue === index"
-        :class="optionClasses(index)"
-        @pointerdown="onPointerDown(index)"
+        :aria-checked="displayModelValue === displayIndex"
+        :class="optionClasses(displayIndex)"
+        @pointerdown="onPointerDown(displayIndex)"
         @pointerup="onPointerUp"
         @pointerleave="onPointerUp"
         @pointercancel="onPointerUp"
-        @click="onSelect(index)"
+        @click="onSelect(displayIndex)"
       >
-        <span :class="radioClasses(index)">
+        <span :class="radioClasses(displayIndex)">
           <span
-            v-if="modelValue === index"
+            v-if="displayModelValue === displayIndex"
             class="h-2.5 w-2.5 rounded-full"
             :class="
-              showFeedback && index !== correctAnswer
+              showFeedback && displayIndex !== displayCorrectAnswer
                 ? 'bg-danger'
-                : showFeedback && index === correctAnswer
+                : showFeedback && displayIndex === displayCorrectAnswer
                   ? 'bg-success'
                   : 'bg-primary'
             "
           />
         </span>
         <span class="flex-1 text-sm leading-relaxed text-on-surface sm:text-base">
-          <span class="mr-2 font-semibold text-on-surface-muted">{{ optionLabel(index) }}.</span>
+          <span class="mr-2 font-semibold text-on-surface-muted">{{ optionLabel(displayIndex) }}.</span>
           {{ ltext(option) }}
         </span>
       </button>

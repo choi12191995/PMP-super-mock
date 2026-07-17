@@ -219,6 +219,8 @@ const questionContext = computed(() => {
 
 const answerDisabled = computed(() => showFeedback.value)
 
+const sessionSeed = computed(() => session.config?.seed ?? 0)
+
 const rendererComponent = computed((): Component | null => {
   const q = question.value
   if (!q) return null
@@ -249,6 +251,7 @@ const rendererProps = computed(() => {
     showFeedback: showFeedback.value,
     disabled: answerDisabled.value,
     lang: lang.value,
+    sessionSeed: sessionSeed.value,
   }
 
   switch (q.type) {

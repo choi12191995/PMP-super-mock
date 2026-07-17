@@ -24,6 +24,11 @@ const loading = ref(true)
 const attemptId = computed(() => route.params.attemptId as string)
 const lang = computed(() => (locale.value === 'zh-TW' ? 'zh-TW' : 'en') as 'en' | 'zh-TW')
 
+const reviewSessionSeed = computed(() => {
+  const seed = attempt.value?.config?.seed
+  return typeof seed === 'number' ? seed : 0
+})
+
 const currentAnswer = computed(() => answers.value[currentIndex.value] ?? null)
 const currentQuestion = computed(() => {
   const ans = currentAnswer.value
@@ -159,6 +164,7 @@ function correctPulldown(q: Question): Record<string, number> {
           :disabled="true"
           :strike-throughs="new Set()"
           :lang="lang"
+          :session-seed="reviewSessionSeed"
         />
         <GraphicMcqRenderer
           v-else-if="currentQuestion.type === 'graphic-mcq'"
@@ -169,6 +175,7 @@ function correctPulldown(q: Question): Record<string, number> {
           :disabled="true"
           :strike-throughs="new Set()"
           :lang="lang"
+          :session-seed="reviewSessionSeed"
         />
         <MultiRenderer
           v-else-if="currentQuestion.type === 'multi'"
@@ -179,6 +186,7 @@ function correctPulldown(q: Question): Record<string, number> {
           :disabled="true"
           :strike-throughs="new Set()"
           :lang="lang"
+          :session-seed="reviewSessionSeed"
         />
         <MatchingRenderer
           v-else-if="currentQuestion.type === 'matching' || currentQuestion.type === 'enhanced-matching'"
