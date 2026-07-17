@@ -842,14 +842,18 @@ onUnmounted(() => {
       @close="showChatPanel = false"
     />
 
-    <!-- Bottom nav -->
+    <!-- Bottom nav — floating capsule matching the tab bar -->
     <div
-      class="glass-bar fixed inset-x-0 bottom-20 z-30 border-t px-4 py-3"
+      class="pointer-events-none fixed inset-x-0 bottom-0 z-30 flex justify-center px-4"
+      :style="{ paddingBottom: 'calc(max(env(safe-area-inset-bottom), 0.75rem) + 4.5rem)' }"
     >
-      <div class="mx-auto flex max-w-5xl gap-3">
+      <div class="liquid-glass pointer-events-auto flex items-center gap-2 rounded-full p-1.5">
         <button
           type="button"
-          class="glass-button min-h-[44px] flex-1 px-4 py-3 text-sm font-semibold text-on-surface transition disabled:cursor-not-allowed disabled:opacity-40"
+          class="min-h-[42px] rounded-full px-6 py-2 text-sm font-semibold transition-colors duration-200 active:scale-95"
+          :class="session.isFirst
+            ? 'text-on-surface-muted/40 cursor-not-allowed'
+            : 'text-on-surface-muted hover:bg-primary/10 hover:text-on-surface'"
           :disabled="session.isFirst"
           @click="session.previous()"
         >
@@ -857,17 +861,9 @@ onUnmounted(() => {
         </button>
 
         <button
-          v-if="session.isLast && isRealExam"
+          v-if="session.isLast"
           type="button"
-          class="glass-button min-h-[44px] flex-1 bg-primary/90 px-4 py-3 text-sm font-semibold text-white shadow-lg transition"
-          @click="confirmSubmit"
-        >
-          {{ t('exam.submit') }}
-        </button>
-        <button
-          v-else-if="session.isLast"
-          type="button"
-          class="glass-button min-h-[44px] flex-1 bg-primary/90 px-4 py-3 text-sm font-semibold text-white shadow-lg transition"
+          class="min-h-[42px] rounded-full bg-primary/90 px-8 py-2 text-sm font-semibold text-white transition-colors duration-200 active:scale-95"
           @click="confirmSubmit"
         >
           {{ t('exam.submit') }}
@@ -875,7 +871,7 @@ onUnmounted(() => {
         <button
           v-else
           type="button"
-          class="glass-button min-h-[44px] flex-1 bg-primary/90 px-4 py-3 text-sm font-semibold text-white shadow-lg transition"
+          class="min-h-[42px] rounded-full bg-primary/90 px-8 py-2 text-sm font-semibold text-white transition-colors duration-200 active:scale-95"
           @click="handleNext"
         >
           {{ t('exam.next') }}
