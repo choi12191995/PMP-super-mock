@@ -43,7 +43,7 @@ const flaggedSet = computed(() => {
 
 <template>
   <div class="mx-auto flex min-h-[calc(100vh-8rem)] max-w-2xl flex-col px-4 py-8">
-    <div class="rounded-2xl border border-border bg-surface-raised p-6 shadow-sm">
+    <div class="glass-card p-6">
       <h1 class="mb-1 text-xl font-bold text-on-surface">{{ t('exam.sectionReview') }}</h1>
       <p v-if="sectionLabel" class="mb-4 text-sm text-on-surface-muted">{{ sectionLabel }}</p>
 

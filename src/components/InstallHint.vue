@@ -53,7 +53,7 @@ function dismiss(): void {
   <Transition name="hint">
     <div
       v-if="showHint"
-      class="fixed bottom-24 left-4 right-4 z-40 mx-auto max-w-md rounded-xl border border-border bg-surface-raised p-4 shadow-lg"
+      class="glass-modal fixed bottom-24 left-4 right-4 z-40 mx-auto max-w-md p-4"
     >
       <p class="mb-3 text-sm text-on-surface">{{ t('install.hint') }}</p>
       <div class="flex gap-2">

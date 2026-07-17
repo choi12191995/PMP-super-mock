@@ -67,7 +67,7 @@ watch(() => props.timeRemaining, checkWarnings, { immediate: true })
 
 <template>
   <div
-    class="mb-4 flex items-center justify-between gap-3 rounded-2xl border border-border bg-surface-raised px-4 py-3 shadow-sm"
+    class="glass-card mb-4 flex items-center justify-between gap-3 px-4 py-3"
   >
     <div class="min-w-0 flex-1">
       <p v-if="sectionLabel" class="text-xs font-medium uppercase tracking-wide text-on-surface-muted">

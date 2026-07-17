@@ -154,7 +154,7 @@ function correctPulldown(q: Question): Record<string, number> {
       </div>
 
       <!-- Question -->
-      <div class="mb-6 rounded-2xl border border-border bg-surface-raised p-5">
+      <div class="glass-card mb-6 p-5">
         <McqRenderer
           v-if="currentQuestion.type === 'mcq'"
           :question="currentQuestion"
@@ -231,7 +231,7 @@ function correctPulldown(q: Question): Record<string, number> {
       <div class="flex gap-3">
         <button
           type="button"
-          class="flex-1 rounded-xl border border-border bg-surface-raised px-4 py-3 font-medium text-on-surface transition hover:bg-surface-alt disabled:opacity-40"
+          class="glass-button flex-1 px-4 py-3 font-medium text-on-surface transition disabled:opacity-40"
           :disabled="isFirst"
           @click="previous"
         >

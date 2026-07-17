@@ -20,7 +20,7 @@ function isActive(to: string) {
 </script>
 
 <template>
-  <nav class="app-bottom-nav fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-surface safe-area-pb" role="navigation" :aria-label="t('nav.mainNav')">
+  <nav class="app-bottom-nav glass-bar fixed bottom-0 left-0 right-0 z-40 border-t safe-area-pb" role="navigation" :aria-label="t('nav.mainNav')">
     <div class="mx-auto flex max-w-5xl items-center justify-around">
       <router-link
         v-for="item in items"

@@ -39,7 +39,7 @@ onUnmounted(() => {
 
 <template>
   <div class="mx-auto flex min-h-[calc(100vh-8rem)] max-w-lg flex-col items-center justify-center px-4 py-12">
-    <div class="w-full rounded-2xl border border-border bg-surface-raised p-8 text-center shadow-sm">
+    <div class="glass-card w-full p-8 text-center">
       <h1 class="mb-2 text-2xl font-bold text-on-surface">{{ t('exam.breakTitle') }}</h1>
       <p class="mb-6 text-sm text-on-surface-muted">{{ t('exam.breakMessage') }}</p>
 

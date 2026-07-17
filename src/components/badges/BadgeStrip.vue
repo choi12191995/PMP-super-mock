@@ -26,7 +26,7 @@ const icons: Record<string, string> = {
       <div
         v-for="badge in badges.filter((b) => b.earned)"
         :key="badge.id"
-        class="flex items-center gap-2 rounded-xl border border-border bg-surface-raised px-3 py-2"
+        class="glass-pill flex items-center gap-2 px-3 py-2"
         :title="t(`badges.${badge.id}`)"
       >
         <span class="text-lg">{{ icons[badge.id] ?? '🏅' }}</span>

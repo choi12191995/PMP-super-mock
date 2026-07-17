@@ -52,7 +52,7 @@ function dismissUpdate() {
     <Transition name="toast">
       <div
         v-if="needRefresh"
-        class="update-toast fixed bottom-20 left-4 right-4 z-50 mx-auto max-w-md rounded-xl border border-border bg-surface-raised p-4 shadow-lg"
+        class="update-toast glass-modal fixed bottom-20 left-4 right-4 z-50 mx-auto max-w-md p-4"
       >
         <p class="mb-3 text-sm font-medium text-on-surface">{{ t('update.available') }}</p>
         <div class="flex gap-2">
@@ -73,7 +73,7 @@ function dismissUpdate() {
     </Transition>
     <p
       v-if="queued && !needRefresh"
-      class="fixed bottom-20 left-4 right-4 z-50 mx-auto max-w-md rounded-xl border border-border bg-surface-raised px-4 py-3 text-center text-xs text-on-surface-muted shadow-lg"
+      class="glass-modal fixed bottom-20 left-4 right-4 z-50 mx-auto max-w-md px-4 py-3 text-center text-xs text-on-surface-muted"
     >
       {{ t('update.deferred') }}
     </p>

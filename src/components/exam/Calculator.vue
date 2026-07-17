@@ -179,7 +179,7 @@ function buttonClass(variant?: string): string {
       />
 
       <div
-        class="relative w-full max-w-sm rounded-t-2xl border border-border bg-surface-raised p-4 shadow-xl sm:rounded-2xl"
+        class="glass-modal relative w-full max-w-sm p-4 sm:rounded-[var(--glass-radius-lg)]" style="border-radius: var(--glass-radius-lg) var(--glass-radius-lg) 0 0"
       >
         <div class="mb-4 flex items-center justify-between">
           <h2 class="text-lg font-bold text-on-surface">{{ t('exam.calculator') }}</h2>

@@ -122,7 +122,7 @@ function onSubmit(): void {
       />
 
       <aside
-        class="relative flex h-[75vh] w-full flex-col rounded-t-2xl border border-border bg-surface-raised shadow-xl md:h-full md:max-h-none md:w-[420px] md:rounded-none md:border-l md:border-t-0"
+        class="glass-modal relative flex h-[75vh] w-full flex-col md:h-full md:max-h-none md:w-[420px] md:rounded-none md:border-l md:border-t-0"
       >
         <header class="flex shrink-0 items-center justify-between border-b border-border px-4 py-3">
           <h2 class="text-lg font-semibold text-on-surface">{{ t('ai.chatTitle') }}</h2>

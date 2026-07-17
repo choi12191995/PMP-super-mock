@@ -346,7 +346,7 @@ const confettiParticles = Array.from({ length: 50 }, (_, i) => ({
       </div>
 
       <!-- Score -->
-      <div class="mb-6 rounded-2xl border border-border bg-surface-raised p-6 text-center">
+      <div class="glass-card mb-6 p-6 text-center">
         <p class="text-sm text-on-surface-muted">{{ t('results.score') }}</p>
         <p class="text-5xl font-bold text-on-surface">{{ pct }}%</p>
         <p class="mt-1 text-xs text-on-surface-muted">
@@ -367,7 +367,7 @@ const confettiParticles = Array.from({ length: 50 }, (_, i) => ({
           <div
             v-for="domain in ['people', 'process', 'business']"
             :key="domain"
-            class="rounded-xl border border-border bg-surface-raised p-4"
+            class="glass-card p-4"
           >
             <div class="flex items-center justify-between">
               <span class="font-medium text-on-surface">{{ domainLabel(domain) }}</span>
@@ -386,24 +386,24 @@ const confettiParticles = Array.from({ length: 50 }, (_, i) => ({
       </section>
 
       <!-- Charts -->
-      <section class="mb-6 rounded-2xl border border-border bg-surface-raised p-5">
+      <section class="glass-card mb-6 p-5">
         <h2 class="mb-3 text-lg font-semibold text-on-surface">{{ t('results.byTask') }}</h2>
         <HorizontalBarChart :labels="taskChart.labels" :values="taskChart.values" />
       </section>
 
       <div class="mb-6 grid gap-6 sm:grid-cols-2">
-        <section class="rounded-2xl border border-border bg-surface-raised p-5">
+        <section class="glass-card p-5">
           <h2 class="mb-3 text-lg font-semibold text-on-surface">{{ t('results.byType') }}</h2>
           <HorizontalBarChart :labels="typeChart.labels" :values="typeChart.values" />
         </section>
-        <section class="rounded-2xl border border-border bg-surface-raised p-5">
+        <section class="glass-card p-5">
           <h2 class="mb-3 text-lg font-semibold text-on-surface">{{ t('results.byApproach') }}</h2>
           <HorizontalBarChart :labels="approachChart.labels" :values="approachChart.values" />
         </section>
       </div>
 
       <!-- Time analysis -->
-      <section class="mb-6 rounded-2xl border border-border bg-surface-raised p-5">
+      <section class="glass-card mb-6 p-5">
         <h2 class="mb-3 text-lg font-semibold text-on-surface">{{ t('results.timeAnalysis') }}</h2>
         <div class="mb-4 grid grid-cols-2 gap-4">
           <div>
@@ -442,21 +442,21 @@ const confettiParticles = Array.from({ length: 50 }, (_, i) => ({
       <div class="flex flex-col gap-3 sm:flex-row print:hidden">
         <button
           type="button"
-          class="flex-1 rounded-2xl bg-primary px-6 py-3 font-semibold text-white transition hover:bg-primary-dark"
+          class="glass-button flex-1 bg-primary/90 px-6 py-3 font-semibold text-white transition" style="border-radius: var(--glass-radius)"
           @click="goReview"
         >
           {{ t('results.reviewAnswers') }}
         </button>
         <button
           type="button"
-          class="flex-1 rounded-2xl border border-border bg-surface-raised px-6 py-3 font-semibold text-on-surface transition hover:bg-surface-alt"
+          class="glass-button flex-1 px-6 py-3 font-semibold text-on-surface transition"
           @click="retryWeakAreas"
         >
           {{ t('results.retryWeak') }}
         </button>
         <button
           type="button"
-          class="rounded-2xl border border-border bg-surface-raised px-6 py-3 font-semibold text-on-surface transition hover:bg-surface-alt"
+          class="glass-button px-6 py-3 font-semibold text-on-surface transition"
           @click="savePdf"
         >
           {{ t('results.savePdf') }}

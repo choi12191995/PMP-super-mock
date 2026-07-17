@@ -60,7 +60,7 @@ async function startDaily10(): Promise<void> {
 <template>
   <button
     type="button"
-    class="flex w-full items-center gap-4 rounded-2xl border border-border bg-surface-raised p-4 text-left transition hover:border-primary/50 active:scale-[0.99] disabled:opacity-50"
+    class="glass-card flex w-full items-center gap-4 p-4 text-left transition active:scale-[0.99] disabled:opacity-50"
     :disabled="loading"
     @click="startDaily10"
   >

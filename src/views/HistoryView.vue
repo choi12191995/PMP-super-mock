@@ -200,7 +200,7 @@ function cancelClear(): void {
       <li
         v-for="att in attempts"
         :key="att.id"
-        class="relative overflow-hidden rounded-xl border border-border bg-surface-raised"
+        class="glass-card relative overflow-hidden"
       >
         <!-- Delete background -->
         <div

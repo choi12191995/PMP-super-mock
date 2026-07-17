@@ -20,21 +20,21 @@ function cycleTheme() {
 </script>
 
 <template>
-  <header class="sticky top-0 z-40 border-b border-border bg-surface/95 backdrop-blur" role="banner">
+  <header class="glass-bar sticky top-0 z-40 border-b" role="banner">
     <div class="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
       <router-link to="/" class="flex items-center gap-2 font-bold text-primary">
         <span class="text-xl">{{ t('app.title') }}</span>
       </router-link>
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-1">
         <button
-          class="touch-target rounded-lg px-3 py-1.5 text-sm font-medium text-on-surface-muted transition hover:bg-surface-alt focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          class="glass-pill touch-target px-3 py-1.5 text-sm font-medium text-on-surface-muted transition hover:text-on-surface"
           :title="t('settings.theme')"
           @click="cycleTheme"
         >
           {{ settings.theme === 'dark' ? '🌙' : settings.theme === 'light' ? '☀️' : '💻' }}
         </button>
         <button
-          class="touch-target rounded-lg px-3 py-1.5 text-sm font-medium text-on-surface-muted transition hover:bg-surface-alt"
+          class="glass-pill touch-target px-3 py-1.5 text-sm font-medium text-on-surface-muted transition hover:text-on-surface"
           :title="t('settings.language')"
           :aria-label="locale === 'en' ? t('common.switchToZh') : t('common.switchToEn')"
           @click="toggleLang"

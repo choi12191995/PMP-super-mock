@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { optionDisplayOrder } from '@/core/shuffleOptions'
 import type {
   Question,
   LText,
@@ -13,6 +14,7 @@ import type {
 const props = defineProps<{
   question: Question
   currentLang: 'en' | 'zh-TW'
+  sessionSeed?: number
 }>()
 
 const { t } = useI18n()
@@ -30,11 +32,19 @@ function optionLabel(index: number): string {
   return String.fromCharCode(65 + index)
 }
 
+const displayOrder = computed(() => {
+  const q = props.question
+  if (q.type !== 'mcq' && q.type !== 'graphic-mcq' && q.type !== 'multi') return null
+  return optionDisplayOrder(q.id, (q as McqQ | MultiQ).options.length, props.sessionSeed ?? 0)
+})
+
 const mcqOptions = computed(() => {
   if (props.question.type !== 'mcq' && props.question.type !== 'graphic-mcq' && props.question.type !== 'multi') {
     return null
   }
-  return (props.question as McqQ | MultiQ).options
+  const original = (props.question as McqQ | MultiQ).options
+  if (!displayOrder.value) return original
+  return displayOrder.value.map((origIdx) => original[origIdx])
 })
 
 const matchingItems = computed(() => {

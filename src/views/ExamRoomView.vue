@@ -662,7 +662,7 @@ onUnmounted(() => {
     v-if="showResumePrompt"
     class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
   >
-    <div class="w-full max-w-md rounded-2xl border border-border bg-surface-raised p-6 shadow-lg">
+    <div class="glass-modal w-full max-w-md p-6">
       <h2 class="mb-2 text-lg font-bold text-on-surface">{{ t('exam.resume') }}</h2>
       <p class="mb-6 text-sm text-on-surface-muted">{{ t('exam.resumePrompt') }}</p>
       <div class="flex gap-3">
@@ -726,7 +726,7 @@ onUnmounted(() => {
       <div class="flex gap-2">
         <button
           type="button"
-          class="touch-target rounded-xl border border-border bg-surface-raised px-4 py-2 text-sm font-medium text-on-surface transition hover:border-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          class="glass-pill touch-target px-4 py-2 text-sm font-medium text-on-surface transition"
           :aria-label="t('exam.calculator')"
           @click="showCalculator = true"
         >
@@ -734,8 +734,8 @@ onUnmounted(() => {
         </button>
         <button
           type="button"
-          class="touch-target rounded-xl border border-border bg-surface-raised px-4 py-2 text-sm font-medium text-on-surface transition hover:border-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-          :class="isBookmarked ? 'border-warning text-warning' : ''"
+          class="glass-pill touch-target px-4 py-2 text-sm font-medium text-on-surface transition"
+          :class="isBookmarked ? 'text-warning' : ''"
           :aria-label="isBookmarked ? t('srs.unbookmark') : t('srs.bookmark')"
           @click="toggleBookmark"
         >
@@ -743,7 +743,7 @@ onUnmounted(() => {
         </button>
         <button
           type="button"
-          class="touch-target rounded-xl border border-border bg-surface-raised px-4 py-2 text-sm font-medium text-on-surface transition hover:border-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          class="glass-pill touch-target px-4 py-2 text-sm font-medium text-on-surface transition"
           :aria-label="t('exam.scratchPad')"
           @click="showScratchPad = true"
         >
@@ -752,7 +752,7 @@ onUnmounted(() => {
       </div>
       <button
         type="button"
-        class="touch-target rounded-xl border border-border px-4 py-2 text-sm font-medium text-danger transition hover:border-danger hover:bg-danger/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-danger"
+        class="glass-pill touch-target px-4 py-2 text-sm font-medium text-danger transition"
         @click="confirmQuit"
       >
         {{ t('exam.quit') }}
@@ -760,11 +760,12 @@ onUnmounted(() => {
     </div>
 
     <!-- Question card -->
-    <div class="flex-1 rounded-2xl border border-border bg-surface-raised p-5 shadow-sm sm:p-6">
+    <div class="glass-card flex-1 p-5 sm:p-6">
       <LanguagePeek
         v-if="question"
         :question="question"
         :current-lang="lang"
+        :session-seed="sessionSeed"
       />
 
       <CaseSetRenderer
@@ -843,12 +844,12 @@ onUnmounted(() => {
 
     <!-- Bottom nav -->
     <div
-      class="fixed inset-x-0 bottom-16 z-30 border-t border-border bg-surface/95 px-4 py-3 backdrop-blur"
+      class="glass-bar fixed inset-x-0 bottom-16 z-30 border-t px-4 py-3"
     >
       <div class="mx-auto flex max-w-5xl gap-3">
         <button
           type="button"
-          class="min-h-[44px] flex-1 rounded-xl border border-border bg-surface-raised px-4 py-3 text-sm font-semibold text-on-surface transition hover:border-primary disabled:cursor-not-allowed disabled:opacity-40"
+          class="glass-button min-h-[44px] flex-1 px-4 py-3 text-sm font-semibold text-on-surface transition disabled:cursor-not-allowed disabled:opacity-40"
           :disabled="session.isFirst"
           @click="session.previous()"
         >
@@ -858,7 +859,7 @@ onUnmounted(() => {
         <button
           v-if="session.isLast && isRealExam"
           type="button"
-          class="min-h-[44px] flex-1 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-primary-dark"
+          class="glass-button min-h-[44px] flex-1 bg-primary/90 px-4 py-3 text-sm font-semibold text-white shadow-lg transition"
           @click="confirmSubmit"
         >
           {{ t('exam.submit') }}
@@ -866,7 +867,7 @@ onUnmounted(() => {
         <button
           v-else-if="session.isLast"
           type="button"
-          class="min-h-[44px] flex-1 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-primary-dark"
+          class="glass-button min-h-[44px] flex-1 bg-primary/90 px-4 py-3 text-sm font-semibold text-white shadow-lg transition"
           @click="confirmSubmit"
         >
           {{ t('exam.submit') }}
@@ -874,7 +875,7 @@ onUnmounted(() => {
         <button
           v-else
           type="button"
-          class="min-h-[44px] flex-1 rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-primary-dark"
+          class="glass-button min-h-[44px] flex-1 bg-primary/90 px-4 py-3 text-sm font-semibold text-white shadow-lg transition"
           @click="handleNext"
         >
           {{ t('exam.next') }}

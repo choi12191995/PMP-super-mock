@@ -116,7 +116,7 @@ async function generateStudyPlan(): Promise<void> {
 </script>
 
 <template>
-  <section class="rounded-2xl border border-border bg-surface-raised p-5">
+  <section class="glass-card p-5">
     <h2 class="mb-4 text-lg font-semibold text-on-surface">
       {{ t('results.weakSummary') }}
     </h2>

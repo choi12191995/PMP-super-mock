@@ -117,12 +117,12 @@ function onTaskSelect(task: string): void {
       >
         <p class="text-3xl font-bold">{{ t('home.examCountdown', { days: daysUntilExam }) }}</p>
       </div>
-      <div v-else class="mb-6 rounded-2xl border border-border bg-surface-alt p-4 text-center">
+      <div v-else class="glass-card mb-6 p-4 text-center">
         <p class="text-sm text-on-surface-muted">{{ t('home.noExamDate') }}</p>
       </div>
 
       <!-- Readiness -->
-      <div class="mb-6 rounded-2xl border border-border bg-surface-raised p-5">
+      <div class="glass-card mb-6 p-5">
         <p class="text-xs font-semibold uppercase tracking-wide text-on-surface-muted">
           {{ t('dashboard.readiness') }}
         </p>
@@ -130,19 +130,19 @@ function onTaskSelect(task: string): void {
       </div>
 
       <!-- Score trend -->
-      <section class="mb-6 rounded-2xl border border-border bg-surface-raised p-5">
+      <section class="glass-card mb-6 p-5">
         <h2 class="mb-3 text-lg font-semibold text-on-surface">{{ t('dashboard.scoreTrend') }}</h2>
         <ScoreTrendChart :data="scoreTrend" :pass-line="EXAM.PASS_PROXY_PCT" />
       </section>
 
       <!-- Domain radar -->
-      <section class="mb-6 rounded-2xl border border-border bg-surface-raised p-5">
+      <section class="glass-card mb-6 p-5">
         <h2 class="mb-3 text-lg font-semibold text-on-surface">{{ t('dashboard.domainRadar') }}</h2>
         <DomainRadarChart :data="domainRadar" />
       </section>
 
       <!-- Task heatmap -->
-      <section class="mb-6 rounded-2xl border border-border bg-surface-raised p-5">
+      <section class="glass-card mb-6 p-5">
         <h2 class="mb-3 text-lg font-semibold text-on-surface">{{ t('dashboard.taskHeatmap') }}</h2>
         <TaskHeatmap :data="taskHeatmap" @select="onTaskSelect" />
         <div class="mt-3 flex flex-wrap gap-3 text-xs text-on-surface-muted">
@@ -154,7 +154,7 @@ function onTaskSelect(task: string): void {
       </section>
 
       <!-- Streak calendar -->
-      <section class="mb-6 rounded-2xl border border-border bg-surface-raised p-5">
+      <section class="glass-card mb-6 p-5">
         <div class="mb-4 flex items-center justify-between">
           <h2 class="text-lg font-semibold text-on-surface">{{ t('dashboard.streakCalendar') }}</h2>
           <div class="flex gap-4 text-sm">
@@ -172,7 +172,7 @@ function onTaskSelect(task: string): void {
       </section>
 
       <!-- Coverage -->
-      <section class="rounded-2xl border border-border bg-surface-raised p-5">
+      <section class="glass-card p-5">
         <h2 class="mb-3 text-lg font-semibold text-on-surface">{{ t('dashboard.coverage') }}</h2>
         <div class="grid grid-cols-2 gap-4">
           <div>

@@ -60,17 +60,18 @@ onMounted(async () => {
 
     <div
       v-if="daysUntilExam !== null"
-      class="mb-6 rounded-2xl bg-primary p-6 text-center text-white"
+      class="glass-card mb-6 p-6 text-center"
     >
-      <p class="text-3xl font-bold">{{ t('home.examCountdown', { days: daysUntilExam }) }}</p>
+      <p class="text-3xl font-bold text-primary">{{ t('home.examCountdown', { days: daysUntilExam }) }}</p>
     </div>
-    <div v-else class="mb-6 rounded-2xl border border-border bg-surface-alt p-6 text-center">
+    <div v-else class="glass-card mb-6 p-6 text-center">
       <p class="text-on-surface-muted">{{ t('home.noExamDate') }}</p>
     </div>
 
     <router-link
       to="/mode"
-      class="mb-6 flex w-full items-center justify-center rounded-2xl bg-primary px-8 py-4 text-lg font-semibold text-white shadow-md transition hover:bg-primary-dark active:scale-[0.98]"
+      class="glass-button mb-6 flex w-full items-center justify-center bg-primary/90 px-8 py-4 text-lg font-semibold text-white shadow-lg transition active:scale-[0.97]"
+      style="border-radius: var(--glass-radius)"
     >
       {{ t('home.startPractice') }}
     </router-link>
@@ -87,26 +88,26 @@ onMounted(async () => {
 
     <BadgeStrip :badges="badges" />
 
-    <div class="grid grid-cols-2 gap-4">
-      <div class="rounded-xl border border-border bg-surface-raised p-4">
+    <div class="grid grid-cols-2 gap-3">
+      <div class="glass-card p-4">
         <p class="text-xs text-on-surface-muted">{{ t('home.recentScore') }}</p>
         <p class="mt-1 text-2xl font-bold text-on-surface">
           {{ loading ? '…' : recentScore !== null ? `${recentScore}%` : '—' }}
         </p>
       </div>
-      <div class="rounded-xl border border-border bg-surface-raised p-4">
+      <div class="glass-card p-4">
         <p class="text-xs text-on-surface-muted">{{ t('home.questionsAnswered') }}</p>
         <p class="mt-1 text-2xl font-bold text-on-surface">
           {{ loading ? '…' : totalAnswered }}
         </p>
       </div>
-      <div class="rounded-xl border border-border bg-surface-raised p-4">
+      <div class="glass-card p-4">
         <p class="text-xs text-on-surface-muted">{{ t('home.streak') }}</p>
         <p class="mt-1 text-2xl font-bold text-on-surface">
           {{ loading ? '…' : currentStreak }}
         </p>
       </div>
-      <div class="rounded-xl border border-border bg-surface-raised p-4">
+      <div class="glass-card p-4">
         <p class="text-xs text-on-surface-muted">{{ t('home.coverage') }}</p>
         <p class="mt-1 text-2xl font-bold text-on-surface">
           {{ loading ? '…' : `${Math.round(coveragePct)}%` }}

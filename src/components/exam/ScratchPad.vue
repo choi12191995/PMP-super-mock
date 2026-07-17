@@ -32,7 +32,7 @@ const { t } = useI18n()
       />
 
       <div
-        class="relative flex h-[70vh] w-full max-w-lg flex-col rounded-t-2xl border border-border bg-surface-raised p-4 shadow-xl sm:h-auto sm:max-h-[80vh] sm:rounded-2xl"
+        class="glass-modal relative flex h-[70vh] w-full max-w-lg flex-col p-4 sm:h-auto sm:max-h-[80vh]" style="border-radius: var(--glass-radius-lg) var(--glass-radius-lg) 0 0"
       >
         <div class="mb-3 flex items-center justify-between">
           <h2 class="text-lg font-bold text-on-surface">{{ t('exam.scratchPad') }}</h2>

@@ -304,7 +304,7 @@ async function startExam(): Promise<void> {
     <!-- Global toggles for assembled modes -->
     <div
       v-if="showGlobalToggles"
-      class="mb-6 space-y-3 rounded-2xl border border-border bg-surface-raised p-5"
+      class="glass-card mb-6 space-y-3 p-5"
     >
       <label class="flex cursor-pointer items-center gap-3">
         <input v-model="onvue" type="checkbox" class="h-5 w-5 accent-primary" />
@@ -319,7 +319,7 @@ async function startExam(): Promise<void> {
     <!-- Filters -->
     <div
       v-if="showFilters"
-      class="mb-6 space-y-5 rounded-2xl border border-border bg-surface-raised p-5"
+      class="glass-card mb-6 space-y-5 p-5"
     >
       <h3 class="text-sm font-semibold uppercase tracking-wide text-on-surface-muted">
         {{ t('mode.filters') }}
@@ -465,7 +465,8 @@ async function startExam(): Promise<void> {
 
     <button
       type="button"
-      class="flex w-full min-h-[52px] items-center justify-center rounded-2xl bg-primary px-8 py-4 text-lg font-semibold text-white shadow-md transition hover:bg-primary-dark active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
+      class="glass-button flex w-full min-h-[52px] items-center justify-center bg-primary/90 px-8 py-4 text-lg font-semibold text-white shadow-lg transition active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-50"
+      style="border-radius: var(--glass-radius)"
       :disabled="!canStart"
       @click="startExam"
     >

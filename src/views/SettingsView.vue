@@ -120,7 +120,7 @@ async function onDownloadBank(): Promise<void> {
         {{ t('settings.appearance') }}
       </h2>
       <div class="space-y-3">
-        <div class="flex items-center justify-between rounded-xl border border-border bg-surface-raised p-4">
+        <div class="flex items-center justify-between glass-card p-4">
           <span class="text-on-surface">{{ t('settings.theme') }}</span>
           <div class="flex gap-1">
             <button
@@ -141,7 +141,7 @@ async function onDownloadBank(): Promise<void> {
       <h2 class="mb-3 text-sm font-semibold uppercase tracking-wider text-on-surface-muted">
         {{ t('settings.exam') }}
       </h2>
-      <div class="space-y-3 rounded-xl border border-border bg-surface-raised p-4">
+      <div class="space-y-3 glass-card p-4">
         <div>
           <label class="mb-1 block text-sm font-medium text-on-surface">{{ t('settings.examDate') }}</label>
           <input
@@ -185,7 +185,7 @@ async function onDownloadBank(): Promise<void> {
       <h2 class="mb-3 text-sm font-semibold uppercase tracking-wider text-on-surface-muted">
         {{ t('settings.ai') }}
       </h2>
-      <div class="space-y-4 rounded-xl border border-border bg-surface-raised p-4">
+      <div class="space-y-4 glass-card p-4">
         <label class="flex cursor-pointer items-center gap-3">
           <input
             v-model="ai.enabled"
@@ -303,7 +303,7 @@ async function onDownloadBank(): Promise<void> {
         {{ t('settings.data') }}
       </h2>
       <div class="space-y-3">
-        <div class="rounded-xl border border-border bg-surface-raised p-4">
+        <div class="glass-card p-4">
           <p class="font-medium text-on-surface">{{ t('settings.backup') }}</p>
           <p class="mb-3 text-sm text-on-surface-muted">{{ t('settings.backupDesc') }}</p>
           <label class="mb-3 flex cursor-pointer items-center gap-2">
@@ -318,7 +318,7 @@ async function onDownloadBank(): Promise<void> {
             {{ t('settings.backup') }}
           </button>
         </div>
-        <div class="rounded-xl border border-border bg-surface-raised p-4">
+        <div class="glass-card p-4">
           <p class="font-medium text-on-surface">{{ t('settings.restore') }}</p>
           <p class="mb-3 text-sm text-on-surface-muted">{{ t('settings.restoreDesc') }}</p>
           <label class="inline-block cursor-pointer rounded-xl border border-border px-4 py-2 text-sm font-medium text-on-surface transition hover:border-primary">
@@ -326,7 +326,7 @@ async function onDownloadBank(): Promise<void> {
             <input type="file" accept="application/json,.json" class="hidden" @change="onRestore" />
           </label>
         </div>
-        <div class="rounded-xl border border-border bg-surface-raised p-4">
+        <div class="glass-card p-4">
           <p class="font-medium text-on-surface">{{ t('settings.downloadOffline') }}</p>
           <p class="mb-1 text-sm text-on-surface-muted">
             {{ t('settings.bankVersion') }}: {{ bankVersion }}
