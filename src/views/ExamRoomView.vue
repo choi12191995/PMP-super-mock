@@ -21,6 +21,7 @@ import { loadAllCases } from '@/core/bank/loader'
 import { useAiStore } from '@/stores/ai'
 import { EXAM } from '@/core/examConstants'
 import { useExamSessionStore } from '@/stores/examSession'
+import { db } from '@/db/index'
 import type {
   McqQ,
   MultiQ,
@@ -52,6 +53,7 @@ const resumeChecked = ref(false)
 const showCalculator = ref(false)
 const showScratchPad = ref(false)
 const scratchPadNotes = ref(new Map<string, string>())
+const bookmarkedIds = ref(new Set<string>())
 let timerTickInterval: ReturnType<typeof setInterval> | null = null
 let wakeLock: WakeLockSentinel | null = null
 
@@ -385,6 +387,30 @@ function toggleFlag(): void {
   session.toggleFlag(q.id)
 }
 
+function normalizeId(id: string): string {
+  return id.replace(/__dup\d+$/, '').replace(/__fill\d+$/, '')
+}
+
+const isBookmarked = computed(() => {
+  const q = question.value
+  if (!q) return false
+  return bookmarkedIds.value.has(normalizeId(q.id))
+})
+
+async function toggleBookmark(): Promise<void> {
+  const q = question.value
+  if (!q) return
+  const baseId = normalizeId(q.id)
+  if (bookmarkedIds.value.has(baseId)) {
+    await db.bookmarks.delete(baseId)
+    bookmarkedIds.value.delete(baseId)
+  } else {
+    await db.bookmarks.put({ questionId: baseId, savedAt: Date.now() })
+    bookmarkedIds.value.add(baseId)
+  }
+  bookmarkedIds.value = new Set(bookmarkedIds.value)
+}
+
 async function confirmQuit(): Promise<void> {
   if (!window.confirm(t('exam.quitConfirm'))) return
   await session.quit()
@@ -601,6 +627,9 @@ onMounted(async () => {
 
   resumeChecked.value = true
 
+  const bookmarks = await db.bookmarks.toArray()
+  bookmarkedIds.value = new Set(bookmarks.map((b) => b.questionId))
+
   try {
     const cases = await loadAllCases()
     caseMap.value = new Map(cases.map((c) => [c.id, c]))
@@ -699,6 +728,15 @@ onUnmounted(() => {
           @click="showCalculator = true"
         >
           {{ t('exam.calculator') }}
+        </button>
+        <button
+          type="button"
+          class="touch-target rounded-xl border border-border bg-surface-raised px-4 py-2 text-sm font-medium text-on-surface transition hover:border-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          :class="isBookmarked ? 'border-warning text-warning' : ''"
+          :aria-label="isBookmarked ? t('srs.unbookmark') : t('srs.bookmark')"
+          @click="toggleBookmark"
+        >
+          {{ isBookmarked ? '🔖' : '📑' }}
         </button>
         <button
           type="button"

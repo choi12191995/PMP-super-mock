@@ -20,7 +20,8 @@
     "recentScore": "最近成績",
     "questionsAnswered": "已作答題數",
     "streak": "連續天數",
-    "coverage": "題庫覆蓋率"
+    "coverage": "題庫覆蓋率",
+    "dailyPractice": "每日練習"
   },
   "mode": {
     "title": "選擇模式",
@@ -189,6 +190,8 @@
     "downloadOffline": "下載完整題庫供離線使用",
     "downloadProgress": "下載中... {pct}%",
     "downloadDone": "題庫已快取供離線使用",
+    "backupSuccess": "備份已成功下載",
+    "restoreSuccess": "資料已成功還原",
     "ai": "AI 助手",
     "aiEndpoint": "API 端點",
     "aiKey": "API 金鑰",
@@ -264,6 +267,7 @@
     "noData": "無資料"
   },
   "badges": {
+    "title": "成就徽章",
     "first180": "首次 180 題",
     "streak7": "7 天連續",
     "businessPro": "商業環境達人",
@@ -273,9 +277,20 @@
   "srs": {
     "daily10": "每日 10 題",
     "daily10Desc": "快速測驗：間隔複習 + 新題目",
+    "dueCount": "{count} 題待複習",
     "mistakes": "錯題本",
     "mistakesDesc": "回顧和重做答錯的題目",
+    "mistakesCount": "{count} 題待複習",
+    "mistakesEmpty": "尚無錯題 — 繼續保持！",
     "bookmarks": "書籤",
-    "bookmarksDesc": "您已儲存的題目"
+    "bookmarksDesc": "您已儲存的題目",
+    "bookmarksCount": "已儲存 {count} 題",
+    "bookmarksEmpty": "尚無書籤",
+    "bookmark": "加入書籤",
+    "unbookmark": "移除書籤"
+  },
+  "install": {
+    "hint": "安裝 PMP Super Mock 以離線使用並獲得原生應用體驗。",
+    "dismiss": "暫時不要"
   }
 }

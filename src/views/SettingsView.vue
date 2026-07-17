@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useSettingsStore } from '@/stores/settings'
 import { useAiStore } from '@/stores/ai'
+import { exportData, importData, downloadJson } from '@/db/exportImport'
+import { warmQuestionBankCache, isBankCached } from '@/core/bank/warmCache'
+import { loadManifest } from '@/core/bank/loader'
 
 const { t } = useI18n()
 const settings = useSettingsStore()
@@ -13,10 +16,27 @@ const testing = ref(false)
 const testResult = ref<{ ok: boolean; message: string } | null>(null)
 const fetchingModels = ref(false)
 const modelsError = ref<string | null>(null)
+const includeApiKey = ref(false)
+const backupStatus = ref<string | null>(null)
+const bankVersion = ref('')
+const bankCached = ref(false)
+const downloading = ref(false)
+const downloadPct = ref(0)
+const downloadError = ref<string | null>(null)
 
 function persistAi(): void {
   ai.saveConfig()
 }
+
+onMounted(async () => {
+  try {
+    const manifest = await loadManifest()
+    bankVersion.value = manifest.version
+  } catch {
+    bankVersion.value = '—'
+  }
+  bankCached.value = await isBankCached()
+})
 
 async function onTestConnection(): Promise<void> {
   testing.value = true
@@ -46,6 +66,49 @@ async function onFetchModels(): Promise<void> {
     fetchingModels.value = false
   }
 }
+
+async function onBackup(): Promise<void> {
+  backupStatus.value = null
+  try {
+    const data = await exportData(includeApiKey.value)
+    downloadJson(data, `pmp-super-mock-backup-${new Date().toISOString().slice(0, 10)}.json`)
+    backupStatus.value = t('settings.backupSuccess')
+  } catch (err) {
+    backupStatus.value = err instanceof Error ? err.message : String(err)
+  }
+}
+
+async function onRestore(event: Event): Promise<void> {
+  const input = event.target as HTMLInputElement
+  const file = input.files?.[0]
+  if (!file) return
+  backupStatus.value = null
+  try {
+    const text = await file.text()
+    const data = JSON.parse(text)
+    await importData(data)
+    backupStatus.value = t('settings.restoreSuccess')
+  } catch (err) {
+    backupStatus.value = err instanceof Error ? err.message : String(err)
+  }
+  input.value = ''
+}
+
+async function onDownloadBank(): Promise<void> {
+  downloading.value = true
+  downloadError.value = null
+  downloadPct.value = 0
+  try {
+    await warmQuestionBankCache((p) => {
+      downloadPct.value = p.pct
+    })
+    bankCached.value = true
+  } catch (err) {
+    downloadError.value = err instanceof Error ? err.message : String(err)
+  } finally {
+    downloading.value = false
+  }
+}
 </script>
 
 <template>
@@ -71,6 +134,50 @@ async function onFetchModels(): Promise<void> {
             </button>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="mb-3 text-sm font-semibold uppercase tracking-wider text-on-surface-muted">
+        {{ t('settings.exam') }}
+      </h2>
+      <div class="space-y-3 rounded-xl border border-border bg-surface-raised p-4">
+        <div>
+          <label class="mb-1 block text-sm font-medium text-on-surface">{{ t('settings.examDate') }}</label>
+          <input
+            :value="settings.examDate ?? ''"
+            type="date"
+            class="w-full rounded-xl border border-border bg-surface px-3 py-2 text-sm text-on-surface outline-none focus:border-primary"
+            @input="settings.setExamDate(($event.target as HTMLInputElement).value || null)"
+          />
+        </div>
+        <label class="flex cursor-pointer items-center gap-3">
+          <input
+            :checked="settings.sounds"
+            type="checkbox"
+            class="h-5 w-5 accent-primary"
+            @change="settings.toggleSounds()"
+          />
+          <span class="text-sm text-on-surface">{{ t('settings.sounds') }}</span>
+        </label>
+        <label class="flex cursor-pointer items-center gap-3">
+          <input
+            :checked="settings.haptics"
+            type="checkbox"
+            class="h-5 w-5 accent-primary"
+            @change="settings.toggleHaptics()"
+          />
+          <span class="text-sm text-on-surface">{{ t('settings.haptics') }}</span>
+        </label>
+        <label class="flex cursor-pointer items-center gap-3">
+          <input
+            :checked="settings.swipeNav"
+            type="checkbox"
+            class="h-5 w-5 accent-primary"
+            @change="settings.toggleSwipeNav()"
+          />
+          <span class="text-sm text-on-surface">{{ t('settings.swipeNav') }}</span>
+        </label>
       </div>
     </section>
 
@@ -198,12 +305,47 @@ async function onFetchModels(): Promise<void> {
       <div class="space-y-3">
         <div class="rounded-xl border border-border bg-surface-raised p-4">
           <p class="font-medium text-on-surface">{{ t('settings.backup') }}</p>
-          <p class="text-sm text-on-surface-muted">{{ t('settings.backupDesc') }}</p>
+          <p class="mb-3 text-sm text-on-surface-muted">{{ t('settings.backupDesc') }}</p>
+          <label class="mb-3 flex cursor-pointer items-center gap-2">
+            <input v-model="includeApiKey" type="checkbox" class="h-4 w-4 accent-primary" />
+            <span class="text-sm text-on-surface-muted">{{ t('settings.includeApiKey') }}</span>
+          </label>
+          <button
+            type="button"
+            class="rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-primary-dark"
+            @click="onBackup"
+          >
+            {{ t('settings.backup') }}
+          </button>
         </div>
         <div class="rounded-xl border border-border bg-surface-raised p-4">
           <p class="font-medium text-on-surface">{{ t('settings.restore') }}</p>
-          <p class="text-sm text-on-surface-muted">{{ t('settings.restoreDesc') }}</p>
+          <p class="mb-3 text-sm text-on-surface-muted">{{ t('settings.restoreDesc') }}</p>
+          <label class="inline-block cursor-pointer rounded-xl border border-border px-4 py-2 text-sm font-medium text-on-surface transition hover:border-primary">
+            {{ t('settings.restore') }}
+            <input type="file" accept="application/json,.json" class="hidden" @change="onRestore" />
+          </label>
         </div>
+        <div class="rounded-xl border border-border bg-surface-raised p-4">
+          <p class="font-medium text-on-surface">{{ t('settings.downloadOffline') }}</p>
+          <p class="mb-1 text-sm text-on-surface-muted">
+            {{ t('settings.bankVersion') }}: {{ bankVersion }}
+          </p>
+          <p v-if="bankCached" class="mb-3 text-sm text-success">{{ t('settings.downloadDone') }}</p>
+          <button
+            type="button"
+            class="rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-primary-dark disabled:opacity-50"
+            :disabled="downloading"
+            @click="onDownloadBank"
+          >
+            {{ downloading ? t('settings.downloadProgress', { pct: downloadPct }) : t('settings.downloadOffline') }}
+          </button>
+          <div v-if="downloading" class="mt-2 h-2 overflow-hidden rounded-full bg-surface-alt">
+            <div class="h-full bg-primary transition-all" :style="{ width: `${downloadPct}%` }" />
+          </div>
+          <p v-if="downloadError" class="mt-2 text-sm text-danger">{{ downloadError }}</p>
+        </div>
+        <p v-if="backupStatus" class="text-sm text-on-surface-muted">{{ backupStatus }}</p>
       </div>
     </section>
   </div>

@@ -51,11 +51,17 @@ export interface DailyRecord {
   streakDay: number
 }
 
+export interface BookmarkRecord {
+  questionId: string
+  savedAt: number
+}
+
 const db = new Dexie('pmp-super-mock') as Dexie & {
   attempts: EntityTable<AttemptRecord, 'id'>
   answers: EntityTable<AnswerRecord, 'id'>
   srs: EntityTable<SrsRecord, 'questionId'>
   daily: EntityTable<DailyRecord, 'date'>
+  bookmarks: EntityTable<BookmarkRecord, 'questionId'>
 }
 
 db.version(1).stores({
@@ -63,6 +69,10 @@ db.version(1).stores({
   answers: 'id, attemptId, questionId',
   srs: 'questionId, due',
   daily: 'date',
+})
+
+db.version(2).stores({
+  bookmarks: 'questionId, savedAt',
 })
 
 export { db }

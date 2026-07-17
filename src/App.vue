@@ -5,6 +5,7 @@ import { useI18n } from 'vue-i18n'
 import AppHeader from '@/components/AppHeader.vue'
 import AppBottomNav from '@/components/AppBottomNav.vue'
 import UpdateToast from '@/components/UpdateToast.vue'
+import InstallHint from '@/components/InstallHint.vue'
 
 const { locale } = useI18n()
 
@@ -25,5 +26,6 @@ watch(
     </main>
     <AppBottomNav />
     <UpdateToast />
+    <InstallHint />
   </div>
 </template>

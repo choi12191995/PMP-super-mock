@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useExamSessionStore } from '@/stores/examSession'
 
 const { t } = useI18n()
+const session = useExamSessionStore()
 
 const needRefresh = ref(false)
-const deferred = ref(false)
+const queued = ref(false)
 let updateSW: ((reloadPage?: boolean) => Promise<void>) | undefined
 
 onMounted(async () => {
@@ -14,7 +16,11 @@ onMounted(async () => {
     updateSW = registerSW({
       immediate: true,
       onNeedRefresh() {
-        needRefresh.value = true
+        if (session.isInProgress) {
+          queued.value = true
+        } else {
+          needRefresh.value = true
+        }
       },
     })
   } catch {
@@ -22,12 +28,21 @@ onMounted(async () => {
   }
 })
 
+watch(
+  () => session.isInProgress,
+  (inProgress) => {
+    if (!inProgress && queued.value) {
+      queued.value = false
+      needRefresh.value = true
+    }
+  },
+)
+
 function applyUpdate() {
   updateSW?.(true)
 }
 
 function dismissUpdate() {
-  deferred.value = true
   needRefresh.value = false
 }
 </script>
@@ -54,11 +69,14 @@ function dismissUpdate() {
             {{ t('update.later') }}
           </button>
         </div>
-        <p v-if="deferred" class="mt-2 text-xs text-on-surface-muted">
-          {{ t('update.deferred') }}
-        </p>
       </div>
     </Transition>
+    <p
+      v-if="queued && !needRefresh"
+      class="fixed bottom-20 left-4 right-4 z-50 mx-auto max-w-md rounded-xl border border-border bg-surface-raised px-4 py-3 text-center text-xs text-on-surface-muted shadow-lg"
+    >
+      {{ t('update.deferred') }}
+    </p>
   </Teleport>
 </template>
 

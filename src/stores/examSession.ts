@@ -4,6 +4,9 @@ import { ExamEngine, type SectionIndices, type SectionKey } from '@/core/engine/
 import { ExamTimer, type ExamTimerSerialized } from '@/core/engine/timer'
 import { computeScore, computeBand } from '@/core/engine/scoring'
 import { EXAM } from '@/core/examConstants'
+import { processAttemptAnswers } from '@/core/srs/index'
+import { buildDailyFromAnswers } from '@/core/stats'
+import { requestPersistentStorage } from '@/core/storage'
 import { db } from '@/db/index'
 import type { AnswerGiven, ExamConfig, Question, ScoreResult, Band } from '@/core/types'
 
@@ -155,12 +158,13 @@ export const useExamSessionStore = defineStore('examSession', () => {
     const score = computeScore(questions.value, answers.value)
     const pct = score.pct
     const computedBand = computeBand(pct)
+    const finishedAt = Date.now()
 
     await db.attempts.put({
       id: attemptId.value,
       mode: config.value.mode,
       startedAt: startedAt.value,
-      finishedAt: Date.now(),
+      finishedAt,
       durationSec: timer.value?.getElapsed() ?? 0,
       config: config.value as unknown as Record<string, unknown>,
       score: {
@@ -186,11 +190,28 @@ export const useExamSessionStore = defineStore('examSession', () => {
       timeSec: ans.timeSec,
       flagged: ans.flagged,
       changedCount: ans.changedCount,
-      answeredAt: Date.now(),
+      answeredAt: finishedAt,
     }))
 
     if (answerRecords.length > 0) {
       await db.answers.bulkPut(answerRecords)
+    }
+
+    if (status === 'completed') {
+      await processAttemptAnswers(answerRecords)
+      const allAnswers = await db.answers.toArray()
+      const dailyRecords = buildDailyFromAnswers(allAnswers)
+      if (dailyRecords.length > 0) {
+        await db.daily.bulkPut(dailyRecords)
+      }
+
+      const priorCompleted = await db.attempts
+        .where('status')
+        .equals('completed')
+        .count()
+      if (priorCompleted <= 1) {
+        await requestPersistentStorage()
+      }
     }
   }
 

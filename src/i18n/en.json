@@ -20,7 +20,8 @@
     "recentScore": "Recent Score",
     "questionsAnswered": "Questions Answered",
     "streak": "Day Streak",
-    "coverage": "Bank Coverage"
+    "coverage": "Bank Coverage",
+    "dailyPractice": "Daily Practice"
   },
   "mode": {
     "title": "Choose Mode",
@@ -189,6 +190,8 @@
     "downloadOffline": "Download Full Bank for Offline",
     "downloadProgress": "Downloading... {pct}%",
     "downloadDone": "Bank cached for offline use",
+    "backupSuccess": "Backup downloaded successfully",
+    "restoreSuccess": "Data restored successfully",
     "ai": "AI Assistant",
     "aiEndpoint": "API Endpoint",
     "aiKey": "API Key",
@@ -264,6 +267,7 @@
     "noData": "No data"
   },
   "badges": {
+    "title": "Achievements",
     "first180": "First 180",
     "streak7": "7-Day Streak",
     "businessPro": "Business Pro",
@@ -273,9 +277,20 @@
   "srs": {
     "daily10": "Daily 10",
     "daily10Desc": "Quick quiz: SRS review + fresh questions",
+    "dueCount": "{count} due for review",
     "mistakes": "Mistake Notebook",
     "mistakesDesc": "Review and re-drill your wrong answers",
+    "mistakesCount": "{count} questions to review",
+    "mistakesEmpty": "No mistakes yet — keep it up!",
     "bookmarks": "Bookmarks",
-    "bookmarksDesc": "Questions you've saved for later"
+    "bookmarksDesc": "Questions you've saved for later",
+    "bookmarksCount": "{count} saved questions",
+    "bookmarksEmpty": "No bookmarks yet",
+    "bookmark": "Bookmark",
+    "unbookmark": "Remove bookmark"
+  },
+  "install": {
+    "hint": "Install PMP Super Mock for offline access and a native app experience.",
+    "dismiss": "Not now"
   }
 }

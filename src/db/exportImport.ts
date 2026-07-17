@@ -11,14 +11,16 @@ export interface BackupData {
   answers: unknown[]
   srs: unknown[]
   daily: unknown[]
+  bookmarks: unknown[]
 }
 
 export async function exportData(includeApiKey = false): Promise<BackupData> {
-  const [attempts, answers, srs, daily] = await Promise.all([
+  const [attempts, answers, srs, daily, bookmarks] = await Promise.all([
     db.attempts.toArray(),
     db.answers.toArray(),
     db.srs.toArray(),
     db.daily.toArray(),
+    db.bookmarks.toArray(),
   ])
 
   let settingsRaw: Record<string, unknown> | null = null
@@ -48,6 +50,7 @@ export async function exportData(includeApiKey = false): Promise<BackupData> {
     answers,
     srs,
     daily,
+    bookmarks,
   }
 }
 
@@ -62,6 +65,7 @@ export async function importData(data: BackupData, merge = false): Promise<void>
       db.answers.clear(),
       db.srs.clear(),
       db.daily.clear(),
+      db.bookmarks.clear(),
     ])
   }
 
@@ -70,6 +74,7 @@ export async function importData(data: BackupData, merge = false): Promise<void>
     db.answers.bulkPut(data.answers as Parameters<typeof db.answers.bulkPut>[0]),
     db.srs.bulkPut(data.srs as Parameters<typeof db.srs.bulkPut>[0]),
     db.daily.bulkPut(data.daily as Parameters<typeof db.daily.bulkPut>[0]),
+    db.bookmarks.bulkPut((data.bookmarks ?? []) as Parameters<typeof db.bookmarks.bulkPut>[0]),
   ])
 
   if (data.settings) {

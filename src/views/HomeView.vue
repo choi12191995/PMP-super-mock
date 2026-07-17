@@ -1,11 +1,16 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useSettingsStore } from '@/stores/settings'
-import { computed } from 'vue'
 import { db } from '@/db/index'
 import { loadManifest } from '@/core/bank/loader'
 import { computeOverview, findLatestAttempt } from '@/core/stats'
+import { computeBadges } from '@/core/badges'
+import type { Badge } from '@/core/badges'
+import Daily10Card from '@/components/srs/Daily10Card.vue'
+import MistakeNotebookCard from '@/components/srs/MistakeNotebookCard.vue'
+import BookmarkCard from '@/components/srs/BookmarkCard.vue'
+import BadgeStrip from '@/components/badges/BadgeStrip.vue'
 
 const { t } = useI18n()
 const settings = useSettingsStore()
@@ -15,6 +20,7 @@ const totalAnswered = ref(0)
 const currentStreak = ref(0)
 const coveragePct = ref(0)
 const loading = ref(true)
+const badges = ref<Badge[]>([])
 
 const daysUntilExam = computed(() => {
   if (!settings.examDate) return null
@@ -35,6 +41,7 @@ onMounted(async () => {
     totalAnswered.value = overview.totalAnswered
     currentStreak.value = overview.currentStreak
     coveragePct.value = overview.coveragePct
+    badges.value = computeBadges(attempts, answers, daily)
 
     const latest = findLatestAttempt(attempts)
     recentScore.value = latest?.score ? Math.round(latest.score.pct) : null
@@ -63,10 +70,22 @@ onMounted(async () => {
 
     <router-link
       to="/mode"
-      class="mb-8 flex w-full items-center justify-center rounded-2xl bg-primary px-8 py-4 text-lg font-semibold text-white shadow-md transition hover:bg-primary-dark active:scale-[0.98]"
+      class="mb-6 flex w-full items-center justify-center rounded-2xl bg-primary px-8 py-4 text-lg font-semibold text-white shadow-md transition hover:bg-primary-dark active:scale-[0.98]"
     >
       {{ t('home.startPractice') }}
     </router-link>
+
+    <!-- Daily engagement -->
+    <section class="mb-6 space-y-3">
+      <h2 class="text-sm font-semibold uppercase tracking-wider text-on-surface-muted">
+        {{ t('home.dailyPractice') }}
+      </h2>
+      <Daily10Card />
+      <MistakeNotebookCard />
+      <BookmarkCard />
+    </section>
+
+    <BadgeStrip :badges="badges" />
 
     <div class="grid grid-cols-2 gap-4">
       <div class="rounded-xl border border-border bg-surface-raised p-4">

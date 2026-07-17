@@ -8,9 +8,9 @@ export const useSettingsStore = defineStore('settings', () => {
   const theme = ref<ThemeMode>((stored.theme as ThemeMode) ?? 'system')
   const lang = ref<string>((stored.lang as string) ?? 'en')
   const examDate = ref<string | null>((stored.examDate as string) ?? null)
-  const sounds = ref(stored.sounds ?? true)
-  const haptics = ref(stored.haptics ?? true)
-  const swipeNav = ref(stored.swipeNav ?? true)
+  const sounds = ref(Boolean(stored.sounds ?? true))
+  const haptics = ref(Boolean(stored.haptics ?? true))
+  const swipeNav = ref(Boolean(stored.swipeNav ?? true))
 
   function loadStored(): Record<string, unknown> {
     try {

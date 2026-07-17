@@ -6,6 +6,8 @@ import { db, type AttemptRecord, type AnswerRecord } from '@/db/index'
 import { EXAM } from '@/core/examConstants'
 import { computeBand, computeDomainBands } from '@/core/engine/scoring'
 import { loadAllQuestions } from '@/core/bank/loader'
+import { findBestAttempt } from '@/core/stats'
+import { playPassSound, hapticPass } from '@/core/feedback'
 import HorizontalBarChart from '@/components/charts/HorizontalBarChart.vue'
 import WeakPointCard from '@/components/ai/WeakPointCard.vue'
 import type { Band, Domain, LText, Question } from '@/core/types'
@@ -24,18 +26,27 @@ const attemptId = computed(() => route.params.attemptId as string)
 
 onMounted(async () => {
   try {
-    const [att, ans, allQuestions] = await Promise.all([
+    const [att, ans, allQuestions, allAttempts] = await Promise.all([
       db.attempts.get(attemptId.value),
       db.answers.where('attemptId').equals(attemptId.value).toArray(),
       loadAllQuestions(),
+      db.attempts.where('status').equals('completed').toArray(),
     ])
 
     attempt.value = att ?? null
     answers.value = ans
     questions.value = new Map(allQuestions.map((q) => [q.id, q]))
 
-    if (att?.passedProxy) {
+    const best = findBestAttempt(allAttempts)
+    const isPersonalBest =
+      att?.score != null && best?.id === att.id && allAttempts.length > 1
+
+    if (att?.passedProxy || isPersonalBest) {
       showConfetti.value = true
+      if (att?.passedProxy) {
+        playPassSound()
+        hapticPass()
+      }
       setTimeout(() => {
         showConfetti.value = false
       }, 4000)
@@ -303,7 +314,7 @@ const confettiParticles = Array.from({ length: 50 }, (_, i) => ({
 
     <template v-else-if="attempt && score">
       <!-- Confetti -->
-      <div v-if="showConfetti && passed" class="confetti-container pointer-events-none fixed inset-0 z-50 overflow-hidden">
+      <div v-if="showConfetti" class="confetti-container pointer-events-none fixed inset-0 z-50 overflow-hidden">
         <span
           v-for="p in confettiParticles"
           :key="p.id"
