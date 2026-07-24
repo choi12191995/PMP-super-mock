@@ -259,3 +259,7 @@ textarea:focus:not(:focus-visible) {
   border-radius: var(--glass-radius-lg);
   box-shadow: 0 8px 60px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.1);
 }
+
+.safe-area-pt {
+  padding-top: env(safe-area-inset-top, 0px);
+}

@@ -20,7 +20,7 @@ function cycleTheme() {
 </script>
 
 <template>
-  <header class="glass-bar sticky top-0 z-40 border-b" role="banner">
+  <header class="glass-bar sticky top-0 z-40 border-b safe-area-pt" role="banner">
     <div class="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
       <router-link to="/" class="flex items-center gap-2 font-bold text-primary">
         <span class="text-xl">{{ t('app.title') }}</span>

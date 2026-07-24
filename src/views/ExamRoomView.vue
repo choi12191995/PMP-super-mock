@@ -18,6 +18,7 @@ import LanguagePeek from '@/components/exam/LanguagePeek.vue'
 import ChatFab from '@/components/ai/ChatFab.vue'
 import ChatPanel from '@/components/ai/ChatPanel.vue'
 import { loadAllCases } from '@/core/bank/loader'
+import { optionDisplayOrder, remapExplanationLabels } from '@/core/shuffleOptions'
 import { useAiStore } from '@/stores/ai'
 import { EXAM } from '@/core/examConstants'
 import { useExamSessionStore } from '@/stores/examSession'
@@ -220,6 +221,15 @@ const questionContext = computed(() => {
 const answerDisabled = computed(() => showFeedback.value)
 
 const sessionSeed = computed(() => session.config?.seed ?? 0)
+
+const remappedExplanation = computed(() => {
+  const q = question.value
+  if (!q) return ''
+  const raw = ltext(q.explanation)
+  if (q.type !== 'mcq' && q.type !== 'graphic-mcq' && q.type !== 'multi') return raw
+  const order = optionDisplayOrder(q.id, (q as McqQ).options.length, sessionSeed.value)
+  return remapExplanationLabels(raw, order)
+})
 
 const rendererComponent = computed((): Component | null => {
   const q = question.value
@@ -815,7 +825,7 @@ onUnmounted(() => {
         </div>
         <h3 class="mb-2 text-sm font-semibold text-on-surface">{{ t('exam.explanation') }}</h3>
         <p class="text-sm leading-relaxed text-on-surface-muted whitespace-pre-wrap">
-          {{ ltext(question.explanation) }}
+          {{ remappedExplanation }}
         </p>
       </div>
     </div>

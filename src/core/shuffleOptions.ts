@@ -68,3 +68,46 @@ export function remapCorrectListToDisplay(
     .map((idx) => originalToDisplayIndex(idx, displayOrder))
     .sort((a, b) => a - b)
 }
+
+/**
+ * Rewrite option label references in explanation text to match shuffled display order.
+ * Maps "Option A/B/C/D" and "選項 A/B/C/D" from original bank order to displayed order.
+ */
+export function remapExplanationLabels(
+  text: string,
+  displayOrder: readonly number[],
+): string {
+  const labels = displayOrder.map((_, i) => String.fromCharCode(65 + i))
+  const mapping = new Map<string, string>()
+  for (let origIdx = 0; origIdx < displayOrder.length; origIdx++) {
+    const origLabel = String.fromCharCode(65 + origIdx)
+    const displayIdx = originalToDisplayIndex(origIdx, displayOrder)
+    const displayLabel = labels[displayIdx] ?? origLabel
+    if (origLabel !== displayLabel) {
+      mapping.set(origLabel, displayLabel)
+    }
+  }
+
+  if (mapping.size === 0) return text
+
+  const placeholder = '\x00'
+  let result = text
+  const tempMap = new Map<string, string>()
+  let tempIdx = 0
+
+  for (const [orig, display] of mapping) {
+    const temp = `${placeholder}${tempIdx}${placeholder}`
+    tempMap.set(temp, display)
+    const enPattern = new RegExp(`Option ${orig}\\b`, 'g')
+    const zhPattern = new RegExp(`選項\\s*${orig}\\b`, 'g')
+    result = result.replace(enPattern, `Option ${temp}`)
+    result = result.replace(zhPattern, `選項 ${temp}`)
+    tempIdx++
+  }
+
+  for (const [temp, display] of tempMap) {
+    result = result.replaceAll(temp, display)
+  }
+
+  return result
+}

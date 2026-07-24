@@ -98,6 +98,7 @@ export const useExamSessionStore = defineStore('examSession', () => {
 
   async function persistSession(): Promise<void> {
     if (!engine.value || !config.value) return
+    if (!engine.value.isInProgress()) return
 
     const snapshot: SessionSnapshot = {
       engine: engine.value.serialize(),
@@ -356,6 +357,13 @@ export const useExamSessionStore = defineStore('examSession', () => {
     engine.value?.submit()
     timer.value?.destroy()
     timer.value = null
+
+    if (autosaveTimer) {
+      clearTimeout(autosaveTimer)
+      autosaveTimer = null
+    }
+    pendingAutosave = false
+
     syncFromEngine()
 
     const score = getScore()
@@ -367,6 +375,13 @@ export const useExamSessionStore = defineStore('examSession', () => {
     engine.value?.quit()
     timer.value?.destroy()
     timer.value = null
+
+    if (autosaveTimer) {
+      clearTimeout(autosaveTimer)
+      autosaveTimer = null
+    }
+    pendingAutosave = false
+
     syncFromEngine()
 
     const score = getScore()

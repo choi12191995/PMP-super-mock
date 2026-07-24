@@ -4,7 +4,8 @@ import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { db, type AttemptRecord, type AnswerRecord } from '@/db/index'
 import { loadAllQuestions } from '@/core/bank/loader'
-import type { LText, Question } from '@/core/types'
+import { optionDisplayOrder, remapExplanationLabels } from '@/core/shuffleOptions'
+import type { LText, McqQ, Question } from '@/core/types'
 import McqRenderer from '@/components/question-types/McqRenderer.vue'
 import MultiRenderer from '@/components/question-types/MultiRenderer.vue'
 import MatchingRenderer from '@/components/question-types/MatchingRenderer.vue'
@@ -62,6 +63,15 @@ onMounted(async () => {
 function ltext(text: LText): string {
   return lang.value === 'zh-TW' ? text.zh : text.en
 }
+
+const remappedExplanation = computed(() => {
+  const q = currentQuestion.value
+  if (!q) return ''
+  const raw = ltext(q.explanation)
+  if (q.type !== 'mcq' && q.type !== 'graphic-mcq' && q.type !== 'multi') return raw
+  const order = optionDisplayOrder(q.id, (q as McqQ).options.length, reviewSessionSeed.value)
+  return remapExplanationLabels(raw, order)
+})
 
 function previous(): void {
   if (!isFirst.value) currentIndex.value -= 1
@@ -223,7 +233,7 @@ function correctPulldown(q: Question): Record<string, number> {
           {{ t('exam.explanation') }}
         </h2>
         <p class="whitespace-pre-wrap text-sm leading-relaxed text-on-surface">
-          {{ ltext(currentQuestion.explanation) }}
+          {{ remappedExplanation }}
         </p>
       </div>
 
